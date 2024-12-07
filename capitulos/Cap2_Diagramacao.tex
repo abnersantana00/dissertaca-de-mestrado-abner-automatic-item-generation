@@ -1,0 +1,53 @@
+% Capítulo 2
+\chapter{Diagramação e Características do Texto}\label{cap:diagramacao}
+
+Neste capítulo descrevo brevemente algumas funções e comandos dos pacotes utilizados para realizar tarefas de diagramação e que controlam características do texto. Os espaçamentos de bordas, cabeçalho e rodapé são definidos internamente e não devem ser alterados.
+
+\section{Espaçamento e Indentação}
+
+O primeiro pacote trata de indentação e é bastante simples. Caso queira acessar e ler todas as quatro linhas de código do pacote \texttt{indentfirst}\index{indentfirst}, você pode acessá-lo em \url{http://mirrors.ctan.org/macros/latex/required/tools/indentfirst.pdf} \parencite{indentfirst}. Este pacote faz uma indentação obrigatória do primeiro parágrafo após o título de uma seção.
+
+Já o pacote \texttt{setspace}\index{setspace} permite que se controle o espaçamento entre linhas de maneira bem simples, usando os comandos \texttt{\textbackslash singlespacing}\index{singlespacing}, \texttt{\textbackslash onehalfspacing}\index{onehalfspacing} e \texttt{\textbackslash doublespacing}\index{doublespacing}. Devido a sua simplicidade, esse pacote não possui manual. É importante dizer que existem outras maneiras de definir o espaçamento entre linhas em um documento, como utilizando os comandos \texttt{\textbackslash baselineskip}\index{baselineskip} ou \texttt{\textbackslash linespread},\index{linespread} como pode ser visto nas páginas do \gls{overleaf}\index{Overleaf} em \url{https://www.overleaf.com/learn/latex/paragraph_formatting}.
+
+\section{Ajustes Finos}
+O pacote \texttt{microtype}\index{microtype} provê uma interface para extensões micro-tipográficas introduzidas pelo \hologo{pdfLaTeX}\index{\hologo{pdfLaTeX}}, como protrusão de caracteres\footnote{A protrusão de caracteres move caracteres (geralmente pontuação), parcialmente ou integralmente, para a margem, de modo a criar uma aparência visualmente mais suave.}, expansão de fontes e ajustes finos entre palavras. Esse é um pacote que também pode ser usado com bons resultados na produção de artigos, e seu manual está disponível em \url{http://mirrors.ctan.org/macros/latex/contrib/microtype/microtype.pdf} \parencite{microtype}\index{microtype}.
+
+\section{Cores}
+
+O uso de cores para sinalizar mudanças ou chamar a atenção do leitor é algo comum e efetivo. Neste modelo, usamos o pacote \texttt{xcolor}\index{xcolor}. Assim, usando o comando: 
+
+\adjustbox{fbox, center}{\texttt{\textbackslash textcolor\{red\}\{Texto com cor alterada.\}}}
+
+\noindent pode-se produzir a seguinte saída:
+
+\adjustbox{fbox, center}{\textcolor{red}{Texto com cor alterada.}}
+
+Para maiores detalhes sobre o pacote \texttt{xcolor}, como opções do pacote, modelos de cores suportados e nomes de cores pré-definidos, consulte o manual no endereço \url{http://mirrors.ctan.org/macros/latex/contrib/xcolor/xcolor.pdf} \parencite{xcolor}.
+
+\section{Contadores}
+
+Neste modelo, escolhemos numerar os objetos float (figuras, tabelas e algoritmos) por capítulo. No modelo ABN\TeX{}\index{ABN\TeX{}}, essas contagens eram feitas de modo global. No \gls{scrbook}\index{scrbook}, a opção de contagem por capítulo é a padrão. 
+
+Caso estivesse usando o modelo ABN\TeX{}\index{ABN\TeX{}}, você deveria usar os comandos abaixo para configurar a contagem por capítulos:
+
+\begin{itemize}
+	\item 
+	\textbackslash \texttt{counterwithin\{figure\}\{chapter\}} - Define numeração de figuras por capítulo;
+    \item \textbackslash \texttt{counterwithin\{table\}\{chapter\}} - Define numeração de tabelas por capítulo;
+    \item \textbackslash \texttt{counterwithin\{algocf\}\{chapter\}} - Define numeração de algoritmos por capítulo;
+\end{itemize}
+
+Porém, se o seu processador \LaTeX{} for anterior a Abril de 2018, para usar o comando \texttt{counterwithin}\index{counterwithin} você deve usar o pacote \texttt{chngctr}\index{chngctr}.
+
+Você pode resetar e acessar valores de contadores e até criar novos contadores. Um bom guia inicial de como usar contadores pode ser visto no \gls{overleaf}\index{Overleaf} (\url{https://www.overleaf.com/learn/latex/Counters}). Entretanto, sugiro que tenha cuidado ao manipular contadores, de modo a evitar problemas de numerações erradas em referências.
+
+\section{Listas}
+
+Quando utilizamos os ambientes \texttt{itemize\index{itemize}, enumerate\index{enumerate}} e  \texttt{description}\index{description} do \LaTeX{}, nós fazemos uso dos padrões de numeração definidos pelo \LaTeX{}. Caso desejemos alterar cesses padrões, podemos usar o pacote \texttt{enumitem}\index{enumitem}, que permite que o usuário controle o layout dos três ambientes citados acima, incluindo espaçamento, rótulos e numeração.
+
+Você pode, por exemplo, remover o espaço vertical em uma lista usando a opção \texttt{nosep}\index{nosep}, como vemos abaixo no caso da definição de um ambiente \texttt{enumerate}: 
+
+\adjustbox{fbox, center}{\textbackslash begin\{enumerate\}[nosep]}
+
+Para maiores detalhes, consulte o manual do pacote, disponível em
+\url{http://mirrors.ctan.org/macros/latex/contrib/enumitem/enumitem.pdf} \parencite{enumitem}.

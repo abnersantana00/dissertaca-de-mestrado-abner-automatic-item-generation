@@ -1,0 +1,245 @@
+% Capítulo 1
+\chapter{O Modelo PPgSC de Dissertações e Teses}\label{cap:modelo}
+
+O \TeX{} \parencite{Knuth1984} é um sistema de diagramação de textos que foi projetado por Donald Knuth e lançado em 1978 mas teve sua primeira versão finalizada somente em 1989. O \TeX{} foi projetado com dois objetivos em mente: o de permitir que qualquer pessoa possa produzir livros com alta qualidade de diagramação com um esforço mínimo, e o de prover um sistema que gera exatamente a mesma saída, independente do computador utilizado. Quando Leslie Lamport começou a utilizar \TeX{}, ele começou a escrever macros para facilitar o uso de \TeX{}, gerando o \LaTeX{} \parencite{Lamport1994} (LAmport's \TeX{}).
+
+A qualidade de textos produzidos usando \LaTeX{} já é amplamente conhecida, e na minha opinião, você deve usar \LaTeX{} principalmente se precisa gerar documentos técnicos e que contenham equações. Além disso, o \LaTeX{} é altamente configurável e automatiza boa parte das tarefas de numeração e referências, sendo ainda um sistema que oferece várias distribuições gratuitas para diversos sistemas operacionais.
+
+Você pode ver em algum lugar referências a \LaTeXe{}. O \LaTeXe{} nada mais é do que a versão atual do \LaTeX{}. Uma nova versão, chamada de \LaTeX{}3, vem sendo desenvolvida há mais de uma década e deve ser lançada em alguns anos. Essas versões são referentes a linguagem, seus comandos e estrutura interna, e não às versões dos processadores \TeX{} e \LaTeX{}.
+
+Este capítulo descreve a estrutura geral do modelo \LaTeX{} do \gls{ppgsc}, que foi feito usando a classe \texttt{scrbook} da família de pacotes \gls{koma}\index{\hologo{KOMAScript}} \parencite{koma}. As principais razões por trás desta escolha são uma maior flexibilidade em sua configuração e um menor número de conflitos com outros pacotes, quando comparado com as classes base \texttt{book} e \texttt{memoir}. 
+
+Algumas explicações sobre os objetivos e formato deste documento são necessárias para que você compreenda como foi feito e possa utilizá-lo da melhor maneira. O principal objetivo deste documento é a homogeneização das dissertações e teses escritas no âmbito do \gls{ppgsc} da \gls{ufrn}, sendo que o \gls{ppgsc} é ligado diretamente ao \gls{ccet} e possui a grande maioria de seus professores lotados no \gls{dimap}. O segundo objetivo da elaboração do modelo e deste manual é o auxílio a ser dado aos alunos na escrita de suas qualificações, dissertações e teses.
+
+Dados estes objetivos, decidi escrever este manual contendo informações sobre os pacotes, variáveis e parâmetros utilizados, no formato de uma dissertação, embora não seja o mais adequado para a escrita de um manual. Assim, você pode ter uma ideia melhor de como seu documento será organizado. Como consequência ou efeito colateral do uso de um modelo de dissertação para escrever esse manual, alguns nomes fantasia foram utilizados na sua escrita de modo a poupar terceiros do uso de seus nomes.
+
+Espero que apreciem este documento e que o mesmo os auxiliem na escrita de seus trabalhos. Gostaria de salientar que tenho uma boa experiência com \LaTeX , mas estou bem longe de me considerar um \textit{expert} na matéria. Sugestões e correções são bem vindas.
+
+Existem muitas referências de excelente qualidade sobre como elaborar documentos em \LaTeX . Listo a seguir algumas delas com breves descrições de seus conteúdos e objetivos. Os livros mais antigos ainda servem como textos base para os comandos do \LaTeX{}, embora o conteúdo sobre pacotes esteja desatualizado. No caso dos pacotes, o mais aconselhado é o uso dos manuais oficiais, guias rápidos e exemplos disponíveis na Internet.
+
+\begin{itemize}
+	\item \TeX{} StackExchange (\url{https://tex.stackexchange.com/}) - Extremamente útil, este sítio coleta dúvidas de usuários e respostas de especialistas em todo o mundo. Se você tem alguma dúvida sobre \TeX ou \LaTeX , ela provavelmente já foi perguntada e respondida lá.
+	
+	\item \gls{ctan} - Repositório de pacotes \LaTeX , também possui muitos manuais com vários exemplos de uso dos pacotes.
+	
+	\item \textit{\LaTeX{} (2nd Ed.): A Document Preparation System: User's Guide and Reference Manual} \parencite{Lamport1994}. Livro texto do criador do \LaTeX{}, Leslie Lamport, que descreve a linguagem \LaTeX{}, composta de comandos de alto nível, também chamados de macros, que simplificam o uso de \TeX{}.
+	
+	\item \textit{The \LaTeX{} Companion} \parencite{Mittelbach1999} - Ótima referência sobre \LaTeX{} e vários pacotes, embora esteja desatualizada em relação a novos pacotes.
+	
+	\item \textit{\LaTeX{} Graphics Companion, The (2nd Edition)} \parencite{Goosens2007} - Referência antiga, porém detalhada sobre como lidar com gráficos em documentos \LaTeX{}, comandos de desenho do PSTricks\index{PSTricks}, dentre outros. Como a referência anterior, esta serve como texto introdutório. 
+	
+	\item \textit{Typesetting Tables with \LaTeX{}} \parencite{Voss2011} - Esse livro se dedica exclusivamente a formatação de tabelas em \LaTeX{}.
+	
+	\item \textit{\LaTeX{} for Complete Novices} \parencite{Talbot2012} - Este livro introdutório é um bom guia para quem tem pouca experiência escrevendo documentos em \LaTeX{} e está disponível gratuitamente no endereço \url{https://www.dickimaw-books.com/latex/novices/novices-report.pdf} 
+	
+	\item \textit{\LaTeX{} Cookbook} \parencite{Kottwitz2015} - Livro recente, que inclui material sobre pacotes usados nesse modelo, como \gls{koma}\index{\hologo{KOMAScript}}, \gls{tikz}\index{Ti\textit{k}Z}, \texttt{pgfplots}\index{PGFPlots}, e BIB\LaTeX\index{biblatex}. Indicado para quem já tem um bom conhecimento sobre \LaTeX{}.
+	
+	\item \gls{overleaf} - Este sítio de escrita colaborativa de documentos em \LaTeX{} possui uma variada gama de artigos descrevendo o uso de vários comandos e pacotes, e é uma ótima opção para o compartilhamento de textos com seu(ua) orientador(a).
+	
+\end{itemize}
+
+\section{Pacotes}
+
+Ao longo deste documento, descreverei brevemente vários pacotes e algumas de suas funcionalidades e sintaxes. O objetivo deste manual é facilitar a escrita de documentos em \LaTeX{} no modelo \gls{ppgsc}, e o não detalhar os vários pacotes que foram sugeridos, testados e incluídos neste modelo. É importante frisar que provavelmente você não precisará utilizar a maioria dos pacotes citados aqui, e que basta comentar as linhas \texttt{\textbackslash usepackage\{pacote\}} do arquivo \texttt{./fixos/pacotes.tex}.
+
+A grande maioria dos pacotes mencionados aqui estão disponíveis no \gls{ctan} e podem ser acessados em \url{https://ctan.org/}. Ao longo deste documento, incluirei links para os manuais oficiais dos pacotes, bem como para outras referências que proveêm conteúdo mais aprofundado sobre os mesmos.
+
+\section{Codificação de Entrada e Fontes}
+
+Vários pacotes que controlam a codificação de entrada e carregam fontes utilizadas no modelo são descritos a seguir.
+
+\begin{itemize}
+	\item \texttt{inputenc}\index{inputenc}
+	
+O pacote \texttt{inputenc} permite que o usuário especifique um padrão de codificação da entrada, i.e., dos caracteres. Existem dezenas de opções de codificação. Neste modelo, usamos o padrão \gls{utf}, definido no arquivo \texttt{Pacotes.tex}, e selecionado pelo comando: 
+
+\adjustbox{fbox, center}{\texttt{\textbackslash{}usepackage[utf8]\{inputenc\}}}
+
+O uso da codificação \gls{utf}\index{UTF} permite que seu documento use caracteres de várias linguagens, inclusive as que possuem caracteres não Latinos, além de vários símbolos usados em expressões matemáticas. Apesar do comando acima definir o conjunto de caracteres UTF como possíveis entradas, o mapeamento contido no arquivo \texttt{utf8.def} não contém mapeamentos de todos os possíveis caracteres \gls{utf}. Isso acontece devido ao imenso número de caracteres \gls{utf} que podem aparecer em um documento. Eu menciono isso porque os caracteres \gls{utf} não mapeados em utf8.def irão produzir uma mensagem de erro. Se isso acontecer, você deve incluir o mapeamento para este novo glifo\footnote{Glifo é a representação pictorial de um caractere.} no arquivo \texttt{utf8ienc.dtx} e carregá-lo no seu documento. Não acredito que você passará por essa experiência, a não ser que deseje incluir glifos de linguagens Asiáticas. 
+
+O manual deste pacote pode ser acessado em 
+\url{http://mirrors.ctan.org/macros/latex/base/inputenc.pdf} \parencite{inputenc}.
+
+\item \texttt{fontenc}\index{fontenc}
+
+O pacote \texttt{fontenc} permite que se selecione padrões de codificação de fontes usadas no documento. Neste modelo definimos as fontes como tendo codificação \texttt{T1}, que utiliza 8 bits, provendo espaço para 256 glifos. Isso permite que palavras com letras com acentos possam ser hifenizadas e que se possa copiar palavras acentuadas de outros documentos e os caracteres corretos sejam colados no seu documento. Além disso, alguns outros símbolos, como $>$, podem exibir um comportamento inesperado. O comando utilizado aqui é:
+
+\adjustbox{fbox, center}{\texttt{\textbackslash usepackage[T1]\{fontenc\}}}
+
+Esse pacote não possui um manual específico no \gls{ctan}\index{CTAN} pois faz parte do núcleo do \LaTeX{}.
+
+\item \texttt{fontawesome}\index{fontawesome}
+
+O pacote \texttt{fontawesome} fornece acesso a um grande número de ícones relacionados com a \textit{web}. Dependendo do tema de sua dissertação/tese, esses símbolos podem ser úteis para dar um toque mais profissional em alguns desenhos ou descrições.
+
+
+\adjustbox{fbox, center}{\texttt{\textbackslash usepackage\{fontawesome\}}}
+
+Abaixo estão alguns dos glifos definidos em \texttt{fontawesome}. O manual deste pacote pode ser acessado em 
+\url{http://mirrors.ctan.org/fonts/fontawesome/doc/fontawesome.pdf} \parencite{fontawesome}. Um exemplo de seu uso neste documento pode ser visto na Tabela \ref{tab:fontawesome}.
+
+\begin{table}[htb]
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+		\hline
+		\faBattery[0] & \faBattery[1] & \faBattery[2] & \faBattery[3] & \faBattery[4] & \faBarChart & \faBarcode & \faBluetooth & \faBeer & \faCalculator \\ \hline \faCalendar & \faClockO & \faClone & \faCloudDownload & \faCloudDownload & \faCodeFork &c\faCopy & \faCopyright & \faCreativeCommons & \faHotel \\ \hline
+		\faFolder & \faFolderOpen & \faFolderO & \faFolderOpenO & \faGears & \faDesktop & \faLaptop & \faMobile & \faFile & \faFilePdfO \\ \hline 
+		\faFilePhotoO & \faFilePowerpointO & \faFileSoundO & \faFileSoundO & \faFileTextO & \faFileVideoO & \faFileWordO & \faFileZipO & \faFilm & \faRebel \\ \hline
+		\faAndroid & \faGoogle & \faAmazon & \faOpera & \faGithub & \faGitlab & \faFacebook & \faChrome & \faInstagram & \faInternetExplorer  \\ \hline 
+		\faJoomla &	\faLinux & \faApple & \faSafari & \faSkype &  \faSnapchat & \faSpotify & \faTwitter & \faWikipediaW & \faWindows \\ \hline
+	\end{tabular}
+    \end{center}
+    \caption{Exemplos de glifos do pacote \texttt{fontawesome}.}
+    \label{tab:fontawesome}
+\end{table}
+
+\item \texttt{cmap}\index{cmap}
+
+O pacote \texttt{cmap} provê tabelas de mapeamento de caracteres que permitem que arquivos gerados usando \hologo{pdfLaTeX} sejam buscáveis e seu conteúdo possa ser copiado na maioria dos visualizadores de arquivos \gls{pdf}.
+
+\adjustbox{fbox, center}{\texttt{\textbackslash usepackage\{cmap\}}}
+
+\item \texttt{lmodern}\index{lmodern}
+
+O pacote \texttt{lmodern} provê a fonte Latin Modern, usada no modelo, e é carregado usando o comando abaixo.
+
+\adjustbox{fbox, center}{\texttt{\textbackslash usepackage\{lmodern\}}}
+
+\end{itemize}
+
+\section{Estrutura de Arquivos}
+Organizamos todos os arquivos do modelo em vários diretórios, de modo a compartimentalizar os arquivos de acordo com suas características e isolar os arquivos que não necessitam ser alterados por você.
+
+Abaixo temos um exemplo da estrutura de arquivos utilizada para gerar um documento com 5 capítulos. Os nomes dos arquivos dos capítulos são de sua escolha e devem ser alterados nos comandos que os carregam, no arquivo principal, \texttt{DissertacaoPPgSC.tex}, cujo nome também pode ser mudado por você.
+
+A estrutura de arquivos do modelo pode ser vista na Figura \ref{fig:est-arq} e mostra os arquivos \texttt{.tex}\index{.tex} que se localizam na pasta \texttt{capitulos}, que contêm o código fonte \LaTeX dos capítulos da dissertação/tese. Já o diretório \texttt{editaveis}, como o nome sugere, agrupa os arquivos \texttt{.tex} que devem ser alterados por você para que o documento tenha as informações específicas de seu trabalho e sua defesa. Já os arquivos do diretório \texttt{fixos} mostra os arquivos \texttt{.tex} que não devem ser alterados por você, exceto em caso de extrema necessidade. Finalmente, o diretório  \texttt{imagens} agrupa os diretórios que contêm os arquivos de imagens, organizados por capítulos, e com um diretório específico para os logotipos da \gls{ufrn} e \gls{ppgsc}. Essa figura foi gerada usando símbolos da fonte \texttt{fontawesome}, vista anteriormente, e o pacote Ti\textit{k}Z\index{Ti\textit{k}Z} (Seção \ref{sec:tikz}).
+
+\begin{figure}
+	\begin{center}
+\begin{tikzpicture}[%
+	grow via three points={one child at (0.5,-0.7) and
+		two children at (0.5,-0.7) and (0.5,-1.4)},
+	edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}]
+	\tikzstyle{every node}=[draw=black,thick,anchor=west]
+	\node[font=\footnotesize] {\faFolderO \space diretório base}
+	child { node[font=\footnotesize] {\faFileText \space DissertacaoPPgSC.tex}}
+		child { node[font=\footnotesize] {\faFolder \space capitulos}
+%			child { node[font=\footnotesize] {\faFileText \space Capitulo1.tex}}
+%			child { node[font=\footnotesize] {\faFileText \space Capitulo2.tex}}
+%			child { node[font=\footnotesize] {\faFileText \space Capitulo3.tex}}
+%			child { node[font=\footnotesize] {\faFileText \space Capitulo4.tex}}
+%			child { node[font=\footnotesize] {\faFileText \space Capitulo5.tex}}
+		}
+%		child [missing] {}				
+%		child [missing] {}				
+%		child [missing] {}				
+%		child [missing] {}				
+%		child [missing] {}	
+		child { node[font=\footnotesize] {\faFolderO \space editaveis}
+			child { node[font=\footnotesize] {\faFileText \space Abstract.tex}}
+			child { node[font=\footnotesize] {\faFileText \space Acronimos.tex}}
+			child { node[font=\footnotesize] {\faFileText \space Agradecimentos.tex}}
+			child { node[font=\footnotesize] {\faFileText \space Dedicatoria.tex}}
+			child { node[font=\footnotesize] {\faFileText \space Epigrafe.tex}}
+			child { node[font=\footnotesize] {\faFileText \space FolhaDeAprovacao.tex}}
+			child { node[font=\footnotesize] {\faFileText \space Informacoes.tex}}
+			child { node[font=\footnotesize] {\faFileText \space Referencias.bib}}
+			child { node[font=\footnotesize] {\faFileText \space Resumo.tex}}
+			child { node[font=\footnotesize] {\faFileText \space Variaveis.tex}}
+		}
+		child [missing] {}				
+		child [missing] {}				
+		child [missing] {}				
+		child [missing] {}				
+		child [missing] {}	
+		child [missing] {}				
+		child [missing] {}				
+		child [missing] {}				
+		child [missing] {}				
+		child [missing] {}	
+		child { node {\faFolderO \space fixos}
+			child { node[font=\footnotesize] {\faFileText \space Informacoes.tex}}
+			child { node[font=\footnotesize] {\faFileText \space NovosComandos.tex}}
+			child { node[font=\footnotesize] {\faFileText \space Pacotes.tex}}
+		}		
+		child [missing] {}				
+		child [missing] {}				
+		child [missing] {}	
+		child { node[font=\footnotesize] {\faFolderO \space imagens}
+			child { node[font=\footnotesize] {\faFolderO \space logos}
+				child { node[font=\footnotesize] {\faFileImageO \space Brasao-UFRN.jpg}}
+				child { node[font=\footnotesize] {\faFileImageO \space logo-ppgsc.png}}
+			}
+			child [missing] {}				
+			child [missing] {}	
+			child { node[font=\footnotesize] {\faFolder \space capitulo1}}
+			child { node[font=\footnotesize] {\faFolder \space capitulo2}}
+			child { node[font=\footnotesize] {\faFolder \space capitulo3}}
+			child { node[font=\footnotesize] {\faFolder \space capitulo4}}
+			child { node[font=\footnotesize] {\faFolder \space capitulo5}}
+		};
+\end{tikzpicture}
+\end{center}
+\caption{Estrutura de arquivos do modelo PPgSC. Essa figura foi gerada usando Ti\textit{k}Z (ver Capítulo \ref{cap:desenhos}) e os símbolos da fonte \texttt{fontawesome}.}
+\label{fig:est-arq}
+\end{figure}
+
+\section{Linguagens}
+
+O pacote \texttt{babel}\index{babel} gerencia regras tipográficas para uma grande game de linguagens. Usando este pacote, um documento pode selecionar uma ou mais linguagens para serem usadas, e alternar entre as linguagens quando necessário. 
+
+O comando utilizado neste modelo usa a opção \texttt{brazil}\index{brazil} (como pode ser visto abaixo), que define os nomes dos elementos como Conteúdo, Lista de Figuras, etc.
+
+\adjustbox{fbox, center}{\textbackslash\texttt{usepackage[brazil]\{babel\}}}
+
+Na realidade, qualquer das opções \texttt{brazil}\index{brazil}, \texttt{brazilian}\index{brazilian}, \texttt{portuges}\index{portuges} ou \texttt{portuguese}\index{portuguese} são aceitas e têm o mesmo efeito. O manual do \texttt{babel}\index{babel} pode ser acessado em \url{http://mirrors.ctan.org/macros/latex/required/babel/base/babel.pdf} \parencite{babel}.
+
+Entretanto, para que o babel funcione com Português é preciso que você também tenha o pacote \texttt{babel-portuges}\index{babel-portuges} instalado. Este pacote é o que realmente define as macros específicas e é carregado automaticamente pelo \texttt{babel}\index{babel}. Garanta também que o pacote \texttt{hyphen-portuguese}\index{hyphen-portuguese} esteja instalado. O manual do \texttt{babel-portuges} pode ser acessado em \url{http://mirrors.ctan.org/macros/latex/contrib/babel-contrib/portuges/portuges.pdf} \parencite{babel-portuges}.
+
+\section{Variáveis}
+O modelo define algumas variáveis de modo a facilitar a geração das páginas iniciais do documento, e que são definidas no arquivo \texttt{./fixos/variaveis.tex}. Os nomes, tipos e significados das variáveis são:
+
+\begin{itemize}
+	\item \texttt{PPgSC-Proposta}\index{PPgSC-Tese} - Variável do tipo booleano que indica se o documento é um documento de exame preliminar (qualificação de mestrado ou proposta de doutorado) ou se é um documento de exame final (dissertação ou tese); Valor default: \texttt{false}.
+	\item \texttt{PPgSC-Tese}\index{PPgSC-Tese} - Variável do tipo booleano que indica se o documento é uma tese de doutorado; Valor default: \texttt{false}.
+	\item \texttt{PPgSC-Ingles}\index{PPgSC-Ingles} - Variável do tipo booleano que indica se a linguagem usada na escrita do documento é o Inglês; Valor default: \texttt{false}.
+	\item \texttt{CO-orientador}\index{CO-orientador} - Variável do tipo booleano que indica se o aluno(a) possui Coorientador(a); Valor default: \texttt{false}.
+	\item \texttt{signSkip}\index{signSkip} - Variável numérica que indica o espaço usado no espaçamento vertical de uma linha de assinatura; Valor default: \si{1.3cm}.
+	\item \texttt{signWidth}\index{signWidth} - Variável numérica que indica o comprimento de uma linha de assinatura; Valor default: \si{10cm}.
+	\item \texttt{signThickness}\index{signThickness} - Variável numérica que indica a espessura de uma linha de assinatura;  Valor default: \si{0,4pt}.
+\end{itemize}
+
+É importante lembrar que os comandos, variáveis e macros em \LaTeX{} são \textit{case sensitive}, i.e., se você não usar letras minúsculas e maiúsculas nos lugares corretos, o \LaTeX{} não vai reconhecer os comandos e variáveis.
+
+\section{Novos Comandos}
+Alguns novos comandos foram criados para facilitar a diagramação, como a capa do documento, a folha de assinaturas, e o \textit{Abstract} e o Resumo, que não fazem parte da classe \gls{scrbook} da \gls{koma}\index{\hologo{KOMAScript}}.
+
+O arquivo \texttt{./fixos/informacoes.tex} contém informações imutáveis sobre o programa e a instituição, enquanto que o arquivo  \texttt{./editaveis/informacoes.tex} contém informações específicas do trabalho, como autor, data, orientador, coorientador (se for o caso). Essas informações são utilizadas para gerar os elementos abaixo.
+
+\begin{itemize}
+	\item Capa - Página gerada automaticamente. Utiliza imagens dos logotipos da \gls{ufrn} e do \gls{ppgsc} e informações do arquivo \texttt{./editaveis/informacoes.tex}.
+	\item Folha de rosto - Página gerada automaticamente. Utiliza  informações do arquivo \texttt{./editaveis/informacoes.tex}.
+	\item Folha de assinaturas - Página que precisa ser ajustada manualmente, incluindo os nomes dos membros da banca que não são o orientador e coorientador no arquivo \texttt{./editaveis/FolhaDeAprovacao.tex}. 
+	\item Abstract - Novo \textit{environment}\index{environment} (ambiente) definido no modelo devido a sua ausência no \gls{koma}. Está definido no arquivo \texttt{./fixos/NovosComandos.tex}.
+	\item Resumo - Novo \textit{environment} (ambiente) definido no modelo devido a sua ausência no \gls{koma}. Está definido no arquivo \texttt{./fixos/NovosComandos.tex}.  
+\end{itemize}
+
+\section{Arquivos Auxiliares}
+
+Um dos problemas existentes no \TeX{} que não foi resolvido na implementação do $\epsilon$-\TeX{} (\LaTeXe{}) foi o suporte a somente 18 manipuladores de arquivos para escrita (\textit{write handles}). Esse número pode parecer grande, mas muitos desses manipuladores são reservados, como o manipulador 0 para o arquivo \texttt{.log}\index{.log}. O \TeX{} usa o manipulador 1 para o arquivo \texttt{.aux}\index{.aux}, o 2 para o \texttt{partaux}\index{partaux}, e um manipulador para cada lista, como as geradas pelos comandos \texttt{\textbackslash{}tableofcontents}\index{tableofcontents},
+\texttt{\textbackslash{}listoffigures}\index{listoffigures} e \texttt{\textbackslash{}listoftables}\index{listoftables}. Além disso, o \LaTeX{} usa manipuladores para pacotes como \texttt{\textbackslash{}makeindex}\index{makeindex}, \texttt{hyperref}\index{hyperref}, \texttt{minted}\index{minted}, Ti\textit{k}Z\index{Ti\textit{k}Z} e \texttt{glossaries}\index{glossaries}, que usa mais de um manipulador.
+
+O problema aparece quando seu documento usa muitos desses pacotes que utilizam arquivos para armazenar informações que são utilizadas em passos extra do processador \LaTeX{} para formatar corretamente seu documento. Eventualmente, você pode receber a mensagem abaixo durante o processamento de seu documento. 
+
+\adjustbox{fbox, center}{\texttt{ \texttt{!No room for a new \textbackslash{}write}}}
+
+Por algum tempo, a solução mais simples adotada era a da utilização de \hologo{LuaLaTeX}\index{\hologo{LuaLaTeX}} ao invés de \hologo{pdfLaTeX}\index{\hologo{pdfLaTeX}} ou \hologo{XeLaTeX}\index{\hologo{XeLaTeX}}, eliminando esta restrição e limitando o número de manipuladores de arquivos abertos de acordo com o sistema operacional. O pacote \texttt{scrwfile}\index{scrwfile}, do \gls{koma}\index{\hologo{KOMAScript}}, altera o \textit{kernel}\index{kernel} do \LaTeX{}, permitindo que \hologo{pdfLaTeX} e \hologo{XeLaTeX} também possam utilizar mais do que 18 manipuladores de arquivos. Para mais detalhes, leia o Capítulo 14 de \parencite{koma}.
+
+\section{Como Usar Este Modelo}
+
+Para começar a utilizar este modelo de dissertações/teses, copie toda a estrutura de arquivos e comece a editar os arquivos que contêm informações sobre seu documento. Comece pelos arquivos do diretório \texttt{editaveis}, que podem ser vistos na Figura \ref{fig:est-arq}. Caso não deseje utilizar um ou mais elementos localizados nesse diretório, como \textbf{Dedicatória} ou \textbf{Agradecimentos}, comente sua inclusão no arquivo principal, o DissertacaoPPgSC.tex. 
+
+O nome do arquivo principal pode ser alterado por você, bem como os nomes dos arquivos de referências bibliográficas e dos capítulos. Apenas se certifique que alterou seus nomes ao carregá-los no arquivo principal. A estrutura de organização das imagens também é sugerida, e pode ser alterada caso deseje. Sugiro que incluam novos pacotes no arquivo principal, caso necessitem, embora, em alguns casos, os autores indiquem a necessidade de precedência no carregamento de diferentes pacotes. Nesse caso, é mais prudente seguir as indicações dos autores dos pacotes que desejam usar.
+
+Finalmente, não se esqueça de configurar sua \gls{ide} para que execute a sequência correta de comandos. Por exemplo, caso esteja usando BIB\LaTeX{} com \hologo{biber}, certifique-se que sua \gls{ide} chama o \hologo{biber} e não o \BibTeX{} (Capítulo \ref{cap:refs}). Em alguns casos, também é necessário incluir o flag \texttt{-shell-escape} na execução do \hologo{pdfLaTeX}, como no caso do pacote \texttt{minted} (Seção \ref{sec:codigo}).
+

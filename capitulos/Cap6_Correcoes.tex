@@ -1,0 +1,107 @@
+% Capítulo 6
+\chapter{Correções}\label{cap:correcoes}
+
+Durante a escrita de uma dissertação ou tese, é importante que os orientadores possam sinalizar correções e comentar trechos de texto, figuras, tabelas e outros elementos. Isto pode ser feito por anotações feitas diretamente no arquivo \gls{pdf}\index{PDF} ou usando um pacote que implemente marcações de correções.
+
+Neste modelo, selecionamos o pacote \texttt{changes}\index{changes} para este fim. O pacote \texttt{changes} permite que se notifique mudanças no documento com identificação do indivíduo que as fez, facilitando a comunicação quando mais de duas pessoas estão alterando o documento.
+
+O Código \ref{cod:changes-setup} descreve os comandos usados para configurar o pacote para funcionar com este documento, definindo os nomes dos usuários que irão interagir com o documento e o modo atual do documento, o \texttt{draft}\index{draft}.
+
+\begin{listing}[ht]
+	\begin{minted}[linenos=true, autogobble, bgcolor=Cornsilk1]{tex}
+	\usepackage[draft,markup=underlined]{changes}
+	\definechangesauthor[name={Bruno},color=violet]{Bruno}
+	\definechangesauthor[name={Hari},color=purple]{Hari}
+	\definechangesauthor[name={Salvor},color=olive]{Salvor}
+	\end{minted}
+	\caption{Código \LaTeX{} usado para definir as informações referentes ao pacote \texttt{changes}.}
+	\label{cod:changes-setup}
+\end{listing}
+
+O pacote \texttt{changes}\index{changes} permite que se altere da versão \texttt{draft}\index{draft}, que exibe os comentários e mudanças, para a versão \texttt{final}\index{final} com a alteração de apenas um comando, trocando a Linha 1 do Código \ref{cod:changes-setup} pela linha do Código \ref{cod:changes-final}. 
+
+\begin{listing}[ht]
+	\begin{minted}[linenos=true, autogobble, bgcolor=Cornsilk1]{tex}
+		\usepackage[final]{changes}
+	\end{minted}
+	\caption{Código \LaTeX{} usado para definir o formato do documento como \texttt{final} ao invés de \texttt{draft} com relação ao pacote \texttt{changes}.}
+	\label{cod:changes-final}
+\end{listing}
+
+Na primeira definição mostrada, usamos o parâmetro \texttt{draft}\index{draft}, indicando que a versão atual do documento mostrará os comentários e mudanças, e a parâmetro \texttt{markup}\index{markup} com o estilo \texttt{underlined}\index{underlined} associado a ele. Os estilos de \texttt{markup} (marcação) disponíveis são: 
+
+\begin{itemize}
+	\item \texttt{default}\index{default} - marcação padrão para comentários e textos adicionados, deletados e destacados;
+	\item \texttt{underlined}\index{underlined} - sublinhado para textos adicionados, sublinhado ondulado para textos destacados, e padrão para textos deletados e comentários;
+	\item \texttt{bfit}\index{bfit} - negrito para textos adicionados, itálico para textos deletados, e padrão para textos deletados e comentários;
+	\item \texttt{nocolor}\index{nocolor} - sem cores para marcações, sublinhado para textos adicionados, sublinhado ondulado para textos destacados, e padrão para textos deletados e comentários;
+\end{itemize}
+
+O pacote ainda permite que você defina individualmente o estilo de marcação para cada um dos quatro tipos de alterações disponíveis. Para mais detalhes, consulte o manual do pacote. \comment[id=Bruno]{Os comentários no estilo \texttt{todo} ficam localizados na borda do documento.}
+
+Os cinco comandos usados para efetuar mudanças e fazer comentários são apresentados com exemplos simples.
+\begin{itemize}
+	\item \textbackslash \texttt{added}\index{added} - Marca textos adicionados. \added[id=Hari]{Adicione isso porque é necessário.} O Código \ref{cod:changes-added} mostra como isso foi feito.
+	\begin{listing}[ht]
+		\begin{minted}[linenos=true, autogobble, bgcolor=Cornsilk1]{tex}
+		\added[id=Hari]{Adicione isso porque é necessário.}
+		\end{minted}
+		\caption{Código do \texttt{changes} usado para sugerir a adição de texto.}
+		\label{cod:changes-added}
+	\end{listing}
+
+	\item \textbackslash \texttt{deleted}\index{deleted} - Marca textos deletados. \deleted[id=Salvor]{Texto removido porque estava errado.} O Código \ref{cod:changes-deleted} mostra como isso foi feito.
+	
+	\begin{listing}[ht]
+		\begin{minted}[linenos=true, autogobble, bgcolor=Cornsilk1]{tex}
+		\deleted[id=Salvor]{Texto removido porque estava errado.}
+		\end{minted}
+		\caption{Código do \texttt{changes} usado para sugerir a remoção de texto.}
+		\label{cod:changes-deleted}
+    \end{listing}
+
+	\item \textbackslash \texttt{replaced}\index{replaced} - Marca textos deletados e suas reposições. \replaced[id=Hari]{Importante para que se visualize sugestões de correções de texto.}{Não é importante.} O Código \ref{cod:changes-replaced} mostra como isso foi feito.
+	
+	\begin{listing}[ht]
+		\begin{minted}[linenos=true, autogobble, bgcolor=Cornsilk1]{tex}
+		\replaced[id=Hari]{Importante para que se visualize sugestões de 
+		correções de texto.}{Não é importante.}
+		\end{minted}
+		\caption{Código do \texttt{changes} usado para sugerir a troca de texto.}
+		\label{cod:changes-replaced}
+	\end{listing}
+
+	\item \textbackslash \texttt{highlight}\index{highlight} - Destaca trechos de texto \highlight[id=Bruno]{como este aqui.} O Código \ref{cod:changes-highlighted} mostra como isso foi feito.
+	
+	\begin{listing}[ht]
+		\begin{minted}[linenos=true, autogobble, bgcolor=Cornsilk1]{tex}
+			\highlight[id=Bruno]{como este aqui.}
+		\end{minted}
+		\caption{Código do \texttt{changes} usado para destacar texto.}
+		\label{cod:changes-highlighted}
+	\end{listing}
+
+	\item \textbackslash \texttt{comment}\index{comment} - Cria um comentário e coloca-o no documento de acordo com a opção definida. Neste caso, estamos usando a opção \texttt{todo}, como visto no comentário inserido acima.\comment[id=Bruno]{Veja o manual do pacote \texttt{changes} para ver as outras opções.} O Código \ref{cod:changes-comment} mostra como isso foi feito.
+	
+	\begin{listing}[H]
+		\begin{minted}[linenos=true, autogobble, bgcolor=Cornsilk1]{tex}
+		\comment[id=Bruno]{Veja o manual do pacote \texttt{changes} para ver as 
+		outras opções.}
+		\end{minted}
+		\caption{Código do \texttt{changes} usado para destacar texto.}
+		\label{cod:changes-comment}
+	\end{listing}
+
+\end{itemize}
+
+É importante frisar que comentários podem ser incluídos nos outros quatro comandos. \added[id=Hari, comment={Veja no manual.}]{Inclua exemplo.} Os comandos usados para fazer tal alteração podem ser vistos no Código \ref{cod:changes-comment-added}.
+
+\begin{listing}[ht]
+	\begin{minted}[linenos=true, autogobble, bgcolor=Cornsilk1]{tex}
+		\added[id=Hari, comment={Veja no manual.}]{Inclua exemplo.}
+	\end{minted}
+	\caption{Código do \texttt{changes} que mostra um comentário dentro de um comando de adição.}
+	\label{cod:changes-comment-added}
+\end{listing}
+
+No sítio \gls{ctan}\index{CTAN} existem dois manuais para o pacote \texttt{changes}\index{changes}, um sem o código fonte do pacote (\url{http://mirrors.ctan.org/macros/latex/contrib/changes/changes.english.pdf}) \parencite{changes} e outro com o código fonte (\url{http://mirrors.ctan.org/macros/latex/contrib/changes/changes.english.withcode.pdf}).

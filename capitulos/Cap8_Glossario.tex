@@ -1,0 +1,151 @@
+% Capítulo 8
+\chapter{Glossário, Acrônimos e Índice}\label{cap:glossario}
+
+O pacote escolhido para gerenciar a criação e manipulação de índices, listas de símbolos, acrônimos e glossário foi o \texttt{glossaries}\index{glossaries}. Esse pacote precisa das definições em Português contidas no \texttt{glossaries-portuges}\index{glossaries-portuges}, caso você esteja escrevendo seu documento em Português\index{Português}. Você precisa confirmar que os dois pacotes estão instalados no seu sistema caso queira usá-los. Caso você deseje utilizar características mais avançadas, sugiro o pacote \texttt{glossaries-extra}\index{glossaries-extra}, que estende as funcionalidades providas pelo \texttt{glossaries} e permite, por exemplo, utilizar o pacote \texttt{bib2gls}\index{bib2gls}, brevemente descrito adiante.
+
+É importante frisar que as definições do pacote \texttt{glossaries-portuges}\index{glossaries-portuges} contidas no arquivo \texttt{glossaries-portuges.dtx}  são automaticamente carregadas quando um dos outros dois pacotes é carregado e detecta a opção \texttt{portugues}\index{portugues}, \texttt{portuges}\index{portuges}, \texttt{brazil}\index{brazil} ou \texttt{brazilian}\index{brazilian} no carregamento do pacote \texttt{babel}\index{babel}. 
+
+\begin{bclogo}[
+	couleur=bgblue,
+	arrondi=0,
+	logo=\faWarning,%\bcbombe,
+	barre=none,
+	noborder=true]{Problema Comum}
+	Lembre-se de que caso esteja usando um editor integrado \LaTeX{} e não esteja utilizando o \TeX{} para a ordenação das entradas dos glossários, você deve se certificar que um comando para a geração do glossário deve ser executado na cadeia de comandos do editor, como \texttt{makeglossaries}\index{makeglossaries}, \texttt{makeglossaries-lite}\index{makeglossaries-lite} ou \texttt{bib2gls}\index{bib2gls}. 
+\end{bclogo}
+
+O pacote \texttt{glossaries} gera conflitos com as classes padrão do \LaTeX{} \texttt{book}\index{book} e \texttt{memoir}\index{memoir}, sendo que a classe \texttt{memoir} é utilizada como base da classe \texttt{abntex2}\index{abntex2}. Entretanto, o pacote \texttt{glossaries} não gera conflitos com a classe \gls{scrbook}\index{scrbook} da \gls{koma}\index{\hologo{KOMAScript}}, o que nos possibilita usá-lo aqui. 
+
+O pacote \texttt{glossaries} nos permite construir listas de acrônimos, de símbolos e índices remissivos, embora não seja tão utilizada neste último caso. Aqui eu explicarei apenas o uso básico desse pacote. Para maiores detalhes, consulte o guia introdutório e o manual do pacote, que estão disponíveis em \url{http://mirrors.ctan.org/macros/latex/contrib/glossaries/glossaries-user.pdf} \parencite{glossaries-user} e \url{http://mirrors.ctan.org/macros/latex/contrib/glossaries/glossariesbegin.pdf} \parencite{glossaries}, respectivamente.
+
+Depois das definições serem carregadas em algum momento no preâmbulo de seu documento, i.e., antes do \texttt{\textbackslash{}begin\{document\}}, você pode gerar as referências a eles usando um dos comandos abaixo, onde \texttt{chave} é o apelido do acrônimo a ser incluído, e o segundo comando converte a primeira letra do termo para maiúsculo. 
+
+\begin{adjustbox}{fbox, center, tabular=l, vspace=0.5cm}
+	\texttt{\textbackslash{}gls\{chave\}} \\
+	\texttt{\textbackslash{}Gls\{chave\}}
+\end{adjustbox}
+
+Você pode ainda especificar um símbolo usando um rótulo (\textit{label}) para referenciá-lo e o campo \texttt{symbol}, você deve referenciá-lo usando o comando \texttt{\textbackslash{}glssymbol}\index{glssymbol}. O Código \ref{cod:symbolglossary} mostra um exemplo de definição de símbolo, onde o campo \texttt{sort} define o string pelo qual este símbolo será ordenado.
+
+\begin{listing}[ht]
+	\begin{minted}[ linenos=true, autogobble, bgcolor=Cornsilk1 ]{tex}
+\newglossaryentry{emptyset}
+{
+  name={\ensuremath{\emptyset}},
+  sort={conjunto vazio},
+  description={conjunto contendo zero elementos}
+}
+	\end{minted}
+	\caption{Definição de um símbolo como entrada de glossário.}
+	\label{cod:symbolglossary}
+\end{listing}
+
+Você pode concentrar suas definições em um só arquivo ou as dividir de acordo com sua organização preferida, mas lembre-se de incluir os arquivos de definições usando os comandos \texttt{\textbackslash{}loadglsentries}\index{loadglsentries} ou \texttt{\textbackslash{}input}\index{input}. 
+
+O Código \ref{cod:acronimos} mostra algumas linhas do arquivo \texttt{Acronimos.tex}, que contém as definições dos acrônimos usados neste documento (veja a Figura \ref{fig:est-arq}). Nos comandos \texttt{\textbackslash{}newacronym}\index{newacronym} abaixo, o primeiro campo entre chaves indica o apelido do acrônimo, i.e., o nome pelo qual você o identificá, enquanto que o segundo e terceiro campos identificam as formas curta e longa do acrônimo. No nosso modelo, o nome longo é exibido na primeira menção do acrônimo e o curto nas subsequentes. Entretanto, este é um comportamento que pode ser modificado usando o comando \texttt{\textbackslash{}setacronymstyle}\index{setacronymstyle}, caso deseje. 
+
+\begin{listing}[ht]
+	\begin{minted}[ linenos=true, autogobble, bgcolor=Cornsilk1 ]{tex}
+		\newacronym{ppgsc}{PPgSC}{Programa de Pós-graduação em Sistemas e 
+		Computação}
+		\newacronym{koma}{KOMA}{KOMA-Script}
+		\newacronym{ctan}{CTAN}{Comprehensive TeX Archive Network}
+		\newacronym{scrbook}{\texttt{scrbook}}{(classe livro do ambiente KOMA)}
+		\newacronym{ufrn}{UFRN}{Universidade Federal do Rio Grande do Norte}
+		\newacronym{dimap}{DIMAp}{Departamento de Informática e Matemática 
+		Aplicada}
+		\newacronym{ccet}{CCET}{Centro de Ciências Exatas e da Terra}
+		\newacronym{overleaf}{Overleaf}{}
+		\newacronym{utf}{UTF}{Unicode Transformation Format}
+		\newacronym{pdf}{PDF}{Portable Document Format}
+		\newacronym{tikz}{Ti\textit{k}Z}{Ti\textit{k}Z \textit{ist kein 
+		Zeichenprogramm}}
+	\end{minted}
+	\caption{Parte das definições de acrônimos usados neste documento, localizadas no arquivo \texttt{editaveis/Acronimos.tex}.}
+	\label{cod:acronimos}
+\end{listing}
+
+O pacote ainda permite que se definam termos de glossários com descrições que podem ser longas, usando as macros \texttt{\textbackslash{}newglossaryentry}\index{newglossaryentry} e \texttt{\textbackslash{}longnewglossaryentry}\index{longnewglossaryentry}. Você pode ainda definir plurais para os termos e usá-los através dos comandos abaixo: 
+
+\begin{adjustbox}{fbox, center, tabular=l, vspace=0.5cm}
+	\texttt{\textbackslash{}glspl\{chave\}} \\
+	\texttt{\textbackslash{}Glspl\{chave\}}
+\end{adjustbox}
+
+Caso deseje imprimir os glossários sem localização de páginas onde os símbolos aparecem, use um dos comandos abaixo: 
+
+\begin{adjustbox}{fbox, center, tabular=l, vspace=0.5cm}
+	\textbackslash\texttt{printunsrtglossary} \\
+	\textbackslash\texttt{printunsrtglossaries}
+\end{adjustbox}
+
+No caso específico da lista de acrônimos, você pode gerá-la usando um dos comandos abaixo, que são equivalentes.
+
+\begin{adjustbox}{fbox, center, tabular=l, vspace=0.5cm}
+\textbackslash\texttt{printacronyms[title=Lista de Acrônimos, toctitle=Lista de Acrônimos]} \\
+\textbackslash\texttt{printglossary[type=acronym, title=Lista de Acrônimos,} \\
+\texttt{toctitle=Lista de Acrônimos]}
+\end{adjustbox}
+
+\begin{bclogo}[
+	couleur=bgblue,
+	arrondi=0,
+	logo=\faWarning,
+	barre=none,
+	noborder=true]{Lembre-se!}
+	Caso deseje somente utilizar o glossário de acrônimos, use a opção \texttt{nomain} quando carregando o pacote \texttt{glossaries}. Isso desabilita o uso do glossário principal.
+\end{bclogo}
+
+A maioria dos usuários prefere exibir uma lista automaticamente ordenada contendo apenas as entradas citadas no documento. O pacote \texttt{glossaries}\index{glossaries} provê três opções: o uso do \TeX{}, do comando \texttt{makeindex}\index{makeindex} ou do pacote \texttt{xindy}\index{xindy} para ordenar as entradas incluídas no texto.  Além dessas opções você pode usar o pacote \texttt{bib2gls}\index{bib2gls}, que só funciona com o \texttt{glossaries-extra}\index{glossaries-extra}, que também permite que as entradas não sejam ordenadas. Além destas possibilidades, o pacote \texttt{glossaries-extra} oferece outras opções de configuração para usuários mais avançados. Seu manual pode ser acessado em \url{http://mirrors.ctan.org/macros/latex/contrib/glossaries-extra/glossaries-extra-manual.pdf} \parencite{glossaries-extra}.
+
+O uso do \TeX{} é a opção mais simples mas é bem ineficiente e a ordenação é feita pelos códigos dos caracteres minúsculos, o que funciona para alfabetos latinos, como o Português, mas falha para outros. Outro problema é que este método usa um comparador ASCII e falha quando há comandos no campo \textit{key}, usado na ordenação. Para usar esse método basta adicionar \texttt{\textbackslash{}makenoidxglossaries}\index{makenoidxglossaries} ao preâmbulo e \texttt{\textbackslash{}printnoidxglossaries}\index{printnoidxglossaries} no local onde você quer colocar seu glossário. Lembre-se que o glossário só aparecerá corretamente após você processar seu documento duas ou até três vezes. Isso acontece porque listas como o sumário, listas de algoritmos, figuras e tabelas só são geradas após a primeira execução do processador \TeX{} e incluídas na segunda execução. Como a inclusão dessas listas pode afetar as páginas das referências dos glossários, pode ser necessário executar o processador \TeX{} uma terceira vez. Seu editor integrado \LaTeX{} deve controlar isso, e caso esteja usando a linha de comando, você deve fazê-lo. 
+
+Se você tem um glossário grande, ou se seus termos usam caracteres não-Latinos, caracteres Latinos estendidos ou comandos no campo \texttt{key}, você deve usar uma das três outras opções, mas preferencialmente as duas últimas caso utilize caracteres não-Latinos e/ou caracteres Latinos estendidos.
+
+A segunda opção de ordenação envolve a utilização da aplicação \texttt{makeindex}\index{makeindex}. O comando \texttt{makeindex} faz parte de todas as distribuições mais recentes do \TeX{} mas foi programada para funcionar somente com o alfabeto Latino não estendido. Para usar esse método basta adicionar \texttt{\textbackslash{}makeglossaries}\index{makeglossaries} ao preâmbulo e \texttt{\textbackslash{}printglossaries}\index{printglossaries} no local onde você quer colocar seu glossário. Esta opção não permite uma mistura de métodos de ordenação, i.e., todos os glossários devem usar o mesmo método dentre ordem de palavra/letra, de uso ou de definição. Se você precisar ordens diferentes para glossários diferentes, você deverá executar \texttt{makeindex} explicitamente para cada um deles. Lembre-se que o comando \texttt{makeindex} deve ser executado após a primeira execução do processador \TeX{}. Você pode executar \texttt{makeindex} indiretamente através dos scripts \texttt{makeglossaries} (Perl) e \texttt{makeglossaries-lite}\index{makeglossaries-lite} (Lua), evitando ter de identificar as extensões dos arquivos a serem processados. Os comandos abaixo mostram a diferença entre as utilizações dos três programas.
+
+\begin{adjustbox}{fbox, center, tabular=l, vspace=0.5cm}
+	\texttt{makeindex -s exemplo.ist -o exemplo.gls exemplo.glo} \\
+	\texttt{makeglossaries exemplo} \\
+	\texttt{makeglossaries-lite exemplo}
+\end{adjustbox}
+
+O software \gls{xindy} é um programa altamente configurável usado para a ordenação e formatação de índices, tendo sido escrito para ser o sucessor de \texttt{makeindex}, e para funcionar com diferentes programas, mas especialmente \LaTeX{} e troff. Além de processar sem erros linguagens com caracteres especiais, como Português\index{Português}, Francês\index{Francês}, Alemão\index{Alemão} e Islandês\index{Islandês}, o \gls{xindy} permite que se definam novos tipos de localização (algo útil quando escrevendo manuais) e indexação hierárquica. Como \gls{xindy} é um \textit{script} Perl\index{Perl}, você deve ter Perl instalada em seu sistema. Caso você precise de um esquema de indexação mais complexo, sugiro que leiam a documentação disponível em \url{http://www.xindy.org/}.
+
+Já o pacote \texttt{bib2gls}\index{bib2gls} provê uma aplicação Java\index{Java} de linha de comando que pode ser usada para extrair informações de glossários armazenadas em um arquivo \texttt{.bib} e convertê-las em comandos de definição de entradas de glossário. Esse pacote deve ser usado com o pacote \texttt{glossaries-extra}\index{glossaries-extra}, que deve ser carregado usando a opção \texttt{record}\index{record}. Assim como o \gls{xindy}, o \texttt{bib2gls}\index{bib2gls} permite que se definam divisões lógicas de glossários.
+
+O pacote \texttt{bib2gls}\index{bib2gls}  provê ainda o programa \texttt{convertgls2bib}\index{convertgls2bib}, que converte arquivos \texttt{.tex}\index{.tex} contendo definições de glossários para o formato \texttt{.bib}\index{.bib} usado pelo \texttt{bib2gls}. Uma vez convertidos para o formato \texttt{.bib}, suas definições de glossários podem ser mantidas usando uma interface gráfica que manipule \texttt{.bib} files, como o JabRef\index{JabRef} (\url{https://www.jabref.org/}) e o KBibTeX\index{KBibTeX} (\url{https://userbase.kde.org/KBibTeX}). O manual do \texttt{bib2gls} pode ser acessado em  \url{http://mirrors.ctan.org/support/bib2gls/bib2gls-begin.pdf}.
+
+Uma outra opção disponível com o pacote \texttt{glossaries-extra} é a de não ordenar as entradas. Para tal, você deve carregar o pacote \texttt{glossaries-extra} com a opção \texttt{sort=none} e as definições na ordem desejada. Esta opção não exige um comando de ativação, como o \texttt{\textbackslash{}makeglossaries}.
+
+A performance dos métodos é algo a ser considerado se você tiver muitas entradas em seu glossário. Caso tenha poucas entradas, o método que usa o \TeX{} pode ser usado tranquilamente. Porém, no caso de muitas entradas ele pode adicionar um tempo considerável a execução do \LaTeX{} ou \hologo{pdfLaTeX}\index{\hologo{pdfLaTeX}}. Alguns testes são descritos em 
+\url{https://www.dickimaw-books.com/gallery/glossaries-performance.shtml#all}. Para maiores detalhes sobre a incorporação destes programas no processamento de seu documento, consulte \url{https://www.dickimaw-books.com/latex/buildglossaries/}. Por isso, preste atenção no aviso abaixo!
+
+\begin{bclogo}[
+	couleur=bgblue,
+	arrondi=0,
+	logo=\faWarning,
+	barre=none,
+	noborder=true]{Cuidado!}
+	Algumas vezes, você precisa deletar o arquivo \texttt{.glsdefs} antes de executar a sequência \texttt{pdflatex}, \texttt{makeindex}, \texttt{pdflatex} e \texttt{pdflatex}. Isso acontece em alguns casos quando há um erro no processamento do glossário e execuções posteriores do \texttt{pdflatex} não alteram o arquivo com os erros gerados pelo \texttt{makeglossaries}.
+\end{bclogo}
+
+Como mencionado acima, o pacote \texttt{glossaries}\index{glossaries} também pode ser usado para gerar índices remissivos, embora seja mais comum usar um pacote de geração de índices como o  \texttt{imakeidx}\index{imakeidx}, Se você decidir usar a opção \texttt{index}\index{index} do pacote \texttt{glossaries}, ela habilitará o comando \texttt{\textbackslash{}newterm}\index{newterm} que funciona como o comando \texttt{\textbackslash{}newglossaryentry}\index{newglossaryentry}, exceto pelo fato que atribui uma descrição vazia ao termo definido e cria um novo ``glossário'' para o índice.
+
+Caso deseje usar o pacote \texttt{imakeidx}\index{makeidx}, você deve incluir no preâmbulo o comando abaixo, caso queira criar um índice com duas colunas e título ``Índice'':
+
+\adjustbox{fbox, center}{ \texttt{\textbackslash{}makeindex[title=Índice, columns=3, intoc=true]}}
+e simplesmente adicionar as palavras chave como uma referência após o seu uso no texto, como no exemplo abaixo, usando o comando:
+
+\adjustbox{fbox, center}{ \texttt{\textbackslash{}index\{termo\}}}
+
+Então, ao final do seu documento, a inclusão do comando abaixo imprimirá o índice remissivo de seu documento, que, neste caso está precedido pelo comando usado para definir o texto a ser impresso antes do índice.
+
+\begin{adjustbox}{fbox, center, tabular=l, vspace=0.5cm}
+	\texttt{\textbackslash{}indexprologue\{texto a ser incluído antes das entradas do índice\}} \\
+	\texttt{\textbackslash{}printindex}
+\end{adjustbox}
+
+Eu utilizei o \texttt{imakeidx} nesse documento e no código fonte dele, nos arquivos \texttt{.tex}\index{.tex}, você pode ver as referências que são incluídas no índice. Algumas delas são repetidas na Lista de Acrônimos, o que pode parecer um exagero. Entretanto, a inclusão dessas duas listas serve como exemplo da utilização desses pacotes. Você deve decidir, juntamente com seu(s) orientador(es) o que deseja usar no seu documento.
+
+É importante ressaltar que esse pacote é parte da distribuição mínima do \LaTeX{} e que como padrão, o índice não aparece no Sumário. Caso deseje que o mesmo apareça no Sumário, adicione a opção \texttt{intoc}\index{intoc} no comando \texttt{\textbackslash{}makeindex}, como mostrado acima. Para mais detalhes sobre o uso desse pacote, sugiro o guia introdutório do \gls{overleaf}, que pode ser acessado em \url{https://www.overleaf.com/learn/latex/indices#Indices_on_Overleaf}, e o manual do pacote \texttt{imakeidx}, que pode ser acessado em \url{http://mirrors.ctan.org/macros/latex/contrib/imakeidx/imakeidx.pdf} \parencite{imakeidx}. 

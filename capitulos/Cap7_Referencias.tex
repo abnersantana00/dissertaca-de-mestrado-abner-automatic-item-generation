@@ -1,0 +1,55 @@
+% Capítulo 7
+\chapter{Referências}\label{cap:refs}
+
+O pacote \texttt{hyperref}\index{hyperref} \parencite{hyperref} estende a funcionalidade de todos os comandos que implementam referências cruzadas do \LaTeX{}, como sumário, bibliografia, listas de figuras e tabelas, para produzir comandos especiais que geram \textit{links} de hipertexto. O pacote permite ainda a criação de \textit{links} para documentos externos e URLs.
+
+O Código \ref{cod:hyperref} mostra os comandos usados para carregar o pacote \texttt{hyperref}, com as opções \texttt{colorlinks}\index{colorlinks}, que colore os \textit{links} das referências, \texttt{hyperindex}\index{hyperindex}, que indica que o índice deve conter \textit{hyperlinks}\index{hyperlinks}, \texttt{plainpages=false}\index{plainpages}, que força que as âncoras das páginas sejam nomeadas em números arábicos,  \texttt{pdfusetitle}\index{pdfusetitle}, que lê as informações de título, autor, etc. e as adiciona ao arquivo \gls{pdf}\index{pdf}, e
+\texttt{pdflang=pt-BR}\index{pdflang}, que identifica a linguagem do documento como sendo Português do Brasil. O segundo comando, na Linha 3, associa informações aos campos que serão lidos pelo pacote \texttt{hyperref}\index{hyperref}, caso a opção \texttt{pdfusetitle}\index{pdfusetitle} esteja ativa, e associados aos campos de informação do arquivo \gls{pdf}\index{pdf}.
+
+\begin{listing}[ht]
+	\begin{minted}[ linenos=true, autogobble, bgcolor=Cornsilk1 ]{tex}
+	\usepackage[colorlinks, hyperindex, plainpages=false, pdfusetitle, 
+	pdflang=pt-BR]{hyperref} 
+	\hypersetup{pdftitle={Modelo PPgSC de Dissertações e Teses em LaTeX}, 
+	pdfauthor={Bruno Motta de Carvalho}, 
+	pdfsubject={Manual do modelo LaTeX do PPgSC-UFRN},
+	pdfkeywords={LaTeX, diagramação, Modelo PPgSC}} 
+	\end{minted}
+	\caption{Carregamento do pacote \texttt{hyperref} com as opções usadas neste modelo e associação de informações que serão adicionadas ao arquivo \gls{pdf}.}
+	\label{cod:hyperref}
+\end{listing}
+
+Você pode facilmente adicionar \textit{links} para URLs usando o comando \texttt{\textbackslash{}url}. As definições e exemplos do uso de outros comando e macros podem ser acessados no manual do pacote, disponível em \url{http://mirrors.ctan.org/macros/latex/contrib/hyperref/doc/hyperref-doc.pdf} \parencite{hyperref}.
+
+O pacote \textsc{Bib}\LaTeX{}\index{\textsc{Bib}\LaTeX{}} provê ferramentas bibliográficas avançadas para uso em conjunto com \LaTeX{}, sendo uma completa reimplementação das ferramentas disponibilizadas pela distrubuição \LaTeX{}. O \textsc{Bib}\LaTeX{} trabalha em conjunto com o programa de \textit{backend} \hologo{biber}\index{\hologo{biber}}, que é usado para processar entradas em formato \hologo{BibTeX}\index{\hologo{BibTeX}}. De posse das entradas, o \textsc{Bib}\LaTeX{}\index{\textsc{Bib}\LaTeX{}} então ordena as referências, gera rótulos e a saída da bibliografia.
+
+A formatação da bibliografia é controlada por macros \LaTeX{} padrão e pode ser configurada para a criação de novos estilos de bibliografia, bem como estilos de citação. Esse pacote ainda provê suporte a múltiplas bibliografias, que podem ser ordenadas por tópicos ou separadamente, com ordens diferentes. Ele ainda provê suporte completo a Unicode. Esse pacote possui vários pacotes incompatíveis, que na sua maioria são pacotes de referências bibliográficas\index{referências bibliográficas} ou referências cruzadas\index{referências cruzadas}. Isso acontece para que definições contrastantes não resultem em comportamentos inesperados no processamento do seu documento. Como exemplo, cito os pacotes \texttt{backref}\index{backref}, \texttt{chapterbib}\index{chapterbib}, \texttt{citeref}\index{citeref} e \texttt{natbib}\index{natbib}.
+
+As principais desvantagens do \textsc{Bib}\LaTeX{}\index{\textsc{Bib}\LaTeX{}} são que alguns periódicos, conferências e editoras podem não aceitar documentos que usem \textsc{Bib}\LaTeX{}\index{\textsc{Bib}\LaTeX{}}, se tiverem seu próprio estilo com seu arquivo \texttt{.bst}\index{.bst} compatível com \texttt{natbib}\index{natbib}, além da dificuldade da inclusão de bibliografias criadas por \textsc{Bib}\LaTeX{}\index{\textsc{Bib}\LaTeX{}} em um documento, como algumas editoras exigem. Para realizar esta última tarefa, o usuário tem que comentar os comandos do \textsc{Bib}\LaTeX{}\index{\textsc{Bib}\LaTeX{}} e usar um outro pacote para carregar as referências no formato \hologo{BibTeX}\index{}. Essa não é uma preocupação no nosso caso, mas incluí essa explicação para o caso de você se deparar com esse problema quando submetendo um artigo para publicação.
+
+O Código \ref{cod:biblatex} mostra o carregamento do pacote \textsc{Bib}\LaTeX{}\index{\textsc{Bib}\LaTeX{}} com as opções \texttt{bibstyle}\index{bibstyle}, que determina o estilo das referências bibliográficas, \texttt{citestyle}\index{citestyle}, que determina o estilo das citações no texto, \texttt{maxcitenames}\index{maxcitenames}, que determina o número máximo de autores que aparecerão nas citações, \texttt{maxbibnames}\index{maxbibnames}, que determina o número máximo de autores que aparecerão nas referências, \texttt{hyperref}\index{hyperref}, que indica que se deve transformar as referências e citações em links clicáveis, \texttt{backref}\index{backref}, que indica que referências reversas da bibliografia para o texto serão incluídas, e \texttt{backrefstyle}\index{backrefstyle}, que indica que qualquer sequência de três ou mais páginas consecutivas deve ser comprimida para uma faixa de valores. Para conhecer outras opções e comandos disponibilizados pelo \textsc{Bib}\LaTeX{}\index{\textsc{Bib}\LaTeX{}}, consulte seu manual em \url{http://mirrors.ctan.org/macros/latex/contrib/biblatex/doc/biblatex.pdf} \parencite{biblatex}.
+
+\begin{listing}[ht]
+	\begin{minted}[ linenos=true, autogobble, bgcolor=Cornsilk1 ]{tex}
+	\usepackage[bibstyle=authoryear, citestyle=authoryear, maxcitenames=3, 
+	maxbibnames=20, hyperref=true, backref=true, backrefstyle=three]
+	{biblatex}
+	\end{minted}
+	\caption{Carregamento do pacote \textsc{Bib}\LaTeX{}\index{\textsc{Bib}\LaTeX{}} com as opções usadas neste modelo.}
+	\label{cod:biblatex}
+\end{listing}
+
+O \textsc{Bib}\LaTeX{}\index{\textsc{Bib}\LaTeX{}} ainda permite que se use o \hologo{BibTeX}\index{\hologo{BibTeX}} como \textit{backend}, usando-o para ordenar as referências, mas não permite formatação de arquivos \texttt{.bst}\index{.bst}, que determinam estilos de referências bibliográficas. Por outro lado, \hologo{biber}\index{\hologo{biber}} permite que se trabalhe com muito mais entradas e tipos de campos de dados nos arquivos .bib, funciona com arquivos \texttt{.bib}\index{.bib} codificados com UTF-8 e permite um maior controle da ordenação das referências. Para maiores detalhes, consulte o manual em \url{http://mirrors.ctan.org/biblio/biber/documentation/biber.pdf} \parencite{biber}.
+
+\begin{bclogo}[
+	couleur=bgblue,
+	arrondi=0,
+	logo=\faWarning,%\bcbombe,
+	barre=none,
+	noborder=true]{Cuidado!}
+	Apesar de ter selecionado o \hologo{biber}\index{\hologo{biber}} como opção de processamento de bibliografia nas opções do \TeX{}studio 3.1.1,\index{} o mesmo não executou automaticamente o \hologo{biber}. Deste modo, tive que executá-lo na linha de comando de um terminal.
+\end{bclogo}
+
+Para repetir o comportamento definido neste modelo usando o \hologo{BibTeX}\index{\hologo{BibTeX}}, você deve incluir o \texttt{natbib}\index{natbib}, que define muitos arquivos de estilo \texttt{.bst}\index{.bst}. Apesar da linguagem definida pelo \hologo{BibTeX} para a criação de estilos de bibliografia ser complicada, você pode usar a ferramenta \texttt{makebst}\index{makebst} para criar seu próprio estilo. Seu manual está disponível em  \url{http://mirrors.ctan.org/macros/latex/contrib/custom-bib/makebst.pdf}, enquanto que maiores detalhes sobre \texttt{natbib} podem ser vistos no seu manual, disponível em \url{http://mirrors.ctan.org/macros/latex/contrib/natbib/natbib.pdf} \cite{natbib}. Finalmente, você precisaria usar o pacote \texttt{backref}\index{backref} para habilitar as referências reversas da bibliografia para o texto, algo que é feito diretamente pelo \textsc{Bib}\LaTeX{}\index{\textsc{Bib}\LaTeX{}}, no nosso caso. O manual do \texttt{backref} pode ser acessado em  \url{http://mirrors.ctan.org/macros/latex/contrib/hyperref/doc/backref.pdf} \parencite{backref}.
+
+

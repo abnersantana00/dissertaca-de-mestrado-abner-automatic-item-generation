@@ -1,0 +1,65 @@
+\documentclass{article}
+
+\usepackage{circus}
+
+\begin{document}
+	\section{\Circus\ Example}	
+	\begin{circus}
+		RANGE == 0..60 \\
+		\circchannel\ tick, time \\ %
+		\circchannel\ out: RANGE \cross RANGE \\%
+		\circchannel\ inc, minsReq \\ %
+		\circchannel\ ans:RANGE %
+		\also
+		\circchanset\ Sync \defs\ \{ inc, minsReq, ans \}%
+		\also
+		\circprocess\ Seconds \defs\ \\
+		\circbegin\ \\ %
+		\t1
+		\begin{block}
+			\circstate\ SecSt \defs [~sec:RANGE~] %
+			\also
+			SecInit \defs\ [~SecSt' | sec'=0~] %
+			\also
+			IncSec \defs\ [~\Delta SecSt | sec'=(sec+1) \mod 60~] %
+			\also
+			RunSec \defs\  %
+			\begin{block}
+				tick \then IncSec \Semi\
+				\begin{block}
+					(sec = 0) \guard inc \then Skip \\ %
+					\extchoice (sec \neq 0) \guard Skip
+				\end{block}
+				\\ %
+				\extchoice time \then minsReq \then ans?mins \then out!(mins,sec) \then Skip
+			\end{block}
+			\also
+			@ SecInit \Semi (\mu X @ RunSec \Semi\ X)
+		\end{block}
+		\\ %
+		\circend
+		\also
+		\circprocess\ Minutes \defs\ \\
+		\circbegin\ \\ %
+		\t1
+		\begin{block}
+			\circstate\ MinSt \defs [~min:RANGE~] %
+			\also
+			MinInit \defs\ [~MinSt' | min'=0~] %
+			\also
+			IncMin \defs\ [~\Delta MinSt | min'=(min+1) \mod 60~] %
+			\also
+			RunMin \defs\  %
+			\begin{block}
+				inc \then IncMin \\ %
+				\extchoice minsReq \then ans!min \then Skip
+			\end{block}
+			\also
+			@ MinInit \Semi (\mu X @ RunMin \Semi\ X)
+		\end{block}
+		\\ %
+		\circend
+		\also
+		\circprocess\ Chronometer \defs\ (Seconds \lpar Sync \rpar Minutes) \hide Sync \\ %
+	\end{circus}%
+\end{document}

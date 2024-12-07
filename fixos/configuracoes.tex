@@ -1,0 +1,54 @@
+% Redefinindo as cores dos links (pacote hyperref)
+\hypersetup{pageanchor=false,
+              colorlinks=true,
+              linkcolor=blue,
+              citecolor=blue,
+              urlcolor=blue,
+              linktocpage=true}
+
+% Texto padrão antes do número das páginas
+%\ifthenelse{\boolean{PPgSCIngles}}{
+%	\renewcommand{\backrefpagesname}{Cited on page(s):~}
+	% Texto padrão antes do número das páginas
+%	\renewcommand{\backref}{}
+	% Define os textos da citação
+%	\renewcommand*{\backrefalt}[4]{
+%		\ifcase #1 %
+%		No citation on text.%
+%		\or
+%		Cited on page #2.%
+%		\else
+%		Cited #1 times on pages #2.%
+%		\fi}%
+%}
+%{
+%\renewcommand{\backref}{Citado na(s) página(s):~}
+% Define os textos da citação
+%\renewcommand*{\backrefalt}[4]{
+%\ifcase #1 %
+%Nenhuma citação no texto.%
+%\or
+%Citado na página #2.%
+%\else
+%Citado #1 vezes nas páginas #2.%
+%\fi}%
+%}
+
+
+% Redefinicao de alguns comandos do pacote algorithm2e em Português
+\ifthenelse{\boolean{PPgSCIngles}}{
+}
+{
+\SetKwBlock{Inicio}{in\'{i}cio}{fim}
+\SetKwFor{Para}{para}{fa\c{c}a}{fim para}%
+\SetKwFor{ParaCada}{para cada}{fa\c{c}a}{fim para}%
+\SetKwIF{Se}{SenaoSe}{Senao}{se}{ent\~{a}o}{sen\~{a}o se}{sen\~{a}o}{fim se}%
+\SetKwRepeat{Repita}{repita}{at\'{e}}%
+}
+
+% Espaçamento entre linhas
+% \OnehalfSpacing (padrão) or \DoubleSpace para mudar
+% Recuo do parágrafo em 1.5cm
+\setlength{\parindent}{1.5cm}
+%\OnehalfSpacing
+\doublespacing

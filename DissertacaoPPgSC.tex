@@ -1,0 +1,196 @@
+\documentclass[a4paper, 12pt, openany, oneside, english, brazil]{scrbook} %Classe scrbook do Koma-Script
+
+\input{fixos/Pacotes.tex} %inclusão de pacotes usados no documento
+\input{editaveis/Variaveis.tex} %definição de variáveis (linguagem usada, espaçamento para assinatura, etc.)
+\input{fixos/Informacoes.tex} %nome do programa e texto do preâmbulo
+
+% \input{fixos/ufrnComandos}
+% \input{fixos/configuracoes.tex}
+\input{editaveis/Informacoes.tex} %Informações sobre o trabalho, autor e orientador(es)
+
+\input{fixos/NovosComandos.tex} % Definição de novos comandos para diagramação de capa, folha de rosto, etc.
+
+% Hifenização de palavras feita de forma incorreta pelo LaTeX
+\hyphenation{PYTHON ou-tros}
+
+% Bibliografia (arquivo capitulos/referencias.bib). Caso use biblatex + biber
+% Deve ser adicionado no preâmbulo
+\addbibresource{editaveis/Referencias.bib}
+
+%Comandos para o uso do pacote glossaries
+\makeglossaries % use TeX to sort
+\input{editaveis/Acronimos.tex}
+
+%Comandos para a criação do índice remissivo
+\makeindex[title=Índice, columns=3, intoc=true]
+
+%\DeclareUnicodeCharacter{0301}{*************************************}
+
+%% Novos Pacotes adicionados e suas configurações
+\usepackage[brazilian]{cleveref}
+
+\newcommand{\crefpairconjunction }{ e }
+% \newcommand{\crefmiddleconjunction}{ ppsp}
+\newcommand{\creflastconjunction}{ e }
+% \newcommand{\crefpairgroupconjunction }{ aaa}
+% \newcommand{\crefmiddlegroupconjunction}{ bbb}
+% \newcommand{\creflastgroupconjunction}{ ccc}
+% \newcommand{\crefrangepreconjunction }{ ddd}
+% \newcommand{\crefrangepostconjunction}{ eee}
+\newcommand{\crefrangeconjunction}{\,{--}\,}
+
+
+% Início do documento
+
+\begin{document}
+
+% Só funciona se colocado após o begin{document}. Somente para o pacote backref. Não é necessário para o biblatex
+% Configurações do pacote backref se escrevendo em Inglês
+% Se estiver escrevendo em Português, comente os comandos abaixo
+% Usado sem a opção hyperpageref de backref
+%\if\PPgSCIngles1
+
+%\ifthenelse{\boolean{PPgSCIngles}}{
+%\renewcommand{\backrefpagesname}{Cited on page(s):~}
+% Texto padrão antes do número das páginas
+%\renewcommand{\backref}{}
+% Define os textos da citação
+%\renewcommand*{\backrefalt}[4]{
+%	\ifcase #1 %
+%	No citation on text.%
+%	\or
+%	Cited on page #2.%
+%	\else
+%	Cited #1 times on pages #2.%
+%	\fi}%
+%}
+%{
+% Define os textos da citação
+%\renewcommand*{\backrefalt}[4]{
+%	\ifcase #1 %
+%	Nenhuma citação no texto.%
+%	\or
+%	Citado na Página #2.%
+%	\else
+%	Citado #1 vezes nas Páginas #2.%
+%	\fi}%
+%}
+
+  \frenchspacing
+  
+  \pagenumbering{alph} %Colocado aqui para evitar um warning do LaTeX
+  \setcounter{page}{1}
+  \thispagestyle{empty}
+  
+  \imprimircapa
+
+%\fancyhf{}
+%\pagestyle{fancy}
+%\fancyhead[R]{\thepage}
+\pagenumbering{roman}
+%\fancypagestyle{plain}
+  %\pagenumbering{roman} 
+  
+  \frontmatter
+  \setcounter{page}{2}
+  \pagestyle{plain}
+  
+  \folhaderosto %Não sei porque está reclamando que não está definido
+
+  % Incluir esses arquivos pdf após defesa e assinaturas
+  %\includepdf[pages={1}]{capitulos/ficha/ficha.pdf}
+  %\includepdf[pages={1}]{capitulos/ficha/ata.pdf}
+
+  \input{editaveis/FolhaDeAprovacao.tex}
+  \input{editaveis/Dedicatoria.tex}
+  \input{editaveis/Agradecimentos.tex}
+  \input{editaveis/Epigrafe.tex}
+  \input{editaveis/Resumo.tex}
+  \input{editaveis/Abstract.tex}
+  
+  % Lista de figuras e tabelas
+  \pdfbookmark[0]{\listfigurename}{lof}
+  \listoffigures
+  \cleardoublepage
+  
+  % Lista de tabelas
+  %\renewcommand\listtablename{Lista de Tabelas}
+  \pdfbookmark[0]{\listtablename}{lot}
+  \listoftables
+  \cleardoublepage
+  
+  % Lista de algoritmos (se houver)
+  % O pacote algorithm2e deve ser incluído 
+  %\pdfbookmark[0]{\algoritmosnome}{loa}
+  %\listofalgorithms
+
+  % Lista de códigos (se houver)
+  \pdfbookmark[0]{\listoflistingscaption}{lol}
+  \listoflistings
+
+  
+  % Lista de acrônimos
+  \printacronyms[title=Lista de Acrônimos, toctitle=Lista de Acrônimos]
+
+  \newpage
+  
+  % Sumário
+  \input{fixos/IndiceAutomatico.tex}
+
+  % Parte central do trabalho, englobando os capítulos que constituem o mesmo
+  % Os referidos capítulos devem ser organizados dentro do diretório "Capítulos"
+  
+  \mainmatter 
+  \pagenumbering{arabic} 
+%  \textual
+
+  % Capitulo 1: Introdução (arquivo capitulos/introducao.tex)
+  \input{capitulos/Cap1_Modelo_PPgSC.tex}
+
+  % Capitulo 2: Segundo capítulo (arquivo capitulos/capitulo2.tex)
+  \input{capitulos/Cap2_Diagramacao.tex}
+
+  % Capitulo 3: Terceiro capítulo (arquivo capitulos/capitulo3.tex)
+  \input{capitulos/Cap3_Floats.tex}
+
+  % Capitulo 4: Quarto capítulo (arquivo capitulos/capitulo4.tex)
+%   \input{capitulos/Cap4_Matematica.tex}
+
+  % Capitulo 5: Quinto capítulo (arquivo capitulos/capitulo5.tex)
+%   \input{capitulos/Cap5_DesenhosAnimacoes.tex}
+  
+  % Capitulo 6: Sexto capítulo (arquivo capitulos/capitulo6.tex)
+%   \input{capitulos/Cap6_Correcoes.tex}
+
+  % Capitulo 7: Sétimo capítulo (arquivo capitulos/capitulo7.tex)
+%   \input{capitulos/Cap7_Referencias.tex}
+  
+  % Capitulo 8: Oitavo capítulo (arquivo capitulos/capitulo7.tex)
+%   \input{capitulos/Cap8_Glossario.tex}
+  
+  % Consideracoes finais
+  \input{capitulos/Cap9_ConsideracoesFinais.tex}
+
+\backmatter
+  
+  % Sistema autor-data para o bibtex
+  %\bibliographystyle{apalike}
+  
+  %\bibliography{capitulos/referencias.bib}
+
+  % Imprime bilbiografia no caso do biblatex
+  \printbibliography[heading=bibintoc]
+  
+  \appendix
+  % Apêndice A (arquivo capitulos/apendice1.tex)
+  \input{capitulos/apendice1.tex}
+
+  % Anexo A (arquivo capitulos/anexo1.tex)
+  %\input{capitulos/anexo1.tex}
+
+  % Página em branco
+  \newpage
+  
+  %\indexprologue{Teste do comando indexprologue}
+  \printindex
+\end{document}

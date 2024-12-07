@@ -1,0 +1,243 @@
+%Definindo nomes de acordo com o idioma usado no documento
+\iftoggle{PPgSC-Ingles}{
+%\ifthenelse{\boolean{PPgSCIngles}}{
+	\newcommand\agradecimentosnome{Acknowledgements}
+	\newcommand\epigrafenome{Quote}
+	\newcommand\simbolosnome{List of Symbols}
+	\newcommand\abreviaturasnome{List of Acronyms}
+	\newcommand\algoritmossnome{List of Algorithms}
+}
+{
+	\newcommand\agradecimentosnome{Agradecimentos}
+	\newcommand\epigrafenome{Epígrafe}
+	\newcommand\simbolosnome{Lista de Símbolos}
+	\newcommand\abreviaturasnome{Lista de Abreviaturas}
+	\newcommand\algoritmosnome{Lista de Algoritmos}
+}
+
+%\renewcommand{\ABNTEXchapterfont}{\scshape \mseries \selectfont}
+%\renewcommand{\ABNTEXsectionfont}{\nshape \bfseries \selectfont} 
+
+%Novo comando signature, pode ser parametrizado mudando os valores de \signSkip, \signThickness e \signWidth, que estão definidos no arquivo variaveis.tex
+\newcommand{\signature}{  \vspace{ \signSkip } \parbox[t]{ \signWidth }{\rule[-3pt]{ \linewidth }{ \signThickness } \par\smallskip } }
+
+
+% Redefinindo as cores dos links (pacote hyperref)
+% O hyperref é incluso automaticamente pelo abntex2
+\hypersetup{pageanchor=false,
+	colorlinks=true,
+	linkcolor=blue,
+	citecolor=blue,
+	urlcolor=blue,
+	linktocpage=true}
+
+
+% Redefinicao de alguns comandos do pacote algorithm2e
+\SetKwBlock{Inicio}{in\'{i}cio}{fim}
+\SetKwFor{Para}{para}{fa\c{c}a}{fim para}%
+\SetKwFor{ParaCada}{para cada}{fa\c{c}a}{fim para}%
+\SetKwIF{Se}{SenaoSe}{Senao}{se}{ent\~{a}o}{sen\~{a}o se}{sen\~{a}o}{fim se}%
+\SetKwRepeat{Repita}{repita}{at\'{e}}%
+
+
+% Recuo do parágrafo em 1.5cm
+\setlength{\parindent}{1.5cm}
+%\OnehalfSpacing
+\doublespacing
+
+
+%Redefinição de espaços antes de subseções, seções e capítulos
+\makeatletter
+\newskip\beforesubsectionskip
+\setlength{\beforesubsectionskip}{0.5em}
+\newskip\beforesectionskip
+\setlength{\beforesectionskip}{0.5em}
+\newskip\beforechapterskip
+\setlength{\beforechapterskip}{1.5em}
+%\setlength{\cftbeforesubsectionskip}{0.5em}
+%\setlength{\cftbeforesectionskip}{0.5em}
+%\setlength{\cftbeforechapterskip}{1.5em}
+\makeatother
+
+
+%Definindo environment agradecimentos
+\newenvironment{agradecimentos}[1][\agradecimentosnome]{%
+	\begin{center}
+		{\Large \bfseries \agradecimentosnome}
+	\end{center}
+}
+
+
+%Definindo environment epígrafe
+\newenvironment{epigrafe}[1][\epigrafenome]{%
+	\begin{center}
+		{\Huge \bfseries \epigrafenome} %Comentar essas 3 linhas se não quiser que o nome Epígrafe ou Quote apareça no cabeçalho
+	\end{center}
+}
+
+
+\newcommand{\imprimircapa}{%
+	\begin{titlepage}
+		\begin{center}
+			
+			% Cabeçalho (não deve ser modificado)
+			% Contém o brasão da Universidade, o logotipo do Departamento, além dos dados
+			% relacionados à vinculação do aluno (Universidade, Centro, Departamento e Curso)
+			\begin{minipage}{2.5cm}
+				\begin{center}
+					\includegraphics[width=2.5cm]{imagens/logos/logo_UFRN.png}
+				\end{center}
+			\end{minipage}
+			\begin{minipage}{11cm}
+				\begin{center}
+					\begin{singlespace}
+						{\small \textsc{Universidade Federal do Rio Grande do Norte}
+							\\
+							\textsc{Centro de Ciências Exatas e da Terra}
+							\\
+							\textsc{Departamento de Informática e Matemática Aplicada}
+							\\
+							\textsc{Programa de Pós-Graduação em Sistemas e Computação}
+							\\
+							\iftoggle{PPgSC-Tese}
+								{\textsc{Doutorado Acadêmico em Ciência da Computação}}
+								{\textsc{Mestrado Acadêmico em Sistemas e Computação}}
+						}
+					\end{singlespace}
+				\end{center}
+			\end{minipage}
+			\begin{minipage}{1.8cm}
+				\begin{center}
+					\includegraphics[width=1.8cm, height=2cm]{imagens/logos/logo-ppgsc.png}
+				\end{center}
+			\end{minipage}
+			
+			\vspace{5cm}
+			
+			% Título do trabalho
+			{\setlength{\baselineskip}
+				{1.3\baselineskip}
+				{\LARGE \textbf{\Titulo}}\par}
+			
+			\vspace{4cm}
+			
+			% Nome do aluno (autor)
+			
+			{\large \textbf{\Autor}}
+			
+			\vspace{6cm}
+			
+			% Local da instituição onde o trabalho deve ser apresentado e ano de entrega do mesmo
+			\Local\\\Data 
+		\end{center}
+	\end{titlepage}
+	
+	% Solução para geração de páginas duplicadas, uma delas fica em branco
+	\hypersetup{pageanchor=true}
+}
+
+
+% Conteudo padrao da Folha de Rosto
+\makeatletter
+
+\newcommand{\folhaderosto} {
+	\begin{center}
+		
+		{\bfseries \Large \Autor{}}
+		
+		\vspace*{\fill}\vspace*{\fill}
+		\begin{center}
+			\bfseries \Large \Titulo
+		\end{center}
+		\vspace*{\fill}
+		
+		\hspace{.45\textwidth}
+		\begin{minipage}{.5\textwidth}
+			\singlespacing
+			\preambulo
+		\end{minipage}%
+		\vspace*{\fill}
+		
+		{\large Orientador~\par\Orientador\par}
+%		\if\boolean{COorientador}{%
+%			{\large Coorientador \\ \Coorientador}
+%		}%
+		\iftoggle{CO-orientador}{%
+		{\large Coorientador \\ \Coorientador}
+		}%
+	    {}
+		\vspace*{\fill}
+		
+		\textsc{\Instituicao}\vspace*{\fill}
+		
+		{\large\Local}
+		\par
+		{\large\Data}
+		\vspace*{1cm}
+		
+	\end{center}
+	\newpage
+	}
+	
+\makeatother
+
+
+%Definindo environment resumo para classe scrbook (não faz parte da classe original)
+\makeatletter
+\newenvironment{resumo}{%
+	\if@titlepage
+	\titlepage
+	\null\vfil
+	\@beginparpenalty\@lowpenalty
+	\begin{center}
+		{\Large{\textbf{\Titulo}}}
+	\end{center}
+	
+	\vspace{0.3cm}
+	
+	\begin{flushright}
+		Autor:~\Autor\\
+		Orientador:~\Orientador\\
+		\iftoggle{CO-orientador}{Coorientador:~\Coorientador}{}
+	\end{flushright}
+	
+	\begin{center}%
+		\Huge \bfseries Resumo
+		\@endparpenalty\@M
+	\end{center}
+	\quotation
+	\fi}%
+{\par\vfil\null\endtitlepage}
+\makeatother
+
+
+%Definindo environment abstract para classe scrbook (não faz parte da classe original)
+\makeatletter
+\newenvironment{abstract}{%
+	\if@titlepage
+	\titlepage
+	\null\vfil
+	\@beginparpenalty\@lowpenalty
+	\begin{center}
+		{\Large{\textbf{\TituloEstrangeiro}}}
+	\end{center}
+	
+	\vspace{0.3cm}
+	
+	\begin{flushright}
+		Author:~\Autor \\
+		Advisor:~\Orientador \\
+		\iftoggle{CO-orientador}{Co-advisor:~\Coorientador}{}
+	\end{flushright}
+	
+	\begin{center}%
+		\Huge \bfseries Abstract
+		\@endparpenalty\@M
+	\end{center}
+	\quotation
+	\fi}%
+{\par\vfil\null\endtitlepage}
+\makeatother
+
+%Definindo o comando BibTeX para imprimir o logo. Baixei da Internet.
+\def\BibTeX{\textrm{B\kern-.05em\textsc{i\kern-.025em b}\kern-.08em T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}

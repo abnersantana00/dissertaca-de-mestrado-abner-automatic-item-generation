@@ -1,0 +1,18 @@
+\chapter{Apêndice 1}
+
+Um apêndice deve conter material complementar a sua dissertação/tese, que serve para complementar a argumentação do autor sobre seu trabalho. O conteúdo de um apêndice deve ter sido elaborado pelo autor. Caso o autor deseje incluir conteúdo complementar que auxilie sua argumentação, mas que tenha sido elaborado por outras pessoas, o mesmo deve adicionar esse conteúdo em um anexo.
+
+Os apêndices dever ser localizados após as referências, e os anexos após os apêndices, caso existam. Ambos devem aparecer antes do índice remissivo. É desejável que ambos apareçam no sumário. Para incluir apêndices, você deve ter o pacote \texttt{appendix} \parencite{appendix} instalado, cujo manual está disponível em \url{https://ctan.dcc.uchile.cl/macros/latex/contrib/appendix/appendix.pdf}.
+
+Caso não necessite de um apêndice, comente os comandos abaixo no arquivo \texttt{DissertacaoPPgSC.tex}.
+
+\begin{listing}[ht]
+	\begin{minted}[ linenos=true, autogobble, bgcolor=Cornsilk1 ]{tex}
+		\begin{appendices}
+		  % Apêndice A (arquivo capitulos/apendice1.tex)
+		  \input{capitulos/apendice1.tex}
+		\end{appendices}
+	\end{minted}
+	\caption{Exemplo de código \LaTeX{} usado para carregar um arquivo de apêndice.}
+	\label{cod:appendix}
+\end{listing}

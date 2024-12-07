@@ -1,0 +1,19 @@
+%Definição de variáveis para parametrização do documento
+
+\newtoggle{PPgSC-Proposta} %\newtoggle define uma variável com valor inicial false
+\toggletrue{PPgSC-Proposta} %Descomentar essa linha caso documento seja qualificação de mestrado ou proposta de doutorado
+
+\newtoggle{PPgSC-Tese} %\newtoggle define uma variável com valor inicial false
+%\toggletrue{PPgSC-Tese} %Descomentar essa linha caso documento seja tese
+
+\newtoggle{PPgSC-Ingles} %\newtoggle define uma variável com valor inicial false
+%\toggletrue{PPgSC-Ingles} %Descomentar essa linha caso documento seja escrito e Inglês
+
+\newtoggle{CO-orientador} %\newtoggle define uma variável com valor inicial false
+\toggletrue{CO-orientador} %Descomentar essa linha caso você tenha coorientador
+
+%Definições de espaçamento, grossura e largura das linhas das assinaturas. Ajuste o tamanho 
+%do espaço definido na variável signSkip caso queira acomodar mais ou menos assinaturas por página
+\def\signSkip{1.3cm}
+\def\signWidth{10cm}
+\def\signThickness{0.4pt}

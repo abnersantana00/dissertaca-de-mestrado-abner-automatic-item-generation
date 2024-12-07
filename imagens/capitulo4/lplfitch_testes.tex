@@ -1,0 +1,25 @@
+\documentclass{scrartcl}
+
+\usepackage{lplfitch}
+\DeclareOldFontCommand{\sf}{\normalfont\sffamily}{\mathsf}
+\DeclareOldFontCommand{\bf}{\normalfont\bfseries}{\mathbf}
+
+\begin{document}
+	\fitchprf{}{
+		\subproof{\pline[1.]{\uni{x}{(Cube(x)\lif Small(x))}}}{
+			\subproof{\pline[2.]{\exi{x}{Cube(x)}}}{
+				\boxedsubproof[3.]{a}{Cube(a)}{
+					\pline[4.]{Cube(a)\lif Small(a)}[\lalle{1}]\\
+					\pline[5.]{Small(a)}[\life{4}{3}]\\
+					\pline[6.]{\exi{x}{Small(x)}}[\lexii{5}]
+				}
+				\pline[7.]{\exi{x}{Small(x)}}[\lexie{2}{3--6}]
+			}
+			\pline[8.]{\exi{x}{Cube(x)}\lif \exi{x}{Small(x)}}[\lifi{2--7}]
+		}
+		\pline[9.]{\brokenform{(\uni{x}{(Cube(x)\lif Small(x))}\lif}{
+				\formula{(\exi{x}{Cube(x)} \lif \exi{x}{Small(x)})}}}[\lifi{1--8}]
+	}
+	
+	
+\end{document}

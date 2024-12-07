@@ -1,0 +1,61 @@
+% Folha de aprovação
+\newenvironment{folhadeaprovacao}
+
+
+  % Informações gerais acerca do trabalho
+  % (nome do autor, título, instituição à qual é submetido e natureza)
+  \noindent
+  
+  \singlespacing
+  
+  \iftoggle{PPgSC-Tese}
+  {\iftoggle{PPgSC-Proposta}
+  	{Proposta de Doutorado sob o título \textit{\Titulo{}} apresentada por \Autor{} e aceita pelo Programa de Pós-Graduação em Sistemas e Computação do Departamento de Informática e Matemática Aplicada da Universidade Federal do Rio Grande do Norte, sendo aprovada por todos os membros da banca examinadora abaixo especificada:}
+  	{Tese de Doutorado sob o título \textit{\Titulo{}} apresentada por \Autor{} e aceita pelo Programa de Pós-Graduação em Sistemas e Computação do Departamento de Informática e Matemática Aplicada da Universidade Federal do Rio Grande do Norte, sendo aprovada por todos os membros da banca examinadora abaixo especificada:}
+  }
+  {\iftoggle{PPgSC-Proposta}
+  	{Dissertação de Mestrado sob o título \textit{\Titulo{}} apresentada por \Autor{} e aceita pelo Programa de Pós-Graduação em Sistemas e Computação do Departamento de Informática e Matemática Aplicada da Universidade Federal do Rio Grande do Norte, sendo aprovada por todos os membros da banca examinadora abaixo especificada:}
+  	{Qualificação de Mestrado sob o título \textit{\Titulo{}} apresentada por \Autor{} e aceita pelo Programa de Pós-Graduação em Sistemas e Computação do Departamento de Informática e Matemática Aplicada da Universidade Federal do Rio Grande do Norte, sendo aprovada por todos os membros da banca examinadora abaixo especificada:}
+  }
+
+  % Membros da banca examinadora e respectivas filiações
+  \begin{center} 
+  	\signature \\
+    Prof. Dr. \Orientador\\
+    {\small Orientador}\\
+    {\footnotesize
+      Departamento de Informática e Matemática Aplicada\\
+      Universidade Federal do Rio Grande do Norte - UFRN
+    }
+  \end{center}
+%deixar uma linha em branco entre o final de um bloco de professor para o comando \signature
+
+
+\begin{center} 
+	\signature \\
+	{
+		Prof. Dra. Marcia Jacyntha Nunes Rodrigues Lucena\\
+		{\footnotesize
+			Departamento de Informática e Matemática Aplicada\\
+			Universidade Federal do Rio Grande do Norte - UFRN
+		}
+	}
+\end{center}
+
+\begin{center} 
+	\signature \\
+  {
+    Prof. Dr. Thiago Reis da Silva\\
+    {\footnotesize
+      Instituto Federal de Educação, Ciência e Tecnologia do Maranhão - IFMA \\
+    }
+  }
+\end{center}
+	
+  \vfill
+
+\begin{center} 
+    \Local{}, \DataDaAprovacao{}.
+\end{center}
+
+\doublespacing

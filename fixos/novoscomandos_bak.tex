@@ -1,0 +1,187 @@
+%Definindo nomes de acordo com o idioma usado no documento
+\newcommand\resumoname{Resumo} 
+\newcommand\abstractname{Abstract} 
+\newcommand\agradecimentosname{Agradecimentos}
+\newcommand\epigrafename{Epígrafe}
+\newcommand\simbolosname{Lista de Símbolos}
+\newcommand\abreviaturasname{Lista de Abreviaturas}
+
+\if\boolean{PPgSCIngles}{
+\renewcommand\agradecimentosname{Acknowledgements}
+\renewcommand\epigrafename{Quote}
+\renewcommand\simbolosname{List of Symbols}
+\renewcommand\abreviaturasname{List of Acronyms}
+}
+
+%Definindo environment abstract para classe scrbook (não faz parte da classe original)
+\makeatletter
+\if@titlepage
+\newenvironment{abstract}[1][\abstractname]{%
+	\titlepage
+	\null\vfil
+	\@beginparpenalty\@lowpenalty
+	\begin{center}%
+		\bfseries \abstractname
+		\@endparpenalty\@M
+    \end{center}}%
+{\par\vfil\null\endtitlepage}
+%\else
+%\newenvironment{abstract}{%
+%	\if@twocolumn
+%	\section*{\abstractname}%
+%	\else
+%	\small
+%	\begin{center}%
+%		{\bfseries \abstractname\vspace{-.5em}\vspace{\z@}}%
+%	\end{center}%
+%	\quotation
+%	\fi}
+%{\if@twocolumn\else\endquotation\fi}
+%\fi
+\makeatother
+
+%Definindo environment agradecimentos
+\newenvironment{agradecimentos}[1][\agradecimentosname]{%
+	\begin{center}
+		{\Large \bfseries \agradecimentosname}
+	\end{center}
+}
+
+
+%Definindo environment epígrafe
+\newenvironment{epigrafe}[1][\epigrafename]{%
+	\begin{center}
+		{\Large \bfseries \epigrafename} %Comentar essas 3 linhas se não quiser que o nome Epígrafe ou Quote apareça no cabeçalho
+	\end{center}
+}
+
+%Definindo environment símbolos
+\newenvironment{abreviaturas}[1][\abreviaturasname]{%
+	\begin{center}
+		{\Large \bfseries \abreviaturasname}
+	\end{center}
+    \input{editaveis/acronimos.tex}
+    \cleardoublepage
+}
+
+
+%\newcommand{\curso}[1]{\def\imprimircurso{#1}}
+%\newcommand{\dataDaAprovacao}[1]{\def\imprimirdatadaaprovacao{#1}}
+%\newcommand{\tituloEstrangeiro}[1]{\def\imprimirtituloestrangeiro{#1}}
+
+
+\newcommand{\imprimircapa}{%
+  \begin{titlepage}
+    \begin{center}
+
+      % Cabeçalho (não deve ser modificado)
+      % Contém o brasão da Universidade, o logotipo do Departamento, além dos dados
+      % relacionados à vinculação do aluno (Universidade, Centro, Departamento e Curso)
+      \begin{minipage}{2cm}
+        \begin{center}
+          \includegraphics[width=1.8cm, height=2.1cm]{imagens/logos/Brasao-UFRN.jpg}
+        \end{center}
+      \end{minipage}
+      \begin{minipage}{11cm}
+        \begin{center}
+          \begin{singlespace}
+            {\small \textsc{Universidade Federal do Rio Grande do Norte}
+\\
+                    \textsc{Centro de Ciências Exatas e da Terra}
+\\
+                    \textsc{Departamento de Informática e Matemática Aplicada}
+\\
+                    \textsc{Programa de Pós-Graduação em Sistemas e Computação}
+\\
+                    \ifthenelse{\boolean{PPgSCTese}}
+                    {\textsc{Doutorado Acadêmico em Ciência da Computação}}
+                    {\textsc{Mestrado Acadêmico em Sistemas e Computação}}
+            }
+          \end{singlespace}
+        \end{center}
+      \end{minipage}
+      \begin{minipage}{2cm}
+        \begin{center}
+          \includegraphics[width=1.8cm, height=2cm]{imagens/logos/logo-ppgsc.png}
+        \end{center}
+      \end{minipage}
+
+      \vspace{5cm}
+
+      % Título do trabalho
+      {\setlength{\baselineskip}
+      {1.3\baselineskip}
+      {\LARGE \textbf{\titulo}}\par}
+
+      \vspace{4cm}
+
+      % Nome do aluno (autor)
+
+      {\large \textbf{\autor}}
+
+      \vspace{6cm}
+
+      % Local da instituição onde o trabalho deve ser apresentado e ano de entrega do mesmo
+      \local\\\data 
+    \end{center}
+  \end{titlepage}
+
+  % Solução para geração de páginas duplicadas, uma delas fica em branco
+  \hypersetup{pageanchor=true}
+}
+
+% Conteudo padrao da Folha de Rosto - Teste
+%\makeatletter
+
+%\newcommand{imprimirfolhaderosto} {
+%	\begin{center}
+		
+%		{\bfseries \Large \autor}
+%		\vspace*{\fill}
+		
+%	\end{center}
+%}
+
+%\makeatother
+
+% Conteudo padrao da Folha de Rosto
+\makeatletter
+
+\newcommand{\folhaderosto} {
+  \begin{center}
+
+    {\bfseries \Large \autor{}}
+
+    \vspace*{\fill}\vspace*{\fill}
+    \begin{center}
+      \bfseries \Large \titulo
+    \end{center}
+    \vspace*{\fill}
+
+      \hspace{.45\textwidth}
+      \begin{minipage}{.5\textwidth}
+        \singlespacing
+          \preambulo
+      \end{minipage}%
+      \vspace*{\fill}
+
+    {\large Orientador~\par\orientador\par}
+    \if\boolean{COorientador}{%
+      {\large Coorientador \\ \coorientador}
+    }%
+    \vspace*{\fill}
+
+      \textsc{\instituicao}\vspace*{\fill}
+
+    {\large\local}
+    \par
+    {\large\data}
+    \vspace*{1cm}
+
+  %\end{center}
+}
+
+\makeatother
+
+%Novo comando signature, pode ser parametrizado mudando os valores de \signSkip, \signThickness e \signWidth
+\newcommand{\signature}{ {\centering{ \vspace{ \signSkip } \parbox[t]{ \signWidth }{\rule[-3pt]{ \linewidth }{ \signThickness } \par\smallskip } } } }

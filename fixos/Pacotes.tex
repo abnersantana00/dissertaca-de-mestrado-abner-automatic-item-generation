@@ -1,0 +1,142 @@
+% para impressão física você pode considerar a troca de oneside para twoside
+% \documentclass[a4paper, 12pt, openany, oneside, english, brazil]{scrbook} %Classe scrbook do Koma-Script
+
+%Muda estilo da fonte usada nos títulos dos capítulos, seções e listas para a fonte usada no texto.
+\addtokomafont{disposition}{\rmfamily}
+
+%Pacote que permite evitar o erro "No room for new \write" enviando todas as escritas artravés do arquivo .aux
+\usepackage{scrwfile}
+
+
+%Pacotes para apêndices
+\usepackage[toc,page]{appendix}
+
+
+%Pacotes de linguagens, codificação de caracteres e tipografia
+%Provê suporte para tipografia em várias línguas
+\usepackage[brazil]{babel} % Confirme se o pacote babel-portuges está instalado.
+
+
+%Pacotes de codificação e fontes
+\usepackage[utf8]{inputenc} %Traduz codificações de entrada para a linguagem interna do LaTeX
+%\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fontawesome}
+\usepackage{dsfont}
+\usepackage{cmap}
+\usepackage{lmodern}
+
+
+%Pacotes de Referências
+%Pacote de referências bilbiográficas
+\usepackage[bibstyle=authoryear, citestyle=authoryear, maxcitenames=3, maxbibnames=20, hyperref=true, backref=true, backrefstyle=three]{biblatex} % Permite customizar citações. Mais moderno que natbib e bibtex.
+%\DefineBibliographyStrings{english}{%
+%	backrefpage = {page},% originally "cited on page"
+%	backrefpages = {pages},% originally "cited on pages"
+%}
+
+%Pacotes de glossários e índices 
+
+%Pacote usado para gerar índice remissivo
+%Carregado antes do pacote hyperlink para que funcionem juntos
+\usepackage{imakeidx}
+
+%É preferível carregar hyperref após o biblatex, caso esteja usando-o, mas antes do glossaries!
+%\usepackage[colorlinks, hyperindex, plainpages=false, pdfusetitle, pdflang=en]{hyperref}
+\usepackage[colorlinks, hyperindex, plainpages=false, pdfusetitle, pdflang=pt-BR]{hyperref}
+
+\usepackage[automake, acronym, toc]{glossaries}
+%\usepackage[savewrites, nomain, acronym]{glossaries-extra} %Gerando conflito com book mas não com scrbook. Tem que instalar os módulos das linguagens a serem utilizadas. Opção nomain indica que o índice remissivo não será usado. A escolha é sua. Só tenha cuidado com o erro "No room for a new \write. \end{document}", quando o LaTeX tem muitos arquivos auxiliares abertos. A opção "savewrites" usa só um write para todos os arquivos auxiliares do glossaries, mas pode gerar problemas de referências com localizações erradas. Erro corrigido usando o pacote scrwfile
+
+
+
+%Pacotes diversos
+\usepackage{adjustbox}
+\usepackage{indentfirst} % paragrafo na primeira linha escrita
+\usepackage{url} %Permite quebras de linhas em certos caracteres ou combinações de caracteres
+\usepackage{microtype} %Permite que se façam melhorias de justificação
+\usepackage{enumitem} %Permite um maior controle sobre os layouts dos ambientes enumerate, itemize e description
+\usepackage{pdflscape} %Permite que páginas sejam exibidas em formato landscape
+\usepackage{hologo}%Pacote que define glifos de logos associados com TeX
+
+
+%Pacotes matemáticos
+\usepackage{mathtools} %Carrega automaticamente o amsmath
+\usepackage{amssymb} %Pacotes da AMS (American Mathematical Society) para representação de símbolos e equações
+\usepackage{esvect} %Provê estilos diferentes para setas que denotam vetores
+\usepackage{siunitx} %Provê definições por nome e espaçamentos padrões para unidades padrão
+\usepackage{bussproofs} %Permite criar árvores de provas no estilo de cálculo sequente
+\usepackage{lplfitch} %Esses dois comandos abaixo são necessários  para que o pacote lplfitch funcione com os pacotes KOMA.
+\DeclareOldFontCommand{\sf}{\normalfont\sffamily}{\mathsf}
+\DeclareOldFontCommand{\bf}{\normalfont\bfseries}{\mathbf}
+\usepackage{natded} %Provê comandos para mostrar provas no estilos usados por Jaśkowski e Kalish e Montague
+\usepackage{zed-csp} %Suporta especificações em CSP e Z
+%\usepackage{circus} %Define comandos para realizar especificações em circus
+
+
+%Pacotes de objetos float e cores
+%\usepackage{multirow} %Cria células que se estendem por várias linhas em ambientes tabulares 
+\usepackage{graphicx} %Incluído com opção dvipdfm para eliminar erro que diz que não pode determinar tamanho de imagem. Essa opção elimina as figuras do texto!!!
+\usepackage{colortbl} %Permite adicionar cores a tabelas em LaTeX
+% Pacote para o uso de algoritmos
+\usepackage[algochapter, linesnumbered, lined, portuguese, ruled]{algorithm2e} %Implementa o environment algorithm
+\usepackage{subfig} %Permite a definição de sub-figuras
+\usepackage{float} %Provê uma interface melhorada para objetos float
+\usepackage{bm} %Define o comando \bm que torna seu argumento em negrito
+\usepackage{setspace} %Permite ajustar facilmente espaçamento entre linhas
+\usepackage{multirow} %Permite a utilização de multilinhas e multicolunas em ambientes tabulares
+\usepackage[x11names]{xcolor} %Pacote que define cores de vários modelos com nomes
+\usepackage[chapter]{minted} %Pacote que permite a configuração fácil de código a ser mostrado. A opção chapter realiza a numeração por capítulo
+\renewcommand{\listingscaption}{Código}
+\renewcommand{\listoflistingscaption}{Lista de Códigos}
+
+
+%Pacotes para gerar desenhos e animações
+\usepackage{qtree} %Permite desenhar diagramas de árvores
+\usepackage{pgf} %Permite criar desenhos independentes de plataforma e formato, gerando saída em PS ou PDF
+\usepackage{tikz} %Pacote usado para criar gráficos, figuras e ilustrações
+\usepackage[tikz]{bclogo} %Permite colorir caixas virtuais ao redor de textos
+\usepackage{tikz-dependency} %Provê uma bilbioteca para desenhar grafos de dependência
+\usepackage{tikz-network} %Provê uma bilbioteca para desenhar redes complexas
+\usepackage{tikz-3dplot} %Permite definir sistemas de coordenadas 3D para desenhar em 3D
+\usetikzlibrary{switching-architectures} %Permite desenhar arquiteturas de comutação
+\usetikzlibrary{mindmap} %Permite desenhar mapas mentais
+\usetikzlibrary{decorations.fractals} %Permite desenhar fractais do tipo curva monstro
+\usepackage{pgfplots}%Permite criar plots normais/logaritmicos em 2D/3D
+\pgfplotsset{width=7cm,compat=1.17}
+\pgfdeclarelayer{background} %Definição necessárias para alguns comandos TikZ
+\pgfdeclarelayer{foreground} %Definição necessárias para alguns comandos TikZ
+\pgfsetlayers{background, main, foreground} %some additional layers for demo
+\usepackage{forest}%Permite desenhar árvores
+\definecolor{folderbg}{RGB}{124,166,198}
+\definecolor{folderborder}{RGB}{110,144,169}
+\definecolor{bgblue}{RGB}{187,222,251}
+\definecolor{bggray}{RGB}{220,220,100}
+
+%Definições usadas para gerar desenhos de arquivos em uma ilustração de uma estrutura de árvore que não uso mais 
+\def\Size{4pt}
+\tikzset{
+	folder/.pic={
+		\filldraw[draw=folderborder,top color=folderbg!50,bottom color=folderbg]
+		(-1.05*\Size,0.2\Size+5pt) rectangle ++(.75*\Size,-0.2\Size-5pt);  
+		\filldraw[draw=folderborder,top color=folderbg!50,bottom color=folderbg]
+		(-1.15*\Size,-\Size) rectangle (1.15*\Size,\Size);
+	}
+}
+
+%Pacotes de comentários e mudanças
+% Margem aumentada para receber comentários sem reclamar muito
+\setlength{\marginparwidth}{2cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Packages for tracking changes
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Package para acompanhar mudanças e sugestões no texto
+%% Use opção "final" para remover todos os comentários do texto 
+% \usepackage[final]{changes}
+\usepackage[draft, markup=underlined]{changes} 
+\definechangesauthor[name={Bruno}, color=violet]{Bruno}
+\definechangesauthor[name={Hari}, color=purple]{Hari}
+\definechangesauthor[name={Salvor}, color=olive]{Salvor}
+
