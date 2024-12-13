@@ -7,7 +7,7 @@ Este capítulo apresenta uma visão geral deste trabalho, destacando a contextua
 
 A prática de resolver exercícios é amplamente reconhecida como uma das estratégias mais eficazes para melhorar o desempenho acadêmico e aumentar as chances de aprovação. Estudos focados em questões de programação demonstram que estudantes que se dedicam regularmente à resolução de problemas e à revisão dos conteúdos alcançam resultados excelentes em avaliações e desenvolvem uma compreensão mais aprofundada dos temas abordados \parencite{Ahadi2016}. Por outro lado,  aqueles que não possuem o hábito de resolver exercícios frequentemente apresentam um desempenho inferior, reforçando a importância de praticar exercícios, uma vez que esta prática oferece uma base sólida para prática e aprendizado contínuo,  especialmente no contexto do ensino de programação \parencite{Edwards2019}.  
 
-Neste sentido, a existência de um banco de questões é essencial, visto que esta ferramenta facilita o acesso a exercícios de qualidade e promove uma prática indispensável para aprimorar o processo de avaliação e também reduzir a sobrecarga dos docentes, especialmente em contextos que exigem avaliações frequentes. Segundo   \parencite{Puthiaparampil2020} , a ausência de um banco de questões estruturado leva os docentes a construir questões  para cada avaliação, seja ela inédita ou adaptada,  demandando a esta tarefa um esforço significativo em termos de tempo e recursos, além de dificultar a consistência e a padronização das avaliações. Então por que não construir um sistema que gere questões de forma automática e ofereça um feedback personalizado para o aluno em tempo real ? Neste cenário, surgem técnicas e ferramentas voltadas à geração automática de questões, como mencionam \parencite{kurdi2020} e \parencite{sewunetie2022}  que buscam reduzir os custos e tornar o processo de construção de questões mais rápido e escalável. Além disso, ferramentas projetadas para fornecer feedback automatizado e detalhado para exercícios de programação ganham destaque, especialmente porque, em cenários com turmas muito grandes, o feedback manual exige muitos recursos em termos de tempo, esforço e número de avaliadores \parencite{vanpraet2024} e \parencite{fung2024}.   
+Neste sentido, a existência de um banco de questões é essencial, visto que esta ferramenta facilita o acesso a exercícios de qualidade e promove uma prática indispensável para aprimorar o processo de avaliação e também reduzir a sobrecarga dos docentes, especialmente em contextos que exigem avaliações frequentes. Segundo   \parencite{Puthiaparampil2020} , a ausência de um banco de questões estruturado leva os docentes a construir questões  para cada avaliação, seja ela inédita ou adaptada,  demandando a esta tarefa um esforço significativo em termos de tempo e recursos, além de dificultar a consistência e a padronização das avaliações. Então por que não construir um sistema que gere questões de forma automática e ofereça um feedback personalizado para o aluno em tempo real ? Neste cenário, surgem técnicas e ferramentas voltadas à geração automática de questões, como mencionam \parencite{kurdi2020} e \parencite{sewunetie2022}  que buscam reduzir os custos e tornar o processo de construção de questões mais rápido e escalável. Além disso, ferramentas projetadas para fornecer feedback automatizado e detalhado para exercícios de programação ganham destaque, especialmente porque, em cenários com turmas muito grandes, o feedback manual exige muitos recursos em termos de tempo, esforço e número de avaliadores \parencite{vanpraet2024} e \parencite{fung2024}.   Neste sentido, a Inteligência Artificial (IA) generativa, desempenha um papel fundamental, tanto na criação de conteúdos quanto no oferecimento de orientações pontuais para o estudante, esta ferramenta tem sido amplamente utilizada para oferecer orientações, dicas de resolução e explicações detalhadas, o uso moderado dessa ferramente tem contribuindo significativamente para a melhoria do desempenho dos estudantes conforme citado por (GERALDINHO, 2024).
 
 
 \section{Problema}
@@ -24,12 +24,22 @@ Templates são estruturas base para criação de questões, eles funcionam como 
 
 \section{Objetivo Geral}
 
-O objetivo deste trabalho é desenvolver um sistema inteligente para geração automática de  questões de programação, capaz de criar questões diversificadas e contextualizadas a partir de templates multicamadas, e com o auxilio da Inteligencia Artificial Generativa para diversificar o contexto das questões e fornecer feedback detalhado em tempo real aos estudantes. 
-
+O objetivo geral deste trabalho é desenvolver um sistema inteligente para a geração automática de questões de programação que, a partir de templates multicamadas, seja capaz de produzir questões diversificadas e contextualizadas. Com o apoio da Inteligência Artificial Generativa, o sistema irá adicionar novos contextos para as questões geradas e fornecer feedback detalhado em tempo real sobre as respostas.
 
 \section{Objetivos Específicos}
 
+Os objetivos específicos deste trabalho foram definidos para orientar o desenvolvimento desta pesquisa. Eles incluem:
 
+\begin{enumerate}[label=\textbf{\alph*)}]
+    \item \textbf{Trabalhos Relacionados}: trata-se de uma pesquisa dos avanços e trabalhos mais recentes na área de geração automática de questões, realizada em duas etapas principais:
+(i) triagem inicial de títulos e resumos para selecionar os trabalhos mais recentes e, em seguida;
+(ii) uma leitura aprofundada dos textos selecionados, avaliando suas contribuições, limitações,
+metodologias e alinhamento com os objetivos desta pesquisa. 
+É importante salientar que que não se trata de uma revisão sistemática, mais de um mapeamento de referencias que fornecerá uma base teórica necessária para o desenvolvimento dos templates e da ferramenta proposta.
+    \item \textbf{Desenvolver os templates de múltiplas camadas :}  O segundo objetivo é construir templates de múltiplas camadas para geração automática de questões de programação, projetos para incorporar diferentes elementos, como variáveis, e elementos hierárquicos que possibilitam maior complexidade abrangência das questões geradas. 
+    \item \textbf{Implementar o mecanismo de combinação:} o terceiro objetivo é desenvolver um mecanismo automatizado que simplifique a complexidade na definição de possíveis combinações de valores permitidos nas questões de programação geradas. Essa técnica facilita o controle e a gestão das variações dentro dos templates, permitindo definir combinações de elementos variáveis utilizados nas questões.
+    \item 
+\end{enumerate}
 
 
 \section{Questões de Pesquisa}
