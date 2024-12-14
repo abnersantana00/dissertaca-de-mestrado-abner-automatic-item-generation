@@ -11,10 +11,19 @@ A primeira etapa desta pesquisa consiste em explorar trabalhos recentes na liter
 \section{\textbf{ Desenvolvimento da Ferramenta} }
 Na segunda etapa, envolve a construção de um sistema para executar os templates de programação, que seja capaz de gerar questões diversificadas e contextualizadas. E em conjunto, será utilizado como auxilio, um mecanismo de combinação que facilita as combinações dos elementos das questões, e o uso de \gls{ia} generativa para recomendar diversos pontos de variação em cada ponto modificável do template. Após a apresentação da questão e a resposta do aluno, a \gls{ia}  generativa fornecerá um feedback detalhado em tempo real. Estas etapas envolvem: 
 
-(A)
-(B)
-(C)
-(D)
-E CONITNUA...
-A META É : TRABALHOS RELACIONADOS, FUNDAMENTAÇÃO TEORICA E PROPOSTA CONCEITUAL (SABADO)
-DOMINGO : PROPOSTA DE FERRAMENTA, ESTUDO DE CASO, CONSIDERAÇÕES FINAIS E TRABALHOS FUTUROS.
+
+\begin{enumerate}[label=\textbf{\alph*)}]
+    \item \textbf{Design dos templates :}  Implementação de templates em multicamadas que combine diferentes elementos para criar questões variadas.  
+    \item \textbf{Implementação técnica :}  Utilização da linguagem de programação python, bibliotecas e o framework Django, foi escolhidos por serem tecnologias de software livre que oferecem alto desempenho, reuso de software e separação eficiente das camadas do sistema (Rubio, 2017)
+    \item \textbf{Formato dos dados :}  Após comparar JSON e XML, foi escolhido o JSON para estruturar os templates, devido à sua estrutura leve e eficiente, que melhora o desempenho e a velocidade de carregamento das páginas (Goyal et al, 2017 ; Wang, 2011)
+    \item \textbf{Estudo de Caso :}  Para avaliar a solução proposta, será conduzido um experimento prático envolvendo professores e participantes, o estudo tem como objetivo analisar a efetividade dos templates de múltiplas camadas na geração de questões de programação, comparado com as questões elaboradas manualmente. O estudo de caso será realizado com base no seguinte plano:
+
+    \item \textbf{Formato dos dados :}  Após comparar JSON e XML, foi escolhido o JSON para estruturar os templates, devido à sua estrutura leve e eficiente, que melhora o desempenho e a velocidade de carregamento das páginas (Goyal et al, 2017 ; Wang, 2011)
+    \item \textbf{Participantes :}  Professores e alunos interessados, para os professores serão orientados a criar templates utilizando a ferramenta desenvolvida, serão instruídos de como estruturar o template e os pontos de variação. Os alunos resolverão as questões geradas automaticamente a partir desses templates, baseado nos tópicos abordados na disciplina de introdução à programação. Os conteúdos das questões incluem: entrada e saída, operadores lógicos, estruturas condicionais, laços de repetição e funções. 
+    \item \textbf{Aplicação dos templates :} Durante o estudo de caso, os professores participarão de práticas de desenvolvimento de templates com o intuito de entender o funcionamento, criar novos modelos e contribuir para geração de novas questões. E os participantes interessados resolverão as questões geradas, submetendo suas respostas no ambiente digital. A ferramenta fornecerá um feedback imediato e automatizado para os alunos com o intuito de avaliar a resposta submetida.
+    \item \textbf{Coleta de dados  :} A coleta de dados será realizada utilizando métodos qualitativos e quantitativos. Questionários serão aplicados aos participantes para avaliar a clareza, relevância das questões geradas. Além disso, serão realizadas entrevistas com professores para que possam identificar os desafios, esforços, limitações e benefícios percebidos durante a criação e utilização dos templates. E por último, será analisado o desempenho dos participantes durante a resolução de questões, considerando o feedback fornecido pela ferramenta.
+
+\end{enumerate}
+
+Este estudo de caso busca evidenciar os benefícios da abordagem baseada em templates, como a redução do esforço na elaboração de questões, a diversidade das questões geradas e a melhoria do engajamento dos alunos com feedback em tempo real. O experimento também permitirá identificar limitações na solução proposta, fornecendo base para ajustes futuros. Esses resultados responderão às questões de pesquisa sobre as vantagens da geração automática de questões (\textbf{QP1}), os desafios da criação de templates (\textbf{QP3}) e a comparação com questões manuais (\textbf{QP4}).
+
