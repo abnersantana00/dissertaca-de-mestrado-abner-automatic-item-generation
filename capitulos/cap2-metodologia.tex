@@ -16,46 +16,35 @@ Nesta seção, são descritas as principais etapas do desenvolvimento do sistema
 
 \begin{enumerate}[label=\textbf{\alph*)}]
     \item \textbf{Design dos templates :}  A criação e implementação de templates multicamadas que combinem diferentes componentes (como enunciados, variáveis, contextos e níveis de dificuldade) para geração de questões diversas, adequadas às necessidades do ensino de programação.
-    \item \textbf{Uso da IA generativa} : Aplicação de técnicas de \gls{ia} generativa para auxiliar na recomendação de pontos de variação nos templates, permitindo a diversificação das questões, bem como na geração de feedback detalhado e imediato sobre as respostas dos alunos após a submissão de suas respostas. 
-    \item \textbf{Implementação técnica :}  Utilização da linguagem de programação Python, utilizando bibliotecas e o framework Django. Estes recursos, por serem de código aberto e amplamente documentados foi escolhidos por serem tecnologias de software livre que oferecem alto desempenho, reuso de software e separação eficiente das camadas do sistema, conforme discutido por  \parencite{rubio2017}
-    \item \textbf{Formato dos dados :}  Após comparar JSON e XML, foi escolhido o JSON para estruturar os templates, devido à sua leveza e eficiência. Essa escolha reduz o tempo de carregamento das páginas e melhora o desempenho do sistema, corroborando as evidencias apontadas por  \parencite{goyal2017} e \parencite{wang2011} .
+    \item \textbf{Uso da IA generativa} : Aplicação de técnicas de \gls{ia} generativa para auxiliar na recomendação de pontos de variação nos templates, permitindo a diversificação das questões. Além disso, a \gls{ia} generativa será empregada para fornecer feedback imediato e detalhado aos estudantes após a submissão de suas respostas.
+    \item \textbf{Implementação técnica :}  Utilização da linguagem de programação Python, utilizando bibliotecas e o framework Django. Estes recursos, por serem de código aberto e amplamente documentados, foi escolhidos por serem tecnologias de software livre que oferecem alto desempenho, reuso de software e separação eficiente das camadas do sistema, conforme discutido por  \parencite{rubio2017}
+    \item \textbf{Formato dos dados :}  Após comparar \gls{json} e \gls{xml}, foi escolhido o JSON para estruturar os templates, devido à sua leveza e eficiência. Essa escolha reduz o tempo de carregamento das páginas e melhora o desempenho do sistema, corroborando as evidencias apontadas por  \parencite{goyal2017} e \parencite{wang2011} .
 \end{enumerate}
 
 \section{Execução do Estudo de Caso}
 
+Nesta seção, serão apresentados os principais aspectos do estudo de caso, que busca avaliar a efetividade dos templates, coletando dados qualitativos e quantitativos para analisar desempenho, clareza e relevância das questões geradas. 
+
 \begin{enumerate}[label=\textbf{\alph*)}]
-    \item \textbf{Planejamento e metodologia :}  O estudo de caso será conduzido com o objetivo de avaliar a efetividade dos templates multicamadas e do sistema de geração automática de questões. A metodologia incluirá a aplicação prática dos templates e a coleta de dados qualitativos e quantitativos para análise de desempenho, clareza e relevância das questões geradas. 
+    \item \textbf{Planejamento e Metodologia:}  
+    O estudo de caso será conduzido com o objetivo de avaliar a efetividade dos templates multicamadas e do sistema de geração automática de questões. A metodologia incluirá a aplicação prática dos templates e a coleta de dados qualitativos e quantitativos para análise de desempenho, dificuldade, clareza e relevância das questões geradas. 
 
-    \item \textbf{Participantes do Estudo:}  Os participantes serão professores e alunos de disciplinas introdutórias de programação.
+    \item \textbf{Participantes do Estudo:}  
+    Os participantes serão professores da área de computação, que lecionam disciplinas introdutórias de programação. Eles serão responsáveis por criar templates utilizando a ferramenta desenvolvida, com instruções específicas para estruturar pontos de variação nos modelos. As questões serão geradas a partir dos templates criados, abrangendo temas como entrada e saída, operadores lógicos, estruturas condicionais, laços de repetição e funções.
 
-\begin{itemize}
-    \item Professores: Responsáveis por criar templates utilizando a ferramenta desenvolvida, com instruções específicas para estruturar pontos de variação nos modelos.
-    \item Alunos: Resolverão questões geradas automaticamente a partir dos templates criados, abrangendo temas como entrada e saída, operadores lógicos, estruturas condicionais, laços de repetição e funções.
-\end{itemize}
- 
-    \item \textbf{Aplicação dos Templates: }  Os professores participarão de práticas de desenvolvimento dos templates, explorando o funcionamento da ferramenta e contribuindo com novos modelos. Os alunos utilizarão os templates para resolver questões no ambiente digital, submetendo suas respostas e recebendo feedback imediato gerado pela ferramenta. 
-    \item \textbf{Coleta e Análise de Dados :} coleta de dados será realizada de maneira mista:
+    \item \textbf{Aplicação dos Templates:}  
+    Os professores participarão de atividades práticas de desenvolvimento de templates, explorando o funcionamento da ferramenta e contribuindo com a criação de novos modelos. As questões geradas pelos templates serão respondidas, permitindo aos participantes submeterem suas respostas e receberem feedback detalhado fornecido com o auxílio da Inteligência Artificial Generativa.
 
-\begin{itemize}
-    \item Qualitativa: Aplicação de questionários para avaliar a clareza e relevância das questões geradas, além de entrevistas com professores para identificar desafios, esforços, limitações e benefícios percebidos durante a criação e uso dos templates.
-    \item Quantitativa: Análise do desempenho dos alunos durante a resolução das questões, considerando o impacto do feedback automatizado no aprendizado.
-\end{itemize}
-
-
+    \item \textbf{Coleta e Análise de Dados:}  
+    A coleta de dados será realizada de maneira mista:
+    \begin{itemize}
+        \item \textbf{Qualitativa:} Aplicação de questionários para avaliar a clareza e relevância das questões geradas, além de entrevistas com professores para identificar desafios, esforços, limitações e benefícios percebidos durante a criação e uso dos templates.
+        \item \textbf{Quantitativa:} Análise do desempenho dos participantes durante a resolução das questões, considerando o impacto do feedback automatizado no aprendizado.
+    \end{itemize}
 \end{enumerate}
+
 
 \section{Resultados Esperados}
 
-1. Benefícios da Abordagem Baseada em Templates
-
-\begin{itemize}
-    \item Redução do esforço necessário para elaborar questões manualmente.
-    \item Aumento da diversidade e contextualização das questões geradas.
-    \item Melhoria no engajamento dos alunos, devido à disponibilização de feedback imediato e personalizado.
-\end{itemize}
-2. Identificação de Limitações e Oportunidades de Melhorias
-
-
-Ao término do estudo, será possível responder às questões de pesquisa relativas às vantagens da geração automática de questões (QP1), aos desafios inerentes à criação de templates (QP3) e à comparação entre questões geradas automaticamente e questões manuais (QP4). Assim, o estudo contribuirá tanto para a validação da abordagem quanto para a orientação de futuros aperfeiçoamentos. 
- O estudo também buscará identificar desafios e limitações do sistema, como possíveis dificuldades na criação de templates ou limitações na variedade das questões geradas, oferecendo subsídios para aprimoramento da ferramenta.
-
+A abordagem baseada em templates multicamadas proporciona diversos benefícios significativos para o processo de aprendizagem, incluindo a redução do esforço necessário para elaborar questões manualmente, o aumento da diversidade e contextualização das questões geradas, e a melhoria no engajamento dos alunos devido à disponibilização de feedback da resposta em tempo real.
+Ao término do estudo, será possível responder às questões de pesquisa relativas às vantagens da geração automática de questões (QP1), aos desafios inerentes à criação de templates (QP3) e à comparação entre questões geradas automaticamente e questões manuais (QP4). Assim, o estudo contribuirá tanto Identificar Limitações e Oportunidades de Melhorias e orientação de trabalhos futuros.
