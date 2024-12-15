@@ -5,23 +5,25 @@ Este estudo adota uma abordagem aplicada, com o objetivo de gerar conhecimento p
 
 \section{Pesquisa de Trabalhos Relacionados}
 
-A primeira etapa desta pesquisa consiste em explorar trabalhos recentes na literatura, a fim de conhecer o estado da arte e reunir a base teórica para o desenvolvimento deste estudo. Nesse processo, será realizada uma triagem com base em palavras-chave, selecionando os trabalhos por meio da análise dos títulos e resumos, seguida de uma leitura aprofundada dos trabalhos escolhidos. Essa abordagem permite identificar contribuições, desafios e lacunas relacionados à geração automática de questões de programação, fornecendo a base para responder à questão de pesquisa \textbf{QP2}. 
+A primeira etapa desta pesquisa consiste em explorar trabalhos recentes na literatura, a fim de conhecer o estado da arte e reunir a base teórica para o desenvolvimento deste estudo. Nesse processo, será realizada uma triagem com base em palavras-chave, selecionando os trabalhos por meio da análise dos títulos e resumos, seguida de uma leitura aprofundada dos trabalhos escolhidos. Essa abordagem permite identificar contribuições, desafios e lacunas relacionados à geração automática de questões de programação, fornecendo a base para responder à questão de pesquisa (\textbf{QP2}). 
 
 
-\section{\textbf{ Desenvolvimento da Ferramenta} }
-Na segunda etapa, envolve a construção de um sistema para executar os templates de programação, que seja capaz de gerar questões diversificadas e contextualizadas. E em conjunto, será utilizado como auxilio, um mecanismo de combinação que facilita as combinações dos elementos das questões, e o uso de \gls{ia} generativa para recomendar diversos pontos de variação em cada ponto modificável do template. Após a apresentação da questão e a resposta do aluno, a \gls{ia}  generativa fornecerá um feedback detalhado em tempo real. Estas etapas envolvem: 
+\section{Desenvolvimento da Ferramenta}
+Na segunda etapa, envolve a construção de um sistema capaz de executar os templates de programação com o objetivo de gerar questões diversificadas e contextualizadas. E em conjunto, será utilizado como auxilio, um mecanismo de combinação que facilita as combinações dos elementos das questões, e o uso da \gls{ia} generativa para recomendar diversos pontos de variação em cada ponto modificável do template. Após a apresentação das questão gerada e a submissão da resposta pelo aluno, a \gls{ia}  generativa fornecerá um feedback detalhado em tempo real, contribuindo para um processo de aprendizagem mais dinâmico. Estas etapas envolvem: 
 
-\subsection{\textbf{Etapas do Desenvolvimento}}
+\subsection{Etapas do Desenvolvimento}
+Nesta seção, são descritas as principais etapas do desenvolvimento do sistema, destacando os elementos centrais que compõem o processo de criação e implementação: 
 
 \begin{enumerate}[label=\textbf{\alph*)}]
-    \item \textbf{Design dos templates :}  Criação e implementação de templates multicamadas que combinem diferentes elementos, permitindo a geração de questões variadas e contextualizadas de programação. 
-    \item \textbf{Uso da IA generativa} : Emprego de técnicas de \gls{ia} generativa para auxiliar na recomendação de pontos de variação nos templates, permitindo a diversificação das questões, bem como na geração de feedback detalhado e imediato sobre as respostas dos alunos. 
-    \item \textbf{Implementação técnica :}  Utilização da linguagem de programação python, bibliotecas e o framework Django, foi escolhidos por serem tecnologias de software livre que oferecem alto desempenho, reuso de software e separação eficiente das camadas do sistema  \parencite{rubio2017}
-    \item \textbf{Formato dos dados :}  Após comparar JSON e XML, foi escolhido o JSON para estruturar os templates, devido à sua estrutura leve e eficiente, que melhora o desempenho e a velocidade de carregamento das páginas \parencite{goyal2017} e \parencite{wang2011} .
+    \item \textbf{Design dos templates :}  A criação e implementação de templates multicamadas que combinem diferentes componentes (como enunciados, variáveis, contextos e níveis de dificuldade) para geração de questões diversas, adequadas às necessidades do ensino de programação.
+    \item \textbf{Uso da IA generativa} : Aplicação de técnicas de \gls{ia} generativa para auxiliar na recomendação de pontos de variação nos templates, permitindo a diversificação das questões, bem como na geração de feedback detalhado e imediato sobre as respostas dos alunos após a submissão de suas respostas. 
+    \item \textbf{Implementação técnica :}  Utilização da linguagem de programação Python, utilizando bibliotecas e o framework Django. Estes recursos, por serem de código aberto e amplamente documentados foi escolhidos por serem tecnologias de software livre que oferecem alto desempenho, reuso de software e separação eficiente das camadas do sistema, conforme discutido por  \parencite{rubio2017}
+    \item \textbf{Formato dos dados :}  Após comparar JSON e XML, foi escolhido o JSON para estruturar os templates, devido à sua leveza e eficiência. Essa escolha reduz o tempo de carregamento das páginas e melhora o desempenho do sistema, corroborando as evidencias apontadas por  \parencite{goyal2017} e \parencite{wang2011} .
+\end{enumerate}
 
-    \subsection{\textbf{Execução do Estudo de Caso}}
+\section{Execução do Estudo de Caso}
 
-
+\begin{enumerate}[label=\textbf{\alph*)}]
     \item \textbf{Planejamento e metodologia :}  O estudo de caso será conduzido com o objetivo de avaliar a efetividade dos templates multicamadas e do sistema de geração automática de questões. A metodologia incluirá a aplicação prática dos templates e a coleta de dados qualitativos e quantitativos para análise de desempenho, clareza e relevância das questões geradas. 
 
     \item \textbf{Participantes do Estudo:}  Os participantes serão professores e alunos de disciplinas introdutórias de programação.
@@ -42,7 +44,7 @@ Na segunda etapa, envolve a construção de um sistema para executar os template
 
 \end{enumerate}
 
-\subsection{\textbf{Resultados Esperados}}
+\section{Resultados Esperados}
 
 1. Benefícios da Abordagem Baseada em Templates
 
@@ -53,7 +55,7 @@ Na segunda etapa, envolve a construção de um sistema para executar os template
 \end{itemize}
 2. Identificação de Limitações e Oportunidades de Melhorias
 
-O estudo também buscará identificar desafios e limitações do sistema, como possíveis dificuldades na criação de templates ou limitações na variedade das questões geradas, oferecendo subsídios para aprimoramento da ferramenta.
 
- 
+Ao término do estudo, será possível responder às questões de pesquisa relativas às vantagens da geração automática de questões (QP1), aos desafios inerentes à criação de templates (QP3) e à comparação entre questões geradas automaticamente e questões manuais (QP4). Assim, o estudo contribuirá tanto para a validação da abordagem quanto para a orientação de futuros aperfeiçoamentos. 
+ O estudo também buscará identificar desafios e limitações do sistema, como possíveis dificuldades na criação de templates ou limitações na variedade das questões geradas, oferecendo subsídios para aprimoramento da ferramenta.
 
