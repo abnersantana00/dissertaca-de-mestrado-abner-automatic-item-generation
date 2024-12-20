@@ -58,6 +58,30 @@ O trabalho de \parencite{teubl2021}  apresenta o \textbf{MakeTests}, uma ferrame
 \cite {lehtinen2021} propuseram um modelo para gerar perguntas automáticas baseadas no código escrito por estudantes, conhecido como  \gls{qlcs}. O processo utiliza análise estática e dinâmica do código em conjunto com templates predefinidos para criar questões personalizadas e relevantes. Primeiramente, o código do estudante é analisado para identificar elementos padrões, como estruturas condicionais, loops, variáveis e saídas. Com base nesses elementos, o sistema seleciona templates adequados e preenche-os automaticamente com informações específicas do código analisado. Esta abordagem melhorar a compreensão dos alunos sobre seus próprios códigos. 
 
  \subsection{\text{Saatz 2024}}
-AJEITAR ISSO AQUI .... Fulanminho fez isso e isso iessso e eu proponho isso (uma tabela) Tabela comparativa mostrando o que eu tenho que eles não tem.
+Como proposto por Saatz (2024), a geração automática de questões pode ser usada para resolução de problemas em contextos de computação  por meio de um fluxo de trabalho estruturado em duas etapas. O autor apresenta uma abordagem baseada em modelos no primeiro estágio e no uso de \textit{templates}  no segundo para criar questões níveis de dificuldade controlada, evitando repetitividade e possíveis fraudes nas avaliações. Como principais contribuições, destaca-se a separação entre conteúdo, modelo de domínio e parâmetros de apresentação, a flexibilização na criação de diferentes tipos de questão e a simplificação do processo de criação de grandes de questões. Entre as perspectivas futuras, destaca-se a necessidade da integração com ferramentas de inteligência artificial para aprimorar personalização do feedback dos estudantes. 
 
+
+\section{\text{Analise comparativa}}
+
+Na análise comparativa apresentada na Tabela \ref{tab:table-comparativa-trabalhos-selecionados}, embora todos os trabalhos selecionados utilizam templates para gerar questões, no entando, não adotam uma abordagem multicamadas nem fazem uso de IA Generativa para criação de variações nas questões. Além disso, não foram encontrados estudos que utilizem templates combinados com IA Generativa para sugerir variações e gerar feedback automatizado especificamente no contexto de geração de questões de programação. 
+
+Na análise comparativa apresentada na Tabela \textbackslash{}ref\{tab:table-comparativa-trabalhos-selecionados\}, é evidente  que, embora todos os trabalhos selecionados utilizem templates para a geração de questões, nenhum deles adota uma abordagem multicamadas ou faz uso de IA generativa para criar variações nas questões. Além disso, não foram encontrados estudos que combinem templates com IA generativa para sugerir variações e fornecer feedback automatizado, especialmente no contexto da geração de questões de programação. 
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|l|c|c|c|}
+        \hline
+        Autor& Templates & Multicamadas & IA Generativa \\ \hline
+        Zavala e Mendoza 2018& \faCheck & \faClose& \faClose\\ \hline 
+        Zavala e Mendoza 2023 & \faCheck&  \faClose& \faClose\\ \hline
+        Teubl, Ramos Batista e Zampirolli 2021 & \faCheck& \faClose& \faClose\\\hline
+ Lehtinen, Santos e SorvaSaatz 2024 & \faCheck & \faClose&\faClose \\\hline
+    \end{tabular}
+    \caption{Tabela Comparativa dos Trabalhos Selecionados}
+    \label{tab:table-comparativa-trabalhos-selecionados}
+\end{table}
+
+
+
+No entanto, em áreas da saúde como medicina, a aplicação de templates multicamadas e IA generativa na geração automática de questões e feedback automatizado são uma prática amplamente utilizada. Estudos como \parencite{falcao2023} e \parencite{kiyak2024} indicam que a IA generativa pode produzir questões de alta qualidade, contribuindo tanto para avaliação quanto para a melhoria da qualidade das questões geradas. Esses avanços indicam que, se funcionou na área de medicina, é provável que a geração automática de questões também tenha grande potencial na área de programação. Esses resultados apontam um potencial semelhante na área da programação. Entretanto, essa oportunidade ainda necessita iniciativas de pesquisadores e desenvolvedores dispostos a adaptar e aplicar as metodologias validadas na medicina ao contexto do desenvolvimento de questões de programação. 
 
