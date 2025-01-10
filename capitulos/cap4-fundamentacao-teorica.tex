@@ -1,4 +1,39 @@
 % Capítulo 4
 \chapter{Fundamentação Teórica}\label{cap:fundamentacao-teorica}
 
-A estrutura deste capítulo segue uma introdução aos conceitos-chave e uma explicação de cada seção. Serão abordados os fundamentos teóricos que embasam o desenvolvimento e a aplicação de dois modelos, o modelo cognitivo e modelos de templates multicamadas na geração automática de questões. Cada subseção explicará conceitos essenciais como o modelo e o modelo de template em multicamadas.   
+Este capítulo está organizado para introduzir os conceitos-chave e explicar detalhadamente cada seção. Serão apresentados os fundamentos teóricos que sustentam o desenvolvimento e a aplicação de dois modelos fundamentais para a implementação da proposta: o modelo cognitivo e o modelo de template multicamadas para geração automática de questões. Cada subseção abordará os conceitos essenciais relacionados a esses modelos, detalhando suas características, funcionamento e contribuições para o objetivo final do estudo.
+
+\section{Modelo Cognitivo}
+A construção de questões em larga escala, por meio de processos automatizados, tem-se tornado uma prática cada vez mais relevante na área de avaliações educacionais. Nesse contexto, a elaboração de um modelo cognitivo sólido constitui um passo fundamental para embasar a Geração Automática de Questões (\gls{aig}). De modo geral, modelos cognitivos podem ser definidos como descrições explícitas de como os estudantes processam informações e resolvem tarefas específicas, envolvendo as habilidades e os raciocínios que se espera que demonstrem em uma dada questão. O processo de construção desse modelo, conforme discutido por \parencite{gierl2021}, consiste em identificar, organizar e documentar de forma sistematizada os conceitos, parâmetros e restrições que caracterizam tanto a criação de uma questão quanto a forma como os estudantes são esperados a resolvê-la.
+
+A relevância do modelo cognitivo torna-se ainda mais evidente quando se busca a replicabilidade e a qualidade das questões geradas em larga escala. Esse detalhamento fornece a base para a elaboração dos templates, os quais orientam a criação de questões capazes de manter o mesmo nível de complexidade, exigência cognitiva e alinhamento ao conteúdo que se deseja avaliar. Dessa forma, o modelo cognitivo funciona como um roteiro que descreve tanto os conteúdos — por exemplo, conceitos matemáticos, definições, habilidades e fontes de informação — quanto a lógica do enunciado — tais como regras, restrições e variações — que são necessárias para que o sistema produza questões de maneira consistente.
+
+O modelo cognitivo é a base fundamental para a criação dos templates, pois organiza e descreve todos os elementos necessários para sua construção. Os templates, por sua vez, atuam como estruturas que convertem essas informações de forma efetiva, resultando em questões de avaliação individual claras e alinhadas aos objetivos de ensino.
+
+
+\section{Estrutura do Modelo Cognitivo}
+
+O modelo cognitivo é o elemento base para processo da geração automática de questões, pois determina as diretrizes de como o conhecimento e as habilidades devem ser organizados para criar questões em larga escala \cite{gierl2016, gierl2017, gierlbulutzhang2018, keehner2017}. É a partir desse modelo que se definem, de maneira estruturada, aspectos como:
+
+\begin{itemize} \item Conteúdos a serem avaliados (conceitos, regras e relações); \item Habilidades e processos de pensamento esperados dos estudantes (como identificar, analisar, resolver problemas); \item Restrições e parâmetros de combinação (limites numéricos, coerência semântica, condições mínimas para a aplicação de um conceito). \end{itemize}
+
+
+
+\section{Relação do Modelo Cognitiva e Construção de Templates }
+
+Por outro lado, os \textit{templates} são estruturas que convertem o modelo cognitivo em modelos práticos de questões \cite{gierl2024}. Cada \textit{template} especifica como as informações do modelo serão incorporadas ao enunciado e às alternativas (corretas e incorretas). Assim, a relação entre o modelo cognitivo e os \textit{templates} pode ser resumida nos seguintes pontos:
+
+\begin{enumerate} \item \textbf{Definição de elementos básicos de uma questão:} O modelo cognitivo descreve quais componentes (por exemplo, dados quantitativos, termos-chave, situações-problema) precisam estar presentes para que o item seja relevante e alinhado aos objetivos pedagógicos. O \textit{template} organiza esses componentes em uma estrutura pronta para gerar diferentes versões de questão \cite{lane2016}.
+\item \textbf{Combinação e manipulação de parâmetros:} Enquanto o modelo cognitivo define as regras de como os conteúdos e as habilidades podem ser combinados (por exemplo, valores ou conceitos que podem variar para alterar a dificuldade de um item), o \textit{template} coloca essas regras em prática. Em outras palavras, integra os diversos elementos para criar itens com diferentes níveis de complexidade, mantendo a coerência com a proposta original \cite{embretson2017}.
+
+\item \textbf{Padronização e escalabilidade:} A adoção de um modelo cognitivo bem elaborado facilita a padronização do processo de elaboração de itens em grande escala. Como os \textit{templates} seguem o mesmo conjunto de regras e estruturas, as questões criadas tendem a manter consistência em termos de conteúdo, formato e nível de exigência cognitiva \cite{gierl2016, gierl2017}.
+
+\item \textbf{Validação e ajustes contínuos:} Se um \textit{template} gerar um item que se revele muito fácil ou muito difícil, é possível identificar rapidamente se o problema está no modelo cognitivo ou no próprio \textit{template}, permitindo o ajuste da regra que originou a inconsistência. Dessa forma, a correção ocorre em nível conceitual (no modelo) ou técnico (na estrutura do \textit{template}), preservando a qualidade dos itens e mantendo-os alinhados aos propósitos da avaliação \cite{gierlbulutzhang2018}.
+\end{enumerate}
+Em síntese, o modelo cognitivo oferece a base teórica e estrutural, descrevendo de forma clara o que e por que está sendo avaliado, enquanto o \textit{template} representa a forma de aplicação prática dessas informações na formulação das questões \cite{gierl2024}. Essa integração torna a Geração Automática de Questões mais sólida, pois cada item criado segue a mesma lógica e mantém um padrão de qualidade, contribuindo para avaliações mais consistentes e confiáveis.
+
+\section{Modelo de Template}
+
+\subsubsection{Template 1-Layer}
+\subsubsection{Template N-Layers}
+
