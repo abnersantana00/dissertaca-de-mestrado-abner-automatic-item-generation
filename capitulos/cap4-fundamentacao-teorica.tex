@@ -28,17 +28,20 @@ As fontes de informação constituem o conjunto de conteúdos e matérias que po
 
 
 
-As características (\textit{features}) são atributos fundamentais que compõem cada variável do modelo cognitivo. Elas definem os aspectos variáveis que podem ser ajustados na criação dos templates. Na prática,cada característica é composta por elementos, valores e restrições específicas:
+As características (\textit{features}) são atributos fundamentais que compõem os as dimensões ou variáveis variável do modelo cognitivo. Elas definem os aspectos que podem ser ajustados na criação dos templates. Na prática,cada característica é composta por elementos, valores e restrições:
 
 
-As \emph{características} são as dimensões ou variáveis relevantes para a criação de novas questões. Em um problema de razão, por exemplo, tais características podem envolver “número de elementos do conjunto”, “tipo de operação aritmética” e “faixa numérica permitida”.
+\subsubsection{Elementos}
+Representam os componentes básicos de cada característica. Podem ser, por exemplo, uma variável numérica, um trecho de código ou um termo técnico relevante para a questão. Os elementos ajudam a identificar claramente as informações que serão utilizadas na formulação das questões.
 
-\subsection{Elementos (Elements) e Valores (Values)}
-Cada característica contém \emph{Elementos}, que são as unidades específicas de conteúdo. No caso de um intervalo numérico de 2 a 8, cada valor inteiro (2, 3, 4, etc.) pode ser um elemento. Esses valores podem ser numéricos ou textuais, a depender do tipo de teste. A ideia é possibilitar combinações variadas de elementos que resultem em questões diversas, mas que mensurem a mesma competência.
 
-\subsection{Restrições (Constraints)}
+\subsubsection{Valores}
+São as diferentes opções que cada elemento pode assumir. Podem ser números, palavras-chave ou formatos específicos, como tipos de laços de repetição em programação (por exemplo, \texttt{for}, \texttt{while}, \texttt{do-while}). Os valores determinam as variações possíveis de um elemento, permitindo a geração de questões diversificadas.
+
+\subsubsection{Restrições (\textit{Constraints})}
 As restrições estabelecem as regras que evitam combinações de elementos que gerem itens inválidos ou sem sentido. Por exemplo, é possível restringir a geração de problemas que incluam números negativos quando o objetivo for mensurar apenas operações básicas com inteiros positivos. Essas regras impedem a geração aleatória e asseguram a criação de itens alinhados às metas instrucionais e ao nível de dificuldade desejado.
 
+As restrições estabelecem regras ou condições que limitam como os elementos e seus valores podem ser combinados de tal forma que evite a construção de questões sem lógica, inválidas ou sem sentido. É esperado que com as restrições, as combinações resultantes durante a geração sejam coerentes e significativas. 
 
 % ----------------------------------------------------------
 % Trechos da Seção 5 (Avaliação do Modelo)
