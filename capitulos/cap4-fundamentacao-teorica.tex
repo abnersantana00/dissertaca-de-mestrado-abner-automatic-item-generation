@@ -4,15 +4,57 @@
 Este capítulo está organizado para introduzir os conceitos-chave e explicar detalhadamente cada seção. Serão apresentados os fundamentos teóricos que sustentam o desenvolvimento e a aplicação de dois modelos fundamentais para a implementação da proposta: o modelo cognitivo e o modelo de template multicamadas para geração automática de questões. Cada subseção abordará os conceitos essenciais relacionados a esses modelos, detalhando suas características, funcionamento e contribuições para o objetivo final do estudo.
 
 \section{Modelo Cognitivo}
-A construção de questões em larga escala, por meio de processos automatizados, tem-se tornado uma prática cada vez mais relevante na área de avaliações educacionais. Nesse contexto, a elaboração de um modelo cognitivo sólido constitui um passo fundamental para embasar a Geração Automática de Questões (\gls{aig}). De modo geral, modelos cognitivos podem ser definidos como descrições explícitas de como os estudantes processam informações e resolvem tarefas específicas, envolvendo as habilidades e os raciocínios que se espera que demonstrem em uma dada questão. O processo de construção desse modelo, conforme discutido por \parencite{gierl2021}, consiste em identificar, organizar e documentar de forma sistematizada os conceitos, parâmetros e restrições que caracterizam tanto a criação de uma questão quanto a forma como os estudantes são esperados a resolvê-la.
+A construção de questões em larga escala, por meio de processos automatizados, tem-se tornado uma prática cada vez mais relevante na área de avaliações educacionais. Nesse contexto, a elaboração de um modelo cognitivo sólido constitui um passo fundamental para embasar a Geração Automática de Questões (\gls{aig}). De modo geral, modelos cognitivos podem ser definidos como descrições explícitas de como os estudantes processam informações e resolvem tarefas específicas, envolvendo as habilidades e os raciocínios que se espera que demonstrem em uma dada questão. O processo de construção desse modelo, conforme discutido por \parencite{gierl2021}, esta técnica consiste em identificar, organizar e documentar de forma sistematizada os conceitos, parâmetros e restrições que caracterizam tanto a criação de uma questão quanto a forma como os estudantes são esperados a resolvê-la.
 
-A relevância do modelo cognitivo torna-se ainda mais evidente quando se busca a replicabilidade e a qualidade das questões geradas em larga escala. Esse detalhamento fornece a base para a elaboração dos templates, os quais orientam a criação de questões capazes de manter o mesmo nível de complexidade, exigência cognitiva e alinhamento ao conteúdo que se deseja avaliar. Dessa forma, o modelo cognitivo funciona como um roteiro que descreve tanto os conteúdos — por exemplo, conceitos matemáticos, definições, habilidades e fontes de informação — quanto a lógica do enunciado — tais como regras, restrições e variações — que são necessárias para que o sistema produza questões de maneira consistente.
+A relevância do modelo cognitivo torna-se ainda mais evidente quando se busca a replicabilidade e a qualidade das questões geradas em larga escala. Esse detalhamento fornece a base para a elaboração dos templates, os quais orientam a criação de questões capazes de manter o mesmo nível de complexidade, exigência cognitiva e alinhamento ao conteúdo que se deseja avaliar. Dessa forma, o modelo cognitivo funciona como um roteiro que descreve tanto os conteúdos quanto a lógica da questão a ser gerada.
 
 O modelo cognitivo é a base fundamental para a criação dos templates, pois organiza e descreve todos os elementos necessários para sua construção. Os templates, por sua vez, atuam como estruturas que convertem essas informações de forma efetiva, resultando em questões de avaliação individual claras e alinhadas aos objetivos de ensino.
 
 
 \section{Estrutura do Modelo Cognitivo}
 
+O modelo cognitivo funciona como um guia para organizar os elementos necessários para a construção dos templates. Estes templates servem como estruturas que traduzem as diretrizes estabelecidas no modelo em questões, claras, consistentes e alinhadas aos objetivos educacionais \parencite{keehner2017, gierl2017}. Para garantir a qualidade e replicabilidade, o modelo cognitivo deve ser estruturado de maneira a detalhar os seguintes aspectos fundamentais : 
+
+\section{Definição de Problema e Cenários}
+
+A primeira etapa no processo de geração de itens é o que se deseja avaliar, isto é, identificar o \emph{problema} que servirá como foco. Por exemplo, no contexto de Algoritmos, podemos focar em Estruturas de Repetição, . Assim, fica claro qual habilidade (ou conjunto de habilidades) será medida ao final.
+
+Depois de identificar o problema, é importante detalhar o que o examinando precisa fazer ou qual tipo de conhecimento deve mobilizar. Esse passo garante que a equipe de elaboração escolha o conteúdo e o formato das questões de forma alinhada ao que efetivamente será medido.
+
+Por fim, listam-se possíveis cenários relacionados ao problema principal, variando em formato e grau de complexidade. Em testes sobre razões e proporções, por exemplo, podemos ter cenários que envolvam a identificação direta de uma razão em um conjunto de dados, a soma de certos elementos para gerar uma proporção ou o uso de fórmulas em situações práticas. Cada cenário amplia a diversidade de itens, mas mantém a coerência com o objetivo da avaliação.
+
+\section{Fontes de Informação (Sources of Information)}
+Nesta seção, determinam-se quais conteúdos ou materiais servem de base para a elaboração dos itens. Em Matemática, por exemplo, podem-se utilizar intervalos numéricos como fonte para gerar problemas de razão ou estatística. Em outros campos, como Ciências ou Línguas, as fontes podem incluir textos, gráficos, figuras ou tabelas.
+
+\subsection{Tipo de Fonte}
+Cada fonte deve ser descrita separadamente, destacando como o examinando a utilizará ao responder a questão. Em alguns casos, uma única fonte de informação pode suprir todas as necessidades de elaboração dos itens; em outros, vários tipos de fontes precisam ser integrados (por exemplo, um enunciado textual e um gráfico).
+
+\subsection{Organização das Fontes}
+As fontes devem ser organizadas de modo sistemático, identificando-se onde e como cada elemento (dados, figuras, termos técnicos) será empregado na formulação das questões. Essa organização assegura a coerência entre o propósito de mensuração do teste e a forma pela qual o conteúdo é apresentado ao examinando.
+
+\section{Características (Features), Elementos (Elements) e Restrições (Constraints)}
+\subsection{Identificação das Características}
+As \emph{Características} são as dimensões ou variáveis relevantes para a criação de novos itens. Em um problema de razão, por exemplo, tais características podem envolver “número de elementos do conjunto”, “tipo de operação aritmética” e “faixa numérica permitida”.
+
+\subsection{Elementos (Elements) e Valores (Values)}
+Cada característica contém \emph{Elementos}, que são as unidades específicas de conteúdo. No caso de um intervalo numérico de 2 a 8, cada valor inteiro (2, 3, 4, etc.) pode ser um elemento. Esses valores podem ser numéricos ou textuais, a depender do tipo de teste. A ideia é possibilitar combinações variadas de elementos que resultem em questões diversas, mas que mensurem a mesma competência.
+
+\subsection{Restrições (Constraints)}
+As restrições estabelecem as regras que evitam combinações de elementos que gerem itens inválidos ou sem sentido. Por exemplo, é possível restringir a geração de problemas que incluam números negativos quando o objetivo for mensurar apenas operações básicas com inteiros positivos. Essas regras impedem a geração aleatória e asseguram a criação de itens alinhados às metas instrucionais e ao nível de dificuldade desejado.
+
+
+% ----------------------------------------------------------
+% Trechos da Seção 5 (Avaliação do Modelo)
+% ----------------------------------------------------------
+
+\paragraph{}A etapa de avaliação do modelo cognitivo é fundamental para garantir que o processo de geração de itens mantenha consistência teórica e prática. Inicialmente, um especialista diferente daquele que construiu o modelo pode revisá-lo, analisando a coerência das fontes de informação, a adequação das características definidas e a pertinência das restrições estabelecidas. Esse especialista verifica se as instruções, os valores e a lógica de montagem refletem adequadamente o problema que se pretende medir, apontando eventuais inconsistências ou ambiguidades no modelo.
+
+\paragraph{}Em seguida, recomenda-se a avaliação externa ou independente, na qual outro grupo de especialistas, que não participou do desenvolvimento prévio, fornece um parecer sobre a clareza, a completude e a precisão do modelo. O uso de escalas ou rubricas de julgamento pode sistematizar e documentar as impressões dos avaliadores, permitindo refinar ainda mais o modelo. Essa avaliação adicional contribui para validar o processo de geração de itens e para assegurar sua qualidade em aplicações futuras.
+
+
+
+
+O modelo cognitivo é a base fundamental para a criação dos templates, pois organiza e descreve todos os elementos necessários para sua construção. Os templates, por sua vez, atuam como estruturas que convertem essas informações de forma efetiva, resultando em questões de avaliação individual claras e alinhadas aos objetivos de ensino.
 O modelo cognitivo é o elemento base para processo da geração automática de questões, pois determina as diretrizes de como o conhecimento e as habilidades devem ser organizados para criar questões em larga escala \cite{gierl2016, gierl2017, gierlbulutzhang2018, keehner2017}. É a partir desse modelo que se definem, de maneira estruturada, aspectos como:
 
 \begin{itemize} \item Conteúdos a serem avaliados (conceitos, regras e relações); \item Habilidades e processos de pensamento esperados dos estudantes (como identificar, analisar, resolver problemas); \item Restrições e parâmetros de combinação (limites numéricos, coerência semântica, condições mínimas para a aplicação de um conceito). \end{itemize}
