@@ -15,43 +15,32 @@ O modelo cognitivo é a base fundamental para a criação dos templates, pois or
 
 O modelo cognitivo funciona como um guia para organizar os elementos necessários para a construção dos templates. Estes templates servem como estruturas que traduzem as diretrizes estabelecidas no modelo cognitivo em questões, claras, consistentes e alinhadas aos objetivos educacionais \parencite{keehner2017, gierl2017}. Para garantir a qualidade e replicabilidade, o modelo cognitivo deve ser estruturado de maneira a detalhar os seguintes aspectos fundamentais : 
 
-\section{Definição de Problemas e Cenários}
+\subsection{Problemas e Cenários}
 
-A primeira etapa do processo de construção do modelo cognitivo consiste em definir claramente o objetivo da avaliação, identificando o problema central que servirá de base. Em uma disciplina de algoritmos que aborda estruturas de repetição, podemos optar por explorar aspectos como o tipo de laço ou os componentes fundamentais de uma estrutura controlada por um contador. Dessa forma, podemos assegurar que as habilidades específicas a serem avaliadas estejam claramente refletidas na questão. E, posteriormente, elaborar possíveis cenários relacionados ao problema principal. Nas avaliações sobre estruturas de repetição em programação, podemos incluir cenários que envolvam a identificação do tipo de laço utilizado em um trecho de código, a utilização de contadores para controlar iterações ou a aplicação de estruturas de repetição em situações práticas de desenvolvimento de algoritmos. Cada cenário amplia a diversidade das questões, mantendo a coerência com o objetivo da avaliação.
+A primeira etapa do processo de construção do modelo cognitivo consiste em definir claramente o objetivo da avaliação, identificando o problema central que servirá de base. Em uma disciplina de algoritmos que aborda estruturas de repetição, podemos optar por explorar aspectos como o tipo de laço ou os componentes fundamentais de uma estrutura controlada por um contador. Dessa forma, podemos assegurar que as habilidades específicas a serem avaliadas estejam claramente refletidas na questão. E, posteriormente, elaborar possíveis cenários relacionados ao problema principal. Nas avaliações sobre estruturas de repetição, podemos incluir cenários que envolvam a identificação do tipo de laço utilizado em um trecho de código, a utilização de contadores para controlar iterações ou a aplicação de estruturas de repetição em situações práticas de desenvolvimento de algoritmos. Cada cenário amplia a diversidade das questões, mantendo a coerência com o objetivo da avaliação.
 
-\section{Fontes de Informação}
+\subsection{Fontes de Informação}
 
 As fontes de informação constituem o conjunto de conteúdos e matérias que podem abranger dados quantitativos, textos, fórmulas, diagramas, trechos de código, figuras ou qualquer outro elemento que possibilite aos estudantes acionarem os conhecimentos e habilidades que se deseja avaliar. Cada fonte de informação deve ser descrita de forma detalhada, de modo a estabelecer claramente a relação entre o conteúdo apresentado e as características a serem avaliadas.
 
 
-\section{Características (\textit{Features})}
+\subsection{Características (\textit{Features})}
 
 
 
-As características (\textit{features}) são atributos fundamentais que compõem os as dimensões ou variáveis variável do modelo cognitivo. Elas definem os aspectos que podem ser ajustados na criação dos templates. Na prática,cada característica é composta por elementos, valores e restrições:
+As características (\textit{features}) são atributos fundamentais que compõem as dimensões ou variáveis do modelo cognitivo. Elas definem os aspectos que podem ser ajustados na criação dos templates. Na prática,cada característica é composta por elementos, valores e restrições:
 
 
-\subsubsection{Elementos}
-Representam os componentes básicos de cada característica. Podem ser, por exemplo, uma variável numérica, um trecho de código ou um termo técnico relevante para a questão. Os elementos ajudam a identificar claramente as informações que serão utilizadas na formulação das questões.
+\subsection{Elementos}
+Elementos representam as variações possíveis dentro de uma categoria ou dimensão específica da \textit{feature}, permitindo a manipulação do conteúdo através de componentes básicos que podem ser uma variável numérica, um trecho de código ou um termo técnico relevante para a questão. Os elementos devem ser construídos de forma a facilitar a combinação de um elemento com outro.
 
+\subsection{Valores}
+Valores são as possíveis combinações que os elementos podem assumir dentro de uma faixa de opções. Eles definem as variações quantitativas ou qualitativas que um elemento pode ter.
 
-\subsubsection{Valores}
-São as diferentes opções que cada elemento pode assumir. Podem ser números, palavras-chave ou formatos específicos, como tipos de laços de repetição em programação (por exemplo, \texttt{for}, \texttt{while}, \texttt{do-while}). Os valores determinam as variações possíveis de um elemento, permitindo a geração de questões diversificadas.
+\subsection{Restrições}
+Restrições são regras ou condições que limitam como os elementos e seus valores podem ser combinados. Elas garantem que as combinações resultantes sejam válidas, coerentes e alinhadas aos objetivos da questão, evitando a geração de questões inválidos ou sem sentido.
 
-\subsubsection{Restrições (\textit{Constraints})}
-As restrições estabelecem as regras que evitam combinações de elementos que gerem itens inválidos ou sem sentido. Por exemplo, é possível restringir a geração de problemas que incluam números negativos quando o objetivo for mensurar apenas operações básicas com inteiros positivos. Essas regras impedem a geração aleatória e asseguram a criação de itens alinhados às metas instrucionais e ao nível de dificuldade desejado.
-
-As restrições estabelecem regras ou condições que limitam como os elementos e seus valores podem ser combinados de tal forma que evite a construção de questões sem lógica, inválidas ou sem sentido. É esperado que com as restrições, as combinações resultantes durante a geração sejam coerentes e significativas. 
-
-% ----------------------------------------------------------
-% Trechos da Seção 5 (Avaliação do Modelo)
-% ----------------------------------------------------------
-
-\paragraph{}A etapa de avaliação do modelo cognitivo é fundamental para garantir que o processo de geração de itens mantenha consistência teórica e prática. Inicialmente, um especialista diferente daquele que construiu o modelo pode revisá-lo, analisando a coerência das fontes de informação, a adequação das características definidas e a pertinência das restrições estabelecidas. Esse especialista verifica se as instruções, os valores e a lógica de montagem refletem adequadamente o problema que se pretende medir, apontando eventuais inconsistências ou ambiguidades no modelo.
-
-\paragraph{}Em seguida, recomenda-se a avaliação externa ou independente, na qual outro grupo de especialistas, que não participou do desenvolvimento prévio, fornece um parecer sobre a clareza, a completude e a precisão do modelo. O uso de escalas ou rubricas de julgamento pode sistematizar e documentar as impressões dos avaliadores, permitindo refinar ainda mais o modelo. Essa avaliação adicional contribui para validar o processo de geração de itens e para assegurar sua qualidade em aplicações futuras.
-
-
+\section{Relação do Modelo Cognitiva e Construção de Templates }
 
 
 O modelo cognitivo é a base fundamental para a criação dos templates, pois organiza e descreve todos os elementos necessários para sua construção. Os templates, por sua vez, atuam como estruturas que convertem essas informações de forma efetiva, resultando em questões de avaliação individual claras e alinhadas aos objetivos de ensino.
@@ -61,7 +50,7 @@ O modelo cognitivo é o elemento base para processo da geração automática de 
 
 
 
-\section{Relação do Modelo Cognitiva e Construção de Templates }
+
 
 Por outro lado, os \textit{templates} são estruturas que convertem o modelo cognitivo em modelos práticos de questões \cite{gierl2024}. Cada \textit{template} especifica como as informações do modelo serão incorporadas ao enunciado e às alternativas (corretas e incorretas). Assim, a relação entre o modelo cognitivo e os \textit{templates} pode ser resumida nos seguintes pontos:
 
