@@ -26,8 +26,6 @@ As fontes de informação constituem o conjunto de conteúdos e matérias que po
 
 \subsection{Características (\textit{Features})}
 
-
-
 As características (\textit{features}) são atributos fundamentais que compõem as dimensões ou variáveis do modelo cognitivo. Elas definem os aspectos que podem ser ajustados na criação dos templates. Na prática,cada característica é composta por elementos, valores e restrições:
 
 
@@ -38,13 +36,22 @@ Elementos representam as variações possíveis dentro de uma categoria ou dimen
 Valores são as possíveis combinações que os elementos podem assumir dentro de uma faixa de opções. Eles definem as variações quantitativas ou qualitativas que um elemento pode ter.
 
 \subsection{Restrições}
-Restrições são regras ou condições que limitam como os elementos e seus valores podem ser combinados. Elas garantem que as combinações resultantes sejam válidas, coerentes e alinhadas aos objetivos da questão, evitando a geração de questões inválidos ou sem sentido.
+Restrições são regras ou condições que limitam como os elementos e seus valores podem ser combinados. Elas garantem que as combinações resultantes sejam válidas, coerentes e alinhadas aos objetivos da questão, evitando a geração de questões inválidas ou sem sentido.
+
+A figura a seguir apresenta a estrutura hierárquica do modelo cognitivo para geração automática de questões, destacando os principais componentes e suas inter-relações. Ela organiza os elementos em três níveis principais : problemas e cenários, fontes de informação e características (\textit{features}). Essa visualização facilita o entendimento do processo de construção do modelo cognitivo.
+
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=14cm]{./imagens/capitulo4/cognitive-model}
+	\caption{Estrutura do Modelo Cognitivo (Gierl, 2021)}
+	\label{fig:cognitive-model}
+\end{figure}
 
 \section{Relação do Modelo Cognitiva e Construção de Templates }
 
-
-O modelo cognitivo é a base fundamental para a criação dos templates, pois organiza e descreve todos os elementos necessários para sua construção. Os templates, por sua vez, atuam como estruturas que convertem essas informações de forma efetiva, resultando em questões de avaliação individual claras e alinhadas aos objetivos de ensino.
-O modelo cognitivo é o elemento base para processo da geração automática de questões, pois determina as diretrizes de como o conhecimento e as habilidades devem ser organizados para criar questões em larga escala \cite{gierl2016, gierl2017, gierlbulutzhang2018, keehner2017}. É a partir desse modelo que se definem, de maneira estruturada, aspectos como:
+O modelo cognitivo é a base fundamental para a criação dos templates, pois organiza e descreve todos os elementos necessários para sua construção. Os templates, que por sua vez, atuam como estruturas que convertem essas informações de forma efetiva, resultando em questões de avaliação individual claras e alinhadas aos objetivos de ensino.
+\cite{gierl2016, gierl2017, keehner2017, gierlbulutzhang2018 }. É a partir desse modelo que se definem, de maneira estruturada, aspectos como:
 
 \begin{itemize} \item Conteúdos a serem avaliados (conceitos, regras e relações); \item Habilidades e processos de pensamento esperados dos estudantes (como identificar, analisar, resolver problemas); \item Restrições e parâmetros de combinação (limites numéricos, coerência semântica, condições mínimas para a aplicação de um conceito). \end{itemize}
 
