@@ -26,20 +26,19 @@ As fontes de informação constituem o conjunto de conteúdos e matérias que po
 
 \subsection{Características (\textit{Features})}
 
-As características (\textit{features}) são atributos fundamentais que compõem as dimensões ou variáveis do modelo cognitivo. Elas definem os aspectos que podem ser ajustados na criação dos templates. Na prática,cada característica é composta por elementos, valores e restrições:
+As características (\textit{features}) são atributos fundamentais que compõem as dimensões ou variáveis do modelo cognitivo. Elas definem os aspectos que podem ser ajustados na criação dos templates. Na prática,cada característica é composta por três componentes principais: elementos, valores e restrições, descritos a seguir:
+
+\begin{enumerate}
+\item \textbf{Elementos} : Elementos representam as variações possíveis dentro de uma categoria ou dimensão específica da \textit{feature}, permitindo a manipulação do conteúdo através de componentes básicos que podem ser uma variável numérica, um trecho de código ou um termo técnico relevante para a questão. Os elementos devem ser construídos de forma a facilitar a combinação de um elemento com outro.
+
+\item \textbf{Valores} : Valores são as possíveis combinações que os elementos podem assumir dentro de uma faixa de opções. Eles definem as variações quantitativas ou qualitativas que um elemento pode ter.
+
+\item \textbf{Restrições} : Restrições são regras ou condições que limitam como os elementos e seus valores podem ser combinados. Elas garantem que as combinações resultantes sejam válidas, coerentes e alinhadas aos objetivos da questão, evitando a geração de questões inválidas ou sem sentido.
+
+\end{enumerate}
 
 
-\subsection{Elementos}
-Elementos representam as variações possíveis dentro de uma categoria ou dimensão específica da \textit{feature}, permitindo a manipulação do conteúdo através de componentes básicos que podem ser uma variável numérica, um trecho de código ou um termo técnico relevante para a questão. Os elementos devem ser construídos de forma a facilitar a combinação de um elemento com outro.
-
-\subsection{Valores}
-Valores são as possíveis combinações que os elementos podem assumir dentro de uma faixa de opções. Eles definem as variações quantitativas ou qualitativas que um elemento pode ter.
-
-\subsection{Restrições}
-Restrições são regras ou condições que limitam como os elementos e seus valores podem ser combinados. Elas garantem que as combinações resultantes sejam válidas, coerentes e alinhadas aos objetivos da questão, evitando a geração de questões inválidas ou sem sentido.
-
-A figura a seguir apresenta a estrutura hierárquica do modelo cognitivo para geração automática de questões, destacando os principais componentes e suas inter-relações. Ela organiza os elementos em três níveis principais : problemas e cenários, fontes de informação e características (\textit{features}). Essa visualização facilita o entendimento do processo de construção do modelo cognitivo.
-
+A figura \ref{fig:cognitive-model} apresenta a estrutura hierárquica do modelo cognitivo para geração automática de questões, destacando os principais componentes e suas inter-relações. Ela organiza os elementos em três níveis principais : problemas e cenários, fontes de informação e características (\textit{features}). Essa visualização facilita o entendimento do processo de construção do modelo cognitivo.
 
 \begin{figure}[ht]
 	\centering
@@ -48,30 +47,54 @@ A figura a seguir apresenta a estrutura hierárquica do modelo cognitivo para ge
 	\label{fig:cognitive-model}
 \end{figure}
 
-\section{Relação do Modelo Cognitiva e Construção de Templates }
 
-O modelo cognitivo é a base fundamental para a criação dos templates, pois organiza e descreve todos os elementos necessários para sua construção. Os templates, que por sua vez, atuam como estruturas que convertem essas informações de forma efetiva, resultando em questões de avaliação individual claras e alinhadas aos objetivos de ensino.
-\cite{gierl2016, gierl2017, keehner2017, gierlbulutzhang2018 }. É a partir desse modelo que se definem, de maneira estruturada, aspectos como:
+\section{Relação do Modelo Cognitivo e a Construção dos Templates }
 
-\begin{itemize} \item Conteúdos a serem avaliados (conceitos, regras e relações); \item Habilidades e processos de pensamento esperados dos estudantes (como identificar, analisar, resolver problemas); \item Restrições e parâmetros de combinação (limites numéricos, coerência semântica, condições mínimas para a aplicação de um conceito). \end{itemize}
+O modelo cognitivo é o fundamento para a construção dos templates, pois organiza e descreve todos os conceitos, regras, parâmetros, limites e relações necessárias para a construção das questões. Os templates, por sua vez, convertem o modelo cognitivo em estruturas para gerar diferentes versões de questões, sendo assim a relação entre o modelo cognitivo e os templates pode ser resumida nos seguintes pontos:
 
 
+\begin{enumerate} \item \textbf{Definição de elementos básicos de uma questão:} O modelo cognitivo descreve quais componentes  precisam estar presentes para que a questão seja relevante e alinhado aos objetivos de aprendizado. O \textit{template} organiza esses componentes em uma estrutura pronta para gerar diferentes versões de questão \parencite{lane2016}.
 
+\item \textbf{Combinação e manipulação de parâmetros:}
+Enquanto o modelo cognitivo define as regras de como os conteúdos e as habilidades podem ser combinados, o \textit{template} coloca essas regras em prática. Integra os diversos elementos para criar questões com diferentes níveis de complexidade, mantendo a coerência com a proposta original \parencite{embretson2017}.
 
+\item \textbf{Padronização e escalabilidade:}
+A adoção de um modelo cognitivo bem elaborado facilita a padronização do processo de elaboração de questões em grande escala. Como os \textit{templates} seguem o mesmo conjunto de regras e estruturas, as questões criadas tendem a manter consistência em termos de conteúdo, formato e nível de exigência cognitiva \parencite{gierl2017}.
 
-Por outro lado, os \textit{templates} são estruturas que convertem o modelo cognitivo em modelos práticos de questões \cite{gierl2024}. Cada \textit{template} especifica como as informações do modelo serão incorporadas ao enunciado e às alternativas (corretas e incorretas). Assim, a relação entre o modelo cognitivo e os \textit{templates} pode ser resumida nos seguintes pontos:
-
-\begin{enumerate} \item \textbf{Definição de elementos básicos de uma questão:} O modelo cognitivo descreve quais componentes (por exemplo, dados quantitativos, termos-chave, situações-problema) precisam estar presentes para que o item seja relevante e alinhado aos objetivos pedagógicos. O \textit{template} organiza esses componentes em uma estrutura pronta para gerar diferentes versões de questão \cite{lane2016}.
-\item \textbf{Combinação e manipulação de parâmetros:} Enquanto o modelo cognitivo define as regras de como os conteúdos e as habilidades podem ser combinados (por exemplo, valores ou conceitos que podem variar para alterar a dificuldade de um item), o \textit{template} coloca essas regras em prática. Em outras palavras, integra os diversos elementos para criar itens com diferentes níveis de complexidade, mantendo a coerência com a proposta original \cite{embretson2017}.
-
-\item \textbf{Padronização e escalabilidade:} A adoção de um modelo cognitivo bem elaborado facilita a padronização do processo de elaboração de itens em grande escala. Como os \textit{templates} seguem o mesmo conjunto de regras e estruturas, as questões criadas tendem a manter consistência em termos de conteúdo, formato e nível de exigência cognitiva \cite{gierl2016, gierl2017}.
-
-\item \textbf{Validação e ajustes contínuos:} Se um \textit{template} gerar um item que se revele muito fácil ou muito difícil, é possível identificar rapidamente se o problema está no modelo cognitivo ou no próprio \textit{template}, permitindo o ajuste da regra que originou a inconsistência. Dessa forma, a correção ocorre em nível conceitual (no modelo) ou técnico (na estrutura do \textit{template}), preservando a qualidade dos itens e mantendo-os alinhados aos propósitos da avaliação \cite{gierlbulutzhang2018}.
+\item \textbf{Validação e ajustes contínuos:}
+Se um \textit{template} gerar uma questão que se revele incoerente ou sem lógica, é possível identificar rapidamente se o problema está no modelo cognitivo ou no próprio \textit{template}, permitindo o ajuste da regra que originou a inconsistência. Dessa forma, a correção ocorre em nível conceitual (no modelo) ou na estrutura do \textit{template}, preservando a qualidade das questões e mantendo-os alinhados aos propósitos da avaliação \parencite{gierlbulutzhang2018}.
 \end{enumerate}
-Em síntese, o modelo cognitivo oferece a base teórica e estrutural, descrevendo de forma clara o que e por que está sendo avaliado, enquanto o \textit{template} representa a forma de aplicação prática dessas informações na formulação das questões \cite{gierl2024}. Essa integração torna a Geração Automática de Questões mais sólida, pois cada item criado segue a mesma lógica e mantém um padrão de qualidade, contribuindo para avaliações mais consistentes e confiáveis.
 
-\section{Modelo de Template}
 
-\subsubsection{Template 1-Layer}
-\subsubsection{Template N-Layers}
+\section{Modelo Questão}
+
+ Esta seção apresenta uma discussão sobre a construção de modelos de templates em diferentes níveis (1-layer, 2-layers, n-layers) e a forma como esses modelos podem ser estruturados para permitir a geração de questões a partir de um único template, um modelo de questão pode ser descrito como um template que especifica os componentes manipuláveis de uma questão, e cada componente carrega um valor ou um intervalo de valores que podem ser alterados de forma sistemática para gerar novas questões \parencite{gierl2021}.
+
+\subsection{Modelos de uma camada (1-Layer)}
+
+O modelo de item de 1-layer (ou, "modelo de item de camada única") constitui uma abordagem na qual se manipulam apenas alguns elementos dentro de uma estrutura fixa para produzir novas questões. Este modelo é estruturado por um único template, onde cada elemento pode assumir diferentes valores previamente estabelecido \parencite{lai2013}. A seguir será apresentado as principais características desse modelo, sua forma de aplicações e limitações.
+
+\subsection{Estrutura do Modelo}
+
+O modelo de 1-layer parte de uma modelo cognitivo ou uma questão já existente com ponto de partida para identificar os elementos manipuláveis, e posteriormente isola-se os elementos variáveis da questão como números, termos, contextos que podem assumir diversas variações. Este modelo geralmente inclui : 
+
+\begin{itemize}
+    \item \textbf{Enunciado (Stem)} : Texto que apresenta a pergunta ou situação-problema
+    \item \textbf{Elementos (Features)} : Constitui cada parte que pode mudar dentro do texto, todos os elementos estão em um só nível, compondo o corpo da questão. Esses elementos podem ser textos ou valores numéricos, em que cada elemento terá um intervalo ou conjunto de valores permitidos.
+\end{itemize}
+
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|l|p{10cm}|}
+        \hline
+        \textbf{Questão de Referência} & Texto \\ \hline
+        \textbf{Enunciado (Stem)} & Texto \\ \hline
+        \textbf{Elementos} & Texto \\ \hline
+    \end{tabular}
+    \caption{Descrição de Questões e Elementos (Autoria Propriá, 2024)}
+    \label{tab:table-questoes-elementos}
+\end{table}
+
+\subsection{Processo de Geração de Questões de 1- Layer}
 
