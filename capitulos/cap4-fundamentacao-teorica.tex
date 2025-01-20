@@ -83,25 +83,97 @@ O modelo de 1-layer parte de uma modelo cognitivo ou uma questão já existente 
     \item \textbf{Elementos (Features)} : Constitui cada parte que pode mudar dentro do texto, todos os elementos estão em um só nível, compondo o corpo da questão. Esses elementos podem ser textos ou valores numéricos, em que cada elemento terá um intervalo ou conjunto de valores permitidos.
 \end{itemize}
 
+A Tabela \ref{tab:template-questoes-elementos} ilustra como a questão de referência se relaciona com o template e os respectivos elementos que podem variar. Na primeira linha, “\textbf{Questão de Referência}”, encontra-se o enunciado-base que exemplifica o problema a ser resolvido. Na segunda linha, “\textbf{Template (Stem)}”, temos a estrutura geral do enunciado, com espaços reservados para a inserção de diferentes conteúdos possíveis, podendo ainda incluir textos fixos que complementam o enunciado.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|l|p{10cm}|}
+\hline
+\textbf{Questão de Referência} 
+& Um e-commerce aplica descontos automáticos com base no valor do carrinho. Escreva um programa que receba o total da compra e, usando \texttt{if-else}, determine o desconto aplicado.  
+\begin{itemize}
+    \item Se o valor estiver entre R\$100,00 e R\$299,99, aplicar 5\%.
+\end{itemize}
+Após calcular o desconto, exiba o valor final da compra e a economia obtida. \\
+\hline
+
+\textbf{Template (Stem)} 
+& \texttt{\{contexto-geral\} \{contexto-específico\} \{tabela-condicional\} \{solicitação\}} \\
+\hline
+
+\textbf{Elementos} 
+& 
+\begin{itemize}[leftmargin=1em]
+  \item \textbf{contexto-geral}:
+    \begin{itemize}[leftmargin=1em]
+      \item Uma loja virtual de cosméticos lança promoções para fidelizar clientes em uma nova linha de produtos faciais.
+      \item Um supermercado online promove descontos para estimular compras em grandes quantidades durante as festas de fim de ano.
+    \end{itemize}
+
+  \item \textbf{contexto-específico}:
+    \begin{itemize}[leftmargin=1em]
+      \item A loja definiu descontos por faixa de valor no carrinho para aumentar as vendas.
+      \item A livraria oferece descontos progressivos em compras de livros nacionais.
+    \end{itemize}
+
+  \item \textbf{tabela-condicional}:
+    \begin{itemize}[leftmargin=1em]
+      \item Valor abaixo de R\$150,00: sem desconto.
+      \item Entre R\$150,00 e R\$299,99: 5\%.
+      \item Igual ou acima de R\$300,00: 10\%.
+    \end{itemize}
+
+  \item \textbf{solicitação}:
+    \begin{itemize}[leftmargin=1em]
+      \item Escreva um programa que calcule e aplique o desconto correto, exibindo o valor economizado.
+      \item Crie um programa para calcular o valor final com base na faixa de desconto atingida.
+    \end{itemize}
+\end{itemize} \\
+\hline
+
+\end{tabular}
+\caption{Template de Questões (Autoria Própria, 2024)}
+\label{tab:template-questoes-elementos}
+\end{table}
+
+
+
+
+\subsection{Processo de Geração de Questões de 1-Layer}
+
+No modelo de uma camada (1-Layer), a geração de questões ocorre por meio da manipulação de um número limitado de elementos em um único nível do modelo. Essa abordagem é relativamente simples e de fácil implementação, pois se baseia em poucas variáveis para a criação das novas questões. Em razão dessa simplicidade, as variações ocorrem de maneira linear, fazendo com que a diversidade das questões geradas seja menor. Por tanto, é bastante útil para a elaboração de questões que alteram minimamente o contexto ou a formulação geral, embora, por essa mesma razão, possa levar os estudantes a perceberem com mais facilidade padrões ou similaridades entre as perguntas.
+
+Escreva aqui a tabela da formação do template
+
 
 
 \begin{table}[htbp]
-    \centering
-    \begin{tabular}{|l|p{10cm}|}
-        \hline
-        \textbf{Questão de Referência} & Um e-commerce deseja aplicar descontos automáticos para incentivar vendas. Dependendo do valor total do carrinho, diferentes faixas de desconto serão aplicadas. Escreva um programa que receba o valor total da compra de um cliente e utilize estruturas condicionais (\texttt{if-else}) para determinar o desconto aplicado: \\ 
-        & \begin{itemize}
-            \item Se o valor for inferior a R\$ 100,00, não há desconto.
-            \item Se o valor estiver entre R\$ 100,00 e R\$ 299,99, aplicar 5\% de desconto.
-            \item Se o valor for igual ou superior a R\$ 300,00, aplicar 10\% de desconto.
-        \end{itemize}
-        Após calcular o desconto, exiba o valor final da compra e a economia obtida. \\ \hline
-        \textbf{Enunciado (Stem)} & \texttt{\{contexto-geral\} \{contexto-específico\} \{tabela-condicional\} \{solicitação\}} \\ \hline
-        \textbf{Elementos} & Texto \\ \hline
-    \end{tabular}
-    \caption{Descrição de Questões e Elementos (Autoria Própria, 2024)}
-    \label{tab:table-questoes-elementos}
+\centering
+\begin{tabular}{|l|p{10cm}|}
+\hline
+\textbf{Template (Stem)} 
+& \texttt{[1]:\{contexto-geral\} [2]:\{contexto-específico\} [3]:\{tabela-condicional\} [1]:\{solicitação\}} \\
+\hline
+
+\textbf{Questao gerada} 
+& 
+\begin{itemize}[leftmargin=1em]
+  \item \textbf{contexto-geral}:
+
+  \item \textbf{contexto-específico}:
+
+  \item \textbf{tabela-condicional}:
+
+  \item \textbf{solicitação}:
+\end{itemize} \\
+\hline
+
+\end{tabular}
+\caption{Questão gerada (Autoria Própria, 2024)}
+\label{tab:questao-gerada}
 \end{table}
 
-\subsection{Processo de Geração de Questões de 1- Layer}
+STEM / TEMPLATE
+QUESTÃO GERADA / QUESTÃO GERADA
 
+Sendo assim, o modelo de uma camada (1-Layer) desempenha um papel significativo quando o professor está em processo de aprendizagem na construção de templates. Sua estrutura mais enxuta favorece a compreensão inicial das etapas de modelagem e oferece um ambiente controlado para adquirir experiência na geração de questões, antes de avançar para modelos mais complexos que exijam manipulações em múltiplas camadas.
