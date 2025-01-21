@@ -106,14 +106,14 @@ Após calcular o desconto, exiba o valor final da compra e a economia obtida. \\
 \begin{itemize}[leftmargin=1em]
   \item \textbf{contexto-geral}:
     \begin{itemize}[leftmargin=1em]
-      \item Uma loja virtual de cosméticos lança promoções para fidelizar clientes em uma nova linha de produtos faciais.
+      \item Uma loja virtual está lançando promoções para fidelizar clientes em uma nova linha de produtos faciais.
       \item Um supermercado online promove descontos para estimular compras em grandes quantidades durante as festas de fim de ano.
     \end{itemize}
 
   \item \textbf{contexto-específico}:
     \begin{itemize}[leftmargin=1em]
       \item A loja definiu descontos por faixa de valor no carrinho para aumentar as vendas.
-      \item A livraria oferece descontos progressivos em compras de livros nacionais.
+      \item A loja oferece descontos progressivos em compras de livros nacionais conforme a condição a seguir:
     \end{itemize}
 
   \item \textbf{tabela-condicional}:
@@ -128,7 +128,7 @@ Após calcular o desconto, exiba o valor final da compra e a economia obtida. \\
       \item Escreva um programa que calcule e aplique o desconto correto, exibindo o valor economizado.
       \item Crie um programa para calcular o valor final com base na faixa de desconto atingida.
     \end{itemize}
-\end{itemize} \\
+\end{itemize}\\
 \hline
 
 \end{tabular}
@@ -146,34 +146,35 @@ No modelo de uma camada (1-Layer), a geração de questões ocorre por meio da m
 Escreva aqui a tabela da formação do template
 
 
-
 \begin{table}[htbp]
 \centering
 \begin{tabular}{|l|p{10cm}|}
 \hline
 \textbf{Template (Stem)} 
-& \texttt{[1]:\{contexto-geral\} [2]:\{contexto-específico\} [3]:\{tabela-condicional\} [1]:\{solicitação\}} \\
+& \texttt{[1]:\{contexto-geral\} [2]:\{contexto-específico\} [3]:\{tabela-condicional\} [4]:\{solicitação\}} \\
 \hline
-
-\textbf{Questao gerada} 
+\textbf{Questão Gerada} 
 & 
+\begin{minipage}[t]{\linewidth}
+\vspace{0.5em}
+Uma loja virtual está lançando promoções para fidelizar clientes em uma nova linha de produtos.  
+A loja oferece descontos progressivos em compras de livros nacionais conforme a condição a seguir:  
 \begin{itemize}[leftmargin=1em]
-  \item \textbf{contexto-geral}:
-
-  \item \textbf{contexto-específico}:
-
-  \item \textbf{tabela-condicional}:
-
-  \item \textbf{solicitação}:
-\end{itemize} \\
+    \item Se a compra for igual ou acima de R\$300,00, então o desconto será de 10\%.
+\end{itemize}
+Escreva um programa que calcule e aplique o desconto correto, exibindo o valor economizado. 
+\vspace{0.5em}
+\end{minipage} \\
 \hline
-
 \end{tabular}
 \caption{Questão gerada (Autoria Própria, 2024)}
 \label{tab:questao-gerada}
 \end{table}
 
-STEM / TEMPLATE
-QUESTÃO GERADA / QUESTÃO GERADA
 
-Sendo assim, o modelo de uma camada (1-Layer) desempenha um papel significativo quando o professor está em processo de aprendizagem na construção de templates. Sua estrutura mais enxuta favorece a compreensão inicial das etapas de modelagem e oferece um ambiente controlado para adquirir experiência na geração de questões, antes de avançar para modelos mais complexos que exijam manipulações em múltiplas camadas.
+
+O modelo de uma camada (1-Layer) desempenha um papel significativo quando o professor está em processo de aprendizagem na construção de templates, em que cada elemento variável pode ser manipulado, indicando os índices que fazem referência às posições na lista de opções do template. Sua estrutura mais enxuta favorece a compreensão inicial das etapas de modelagem e oferece um ambiente controlado para adquirir experiência na geração de questões, antes de avançar para modelos mais complexos que exijam manipulações em múltiplas camadas.
+
+
+
+\subsection{Modelos de Multicamadas (n-Layer)}
