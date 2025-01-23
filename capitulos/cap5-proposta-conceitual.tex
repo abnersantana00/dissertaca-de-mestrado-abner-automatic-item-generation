@@ -81,18 +81,44 @@ A Figura \ref{fig:template-1} (referente ao \textit{template}) e a Figura \ref{f
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=14cm]{./imagens/capitulo5/template-1}
+	\includegraphics[width=16cm]{./imagens/capitulo5/template-1}
 	\caption{JSON : Template Principal (Autoria Propria, 2025) }
 	\label{fig:template-1}
 \end{figure}
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=14cm]{./imagens/capitulo5/template-2}
+	\includegraphics[width=16cm]{./imagens/capitulo5/template-2}
 	\caption{Template de Questões (Autoria Propria, 2025) }
 	\label{fig:template-2}
 \end{figure}
 
 \section{Algoritmos Utilizados}
 
+Nesta seção será apresentado os algoritmos empregados para gerar as quest~eos de forma automática a partir de dois arquivos JSON distintos: um conténdo o template (JSON de Template), e outro contendo as questões (JSON de Questão). O \textit{JSON de Template} reúne a estrutura de cada parte de uma questão e as possíveis variações de conteúdo que podem ser combinadas. Já o \textit{JSON de Questões} consiste em um conjunto de chaves que apontam para índices específicos dentro das listas de opções do \textit{JSON Template}, permitindo a criação de múltiplas versões a partir de um único template. 
+Para construção das questões, foram definidas duas funções principais conforme a tabela , a primeira é responsável por percorrer os índices litados no JSON de Questões e, a partir disso, combinar cada elemento com os respectivo campo do JSON de Template, retornando todas as questões geradas. A segunda função retorna uma única questão específica, desde que seja fornecido o código (ou índice) correspondente para delimitar o tipo de busca por questões específicas. O parâmetro \verb|qtd| pode ser utilizado para controlar o número de questões a serem geradas. 
+
+
+\begin{listing}[ht]
+\begin{minted}[linenos=true, autogobble, bgcolor=Cornsilk1]{c}
+# cabeçalho da função 1
+generate_all_questions(json_template, json_questions)
+
+# cabeçalho da funcao 2
+generate_questions(json_template, json_questions, id=None, qtd=None) 
+\end{minted}
+\caption{cabeçalho das funções de geração de questões (Autoria Propria, 2025)}
+\label{cod:primo}
+\end{listing}
+
+    
 \section{Fluxo de Trabalho}
+
+O fluxo de trabalho descrito no \gls{bpmn} na fugura N organiza de forma colaborativa as interações entre professor (especialista), inteligência artificial (IA) e aluno no contexto de geração automática de questões. Esse fluxo de trabalho tem como objetivo auxliar a criação e validação das questões, bem como o fornecimento de beedback para os estudantes. 
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=16cm]{./imagens/capitulo6/bpmn-fluxo}
+	\caption{BPMN do Fluxo de Trabalho (Autoria Propria, 2025) }
+	\label{fig:bpmn-fluxo}
+\end{figure}
