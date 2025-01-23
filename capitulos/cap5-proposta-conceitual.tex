@@ -2,8 +2,8 @@
 
 Esta seção apresenta uma proposta de utilização de \textit{templates} hierárquicos para criar e manipular questões de programação. A ideia inclui o emprego de inteligência artificial generativa como ferramenta complementar, responsável por sugerir variações criativas no \textit{template} base, tais como modificações de contexto, acréscimo de novos cenários e introdução de pontos de variação. Além disso, a IA generativa também oferece suporte no fornecimento de \textit{feedback} imediato ao estudante após a submissão da resposta, apontando erros, sugerindo melhorias e apresentando explicações detalhadas sobre o problema e possíveis soluções. 
 
-\subsection{Geral para o Específico}
-A geração automática de questões segue um processo hierárquico que se inicia em tópicos mais amplos e evolui até questões específicas. Em primeiro lugar, é definido os tópicos da ementa, que correspondem a áreas ou domínios do conhecimento a serem avaliados (por exemplo, Estruturas de Repetição, Estruturas de Decisão, Matrizes, Funções). Esses tópicos abrangem conteúdos específicos do currículo e orientam a elaboração dos modelos cognitivos. Na etapa seguinte, estes modelos cognitivos são convertidos em \textit{templates}, que servirão de base para a geração das questões. Essa abordagem reflete a metodologia recomendada para a criação de questões baseadas em \textit{templates}. 
+\section{Geral para o Específico}
+A geração automática de questões segue um processo hierárquico que se inicia em tópicos mais amplos e evolui até questões específicas. Em primeiro lugar, são definidos os tópicos da ementa, que correspondem a áreas ou domínios do conhecimento a serem avaliados (por exemplo, Estruturas de Repetição, Estruturas de Decisão, Matrizes, Funções). Esses tópicos abrangem conteúdos específicos do currículo e orientam a elaboração dos modelos cognitivos. Na etapa seguinte, estes modelos cognitivos são convertidos em \textit{templates}, que servirão de base para a geração das questões. Essa abordagem reflete a metodologia recomendada para a criação de questões baseadas em \textit{templates}. 
 
 \begin{figure}[ht]
 	\centering
@@ -13,7 +13,7 @@ A geração automática de questões segue um processo hierárquico que se inici
 \end{figure}
 
 
-\subsection{Escala de proficiência}
+\section{Escala de proficiência}
 
 A classificação das questões com base em atributos e características, como o nível de dificuldade, é essencial nas avaliações educacionais. Agrupar questões por níveis de dificuldade (fácil, médio e difícil) possibilita organizar bancos de questões que atendem diferentes perfis de estudantes.  Esse agrupamento é especialmente relevante em contextos que utilizam testes adaptativos , onde o sistema ajusta a dificuldade das questões apresentadas de acordo com o nível de aptidão do aluno. Assim, é possível proporcionar uma experiência de aprendizado personalizada, onde cada questão apresentada se adequa ao desempenho e à evolução do aluno ao longo das avaliações. \textbackslash{}\parencite{pasquali2018}. 
 
@@ -28,37 +28,71 @@ A figura \ref{fig:proficiency-scale}  ilustra um banco de modelos estruturado pa
 	\label{fig:proficiency-scale}
 \end{figure}
 
-\subsection{Template de Questões com Estrutura Json}
+\section{Estrutura dos Templates em JSON}
 
 O JSON foi adotado como formato padrão para a construção dos templates de questões devido ao seu alto desempenho, simplicidade e facilidade de uso. Em comparação ao XML, o JSON mostrou-se mais eficiente em diversas métricas, conforme demonstrado no trabalho de \parencite{wang2011}, que indica um ganho de  48,56\% na velocidade de carregamento de 1000 objetos por página comparado com o XML. Esse resultado deve-se, em grande parte, à estrutura mais enxuta do JSON, que demanda menos esforço de interpretação se comparado ao uso extensivo de \textit{tags} no XML.  Além disso, o JSON oferece suporte nativo a tipos de dados como \textit{arrays}, números, \textit{strings} e valores booleanos, o que simplifica o tratamento de estruturas hierárquicas — característica fundamental na representação de templates de questões.
 
-
- Outro fator relevante é a compatibilidade natural do JSON com linguagens de programação modernas, como JavaScript, Python e Java, eliminando a necessidade de bibliotecas externas para análise (\textit{parsing}) ou manipulação de dados Por outro lado, o XML frequentemente demanda recursos adicionais para tratamento de \textit{tags} e maior quantidade de código para realizar a análise, acarretando maior esforço de processamento.   A comparação de desempenho realizada por \parencite{goyal2017} reforça essas vantagens ao evidenciar que o JSON, por ser mais leve e simples, apresenta melhor tempo de leitura em aplicações que utilizam pares de chave-valor conforme a figura \ref{fig:json-vs-xml}. Dessa forma, sua utilização torna o desenvolvimento de sistemas mais ágil, eficiente e escalável, justificando a escolha do JSON como formato preferencial para o gerenciamento e representação de templates de questões neste trabalho. 
-
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=14cm]{./imagens/capitulo5/json-vs-xml}
+	\includegraphics[width=10cm]{./imagens/capitulo5/json-vs-xml}
 	\caption{comparação de leitura JSON vs XML, \parencite{goyal2017} }
 	\label{fig:json-vs-xml}
 \end{figure}
 
+Outro fator relevante é a compatibilidade do JSON com linguagens modernas, como JavaScript, Python e Java, eliminando a necessidade de bibliotecas externas para análise (\textit{parsing}) ou manipulação de dados. Já o XML frequentemente exige mais recursos para tratamento de \textit{tags} e maior esforço de processamento. A análise de desempenho citado por \parencite{goyal2017} destaca que o JSON, por ser mais leve e simples, tem melhor tempo de leitura em aplicações com pares de chave-valor, conforme a figura \ref{fig:json-vs-xml}. Assim, sua adoção torna o desenvolvimento de sistemas mais eficiente e escalável, justificando sua escolha como formato preferencial para os templates de questões neste trabalho.
 
-\subsection{Estrutura do Template}
 
-A figura abaixo apresenta uma estrutura hierárquica que representa um template em um arquivo JSON. Podemos ver uma clara definição do texto principal (Stem), assim como o conjunto de variáveis e camadas (layers). Essa organização permite modificar e reutilizar os componentes do template facilmente, conforme necessário. Inicialmente, escrever o modelo de item em um editor de texto é uma prática útil para planejar a estrutura e os elementos das questões. No entanto, a fase seguinte envolve a estruturação desse modelo em formato JSON, o que facilita a manipulação e a geração de questões de forma automatizada. A transição para JSON permite que o template seja facilmente manipulado e gerenciado, promovendo a flexibilidade necessária para ajustar e expandir o banco de questões conforme a necessidade.
+
+
+\section{Representação Hierárquica dos Templates em JSON}
+
+Inicialmente, escrever o modelo de questão em um editor de texto é uma prática útil para planejar a estrutura do template. No entanto, a fase seguinte envolve a estruturação desse modelo em formato JSON, o que facilita a manipulação e a geração de questões de forma automatizada. A transição para JSON permite que o template seja facilmente editado e gerenciado, permitindo o desenvolvimento de \textit{scripts} ou algoritmos capazes de gerar automaticamente diversas instâncias de questões a partir do template.
+A Figura \ref{fig:template-json-example-1} ilustra como o template pode ser organizado no formato JSON, composto por três componentes principais: Texto Principal (\textit{Stem}), Variáveis e as Multicamadas (\textit{N-Layers}). Cada elemento desempenha um papel específico conforme as seguintes finalidades:
+
+
+\begin{itemize} \item \textbf{Texto Principal (\textit{Stem})} \begin{itemize} \item Representa o texto base da questão, servindo de ponto de partida para a formulação do template. Nele contém trechos fixos e indicações de onde as variáveis serão inseridas, tornando a questão adaptável a diferentes contextos. \end{itemize}
+\item \textbf{Variáveis (\textit{Variables})}
+\begin{itemize}
+    \item Inclui parâmetros e conteúdos que podem variar, permitindo a personalização do texto principal com indicações de onde serão inseridas no enunciado, de forma que permita a flexibilidade e reutilização destas variáveis em outros cenários.
+\end{itemize}
+
+\item \textbf{Multicamadas (\textit{N-Layers})}
+\begin{itemize}
+    \item Funcionam como \textit{subtemplates} dentro do template principal, possibilitando a inclusão de novas variáveis e conteúdos para expandir e adaptar o enunciado da questão em diferentes cenários, um layer é sempre filho do template principal.
+    \end{itemize}
+\end{itemize}
 
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=14cm]{./imagens/capitulo5/template-json-example-1}
-	\caption{comparação de leitura JSON vs XML }
+	\caption{Estrutura do template de questões (Autoria Propria, 2025) }
 	\label{fig:template-json-example-1}
 \end{figure}
 
 
-\subsection{Mecanismo de Combinação}
+\section{Mecanismo de Combinação}
 
+O mecanismo de combinação consiste em um processo de geração de questões a partir do \textit{template} principal, descrito no formato JSON, que contém estruturas de texto (campos) e múltiplas opções de conteúdo. Esse \textit{template} atua como um conjunto de possibilidades, permitindo que novas perguntas sejam criadas de forma sistemática, por meio da seleção ou combinação das variações de cada campo.
 
-\subsection{Algoritmos Utilizados}
+Para que o \textit{template} seja aplicado em diferentes cenários, é utilizado um segundo arquivo JSON onde cada chave representa a configuração de uma questão específica e cada valor corresponde ao índice selecionado em cada campo do \textit{template}. Dessa forma, se no campo \textbf{"introduction": ["intro\_1", intro\_2", "intro\_3"]} se a questão exigir a segunda opção, o valor referenciado será o índice \texttt{\textbf{1}} (assumindo zero como base de indexação). Essa abordagem sistematiza a produção automatizada de questões, pois basta apenas alterar os índices para gerar combinações distintas, sem alterar a estrutura original do texto.
 
-\subsection{Fluxo de Trabalho}
+A Figura \ref{fig:template-1} (referente ao \textit{template}) e a Figura \ref{fig:template-2} (referente às instâncias de questões) ilustram esse processo. Enquanto a primeira foca nos template em si e seus valores possíveis, a segunda demonstra como cada questão seleciona um conjunto de índices para formar a questão final. 
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=14cm]{./imagens/capitulo5/template-1}
+	\caption{JSON : Template Principal (Autoria Propria, 2025) }
+	\label{fig:template-1}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=14cm]{./imagens/capitulo5/template-2}
+	\caption{Template de Questões (Autoria Propria, 2025) }
+	\label{fig:template-2}
+\end{figure}
+
+\section{Algoritmos Utilizados}
+
+\section{Fluxo de Trabalho}
