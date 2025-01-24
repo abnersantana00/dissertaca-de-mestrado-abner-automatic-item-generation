@@ -116,9 +116,15 @@ generate_questions(json_template, json_questions, id=None, qtd=None)
 
 O fluxo de trabalho descrito no \gls{bpmn} na figura \ref{fig:bpmn-fluxo} organiza de forma colaborativa as interações entre professor (especialista), inteligência artificial (IA) e aluno no contexto de geração automática de questões. Esse fluxo de trabalho tem como objetivo auxliar a criação e validação das questões, bem como o fornecimento de beedback para os estudantes. 
 
+O \textbf{especialista} (professor) define define os modelos cognitivos  e elabora os templates de questões. Em seguida, o professor realiza a validação dos pontos de variação dos \textit{templates}, garantindo que as questões propostas pela IA estejam alinhadas aos objetivos pedagógicos.
+
+No nível de IA, há duas etapas principais: primeiramente, a IA é responsável por propor variações das questões a partir dos \textit{templates}, criando cenários  que atendam a diferentes contextos e perfis de aprendizagem. Posteriormente, a IA analisa as respostas enviadas pelos alunos, identificando possíveis erros ou inconsistências. Com base nessa análise, a IA sugere correções e melhorias que podem ser implementadas nos códigos ou nos argumentos apresentados.
+
+E por fim, o aluno é o principal beneficiário desse processo. Ele recebe as questões geradas, responde por meio do sistema e obtém feedback imediato. Esse retorno rápido permite que o aluno ajuste sua compreensão. 
+
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=16cm]{./imagens/capitulo6/bpmn-fluxo}
+	\includegraphics[width=14cm]{./imagens/capitulo6/bpmn-fluxo}
 	\caption{BPMN do Fluxo de Trabalho (Autoria Propria, 2025) }
 	\label{fig:bpmn-fluxo}
 \end{figure}
