@@ -70,7 +70,7 @@ Se um \textit{template} gerar uma questão que se revele incoerente ou sem lógi
 
  Esta seção apresenta uma discussão sobre a construção de modelos de templates em diferentes níveis (1-layer, 2-layers, n-layers) e a forma como esses modelos podem ser estruturados para permitir a geração de questões a partir de um único template, um modelo de questão pode ser descrito como um template que especifica os componentes manipuláveis de uma questão, e cada componente carrega um valor ou um intervalo de valores que podem ser alterados de forma sistemática para gerar novas questões \parencite{gierl2021}.
 
-\subsection{Modelos de uma camada (1-Layer)}
+\subsection{Modelos de Template de uma camada (1-Layer)}
 
 O modelo de item de 1-layer ("modelo de item de camada única") constitui uma abordagem na qual se manipulam apenas alguns elementos dentro de uma estrutura fixa para produzir novas questões. Este modelo é estruturado por um único template, onde cada elemento pode assumir diferentes valores previamente estabelecido \parencite{lai2013}. A seguir será apresentado as principais características desse modelo, sua forma de aplicações e limitações.
 
@@ -139,11 +139,11 @@ Após calcular o desconto, exiba o valor final da compra e a economia obtida. \\
 
 
 
-\subsection{Processo de Geração de Questões de 1-Layer}
+\subsection{Processo de geração de questões com 1-Layer}
 
-No modelo de uma camada (1-Layer), a geração de questões ocorre por meio da manipulação de um número limitado de elementos em um único nível do modelo. Essa abordagem é relativamente simples e de fácil implementação, pois se baseia em poucas variáveis para a criação das novas questões. Em razão dessa simplicidade, as variações ocorrem de maneira linear, fazendo com que a diversidade das questões geradas seja menor. Por tanto, é bastante útil para a elaboração de questões que alteram minimamente o contexto ou a formulação geral, embora, por essa mesma razão, possa levar os estudantes a perceberem com mais facilidade padrões ou similaridades entre as perguntas.
+No modelo de uma camada (1-Layer), a geração de questões ocorre por meio da manipulação de um número limitado de elementos em um único nível do modelo. Essa abordagem é relativamente simples e de fácil implementação, pois se baseia em poucas variáveis para a criação das novas questões. Em razão dessa simplicidade, as variações ocorrem de forma linear, fazendo com que a diversidade das questões geradas seja menor. Ainda assim, este modelo é bastante útil quando se deseja alterar minimamente o contexto ou a a formulação geral, embora, por este mesmo motivo leva os estudantes a perceberem com mais facilidade padrões ou similaridades entre as questões geradas. 
 
-Escreva aqui a tabela da formação do template
+
 
 
 \begin{table}[htbp]
@@ -173,8 +173,17 @@ Escreva um programa que calcule e aplique o desconto correto, exibindo o valor e
 
 
 
-O modelo de uma camada (1-Layer) desempenha um papel significativo quando o professor está em processo de aprendizagem na construção de templates, em que cada elemento variável pode ser manipulado, indicando os índices que fazem referência às posições na lista de opções do template. Sua estrutura mais enxuta favorece a compreensão inicial das etapas de modelagem e oferece um ambiente controlado para adquirir experiência na geração de questões, antes de avançar para modelos mais complexos que exijam manipulações em múltiplas camadas.
+Como ilustra a Tabela \ref{tab:questao-gerada}, cada elemento variável é manipulado em um único nível, modificando-se apenas itens pontuais (por exemplo, contexto geral, contexto específico e solicitação) para a geração de novas questões. Essa estrutura mais enxuta favorece a compreensão das etapas de modelagem, sendo indicada especialmente para professores que estão em fase de aprendizado na construção de \textit{templates}. Nesse sentido, o modelo \textit{1-Layer} funciona como uma base inicial, antes de se evoluir para modelos mais complexos que exigem a manipulação de múltiplos níveis, como ocorre no \textit{n-Layers}.
+
+\subsection{Processo de geração de questões com  n-Layers}
 
 
+A abordagem de multicamadas (\textit{n-layers}) amplia consideravelmente a capacidade de variação e a complexidade na geração de questões quando comparada ao modelo de camada única (\textit{1-layer}).  . Enquanto que no modelo de template tradicional de uma camada é manipulado um pequeno conjunto de elementos em um \textit{template}, no modelo (\textit{n-layer}) cada camada adiciona uma nova estrutura de \textit{sub-templates} que possibilita combinar múltiplas variações em níveis hierárquicos. Dessa forma, torna-se viável embutir elementos e subelementos, criando estruturas cada vez mais complexas que resultam em um número exponencial de questões possíveis.  \parencite{lai2013}. No entanto, essa maior flexibilidade traz também um aumento na complexidade de construção: a elaboração de modelos em múltiplas camadas requer planejamento adicional, tempo para projetar, validar e revisar cada camada e, sobretudo a experiência de quem elabora as questões \textbackslash{}parencite\{gierl2021\}. 
 
-\subsection{Modelos de Multicamadas (n-Layer)}
+
+Em cada nível adicional, pode introduzir novos elementos e combinações mais complexas de forma que seja possível embutir elementos e subelementos criando estruturas hierárquicas capaz de formar diferentes opções de perguntas a partir de um mesmo template, dessa forma ao introduzir novas camas é possível incluir novas variáveis, subtarefas em mútiplos níveis resultado em número total de questões possíveis cresce exponencialmente. no entanto a principal desvantagem é que a construção de templates em multicamadas é mais complexo e requer mais planejamento, tempo para projetar, validar e revisar cada nível e experiência do professor. \parencite{gierl2021}. 
+
+
+\subsection{Vantagens de usar templates na geração automática de questões}
+
+Os \textit{templates} podem ser desenvolvidos para diversos níveis de complexidade e aplicados em diferentes disciplinas, sem demandar grande poder computacional. Como a estrutura e as regras de combinação são definidas antecipadamente, as questões geradas seguem um padrão claro e detalhado, facilitando tanto a criação quanto a revisão. No entanto,  ao utilizar outra abordagem que não utiliza \textit{templates} seja reconhecida na literatura pela capacidade de gerar questões de forma totalmente automatizada, essas soluções tendem a produzir questões relativamente curtas e com qualidade final variável, exigindo ajustes constantes para manter coerência e clareza da questão. Além disso, ainda não é possível, por meio dessas técnicas automáticas, gerar enunciados extensos e contextualmente ricos. Por outro lado, ao utilizar \textbackslash{}textit\{templates\},  se existir eventuais incoerências nas questões geradas, elas podem ser facilmente rastreadas, facilitando a identificação da falha no próprio \textbackslash{}textit\{template\}. 

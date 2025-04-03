@@ -42,8 +42,6 @@ O JSON foi adotado como formato padrão para a construção dos templates de que
 Outro fator relevante é a compatibilidade do JSON com linguagens modernas, como JavaScript, Python e Java, eliminando a necessidade de bibliotecas externas para análise (\textit{parsing}) ou manipulação de dados. Já o XML frequentemente exige mais recursos para tratamento de \textit{tags} e maior esforço de processamento. A análise de desempenho citado por \parencite{goyal2017} destaca que o JSON, por ser mais leve e simples, tem melhor tempo de leitura em aplicações com pares de chave-valor, conforme a figura \ref{fig:json-vs-xml}. Assim, sua adoção torna o desenvolvimento de sistemas mais eficiente e escalável, justificando sua escolha como formato preferencial para os templates de questões neste trabalho.
 
 
-
-
 \section{Representação Hierárquica dos Templates em JSON}
 
 Inicialmente, escrever o modelo de questão em um editor de texto é uma prática útil para planejar a estrutura do template. No entanto, a fase seguinte envolve a estruturação desse modelo em formato JSON, o que facilita a manipulação e a geração de questões de forma automatizada. A transição para JSON permite que o template seja facilmente editado e gerenciado, permitindo o desenvolvimento de \textit{scripts} ou algoritmos capazes de gerar automaticamente diversas instâncias de questões a partir do template.
@@ -58,7 +56,7 @@ A Figura \ref{fig:template-json-example-1} ilustra como o template pode ser orga
 
 \item \textbf{Multicamadas (\textit{N-Layers})}
 \begin{itemize}
-    \item Funcionam como \textit{subtemplates} dentro do template principal, possibilitando a inclusão de novas variáveis e conteúdos para expandir e adaptar o enunciado da questão em diferentes cenários, um layer é sempre filho do template principal.
+    \item Funcionam como \textit{subtemplates} dentro do template principal, que possibilita a inclusão de novas variáveis e conteúdos para expandir e adaptar o enunciado da questão em diferentes cenários, um sub-layer sempre deriva do template principal.
     \end{itemize}
 \end{itemize}
 
@@ -95,8 +93,8 @@ A Figura \ref{fig:template-1} (referente ao \textit{template}) e a Figura \ref{f
 
 \section{Algoritmos Utilizados}
 
-Nesta seção será apresentado os algoritmos empregados para gerar as quest~eos de forma automática a partir de dois arquivos JSON distintos: um conténdo o template (JSON de Template), e outro contendo as questões (JSON de Questão). O \textit{JSON de Template} reúne a estrutura de cada parte de uma questão e as possíveis variações de conteúdo que podem ser combinadas. Já o \textit{JSON de Questões} consiste em um conjunto de chaves que apontam para índices específicos dentro das listas de opções do \textit{JSON Template}, permitindo a criação de múltiplas versões a partir de um único template. 
-Para construção das questões, foram definidas duas funções principais conforme a tabela , a primeira é responsável por percorrer os índices litados no JSON de Questões e, a partir disso, combinar cada elemento com os respectivo campo do JSON de Template, retornando todas as questões geradas. A segunda função retorna uma única questão específica, desde que seja fornecido o código (ou índice) correspondente para delimitar o tipo de busca por questões específicas. O parâmetro \verb|qtd| pode ser utilizado para controlar o número de questões a serem geradas. 
+Nesta seção será apresentado os algoritmos empregados para gerar as questões de forma automática a partir de dois arquivos JSON distintos: um contendo o template (JSON de Template), e outro contendo as questões (JSON de Questão). O \textit{JSON de Template} reúne a estrutura de cada parte de uma questão e as possíveis variações de conteúdo que podem ser combinadas. Já o \textit{JSON de Questões} consiste em um conjunto de chaves que apontam para índices específicos dentro das listas de opções do \textit{JSON Template}, permitindo a criação de múltiplas versões a partir de um único template. 
+Para construção das questões, foram definidas duas funções principais conforme o cabeçalho de código \ref{cod:cabecalho}, a primeira função é responsável por percorrer os índices litados no JSON de Questões e, a partir disso, combinar cada elemento com os respectivo campo do JSON de Template, retornando todas as questões geradas. A segunda função retorna uma única questão específica, desde que seja fornecido o código (ou índice) correspondente para delimitar o tipo de busca por questões específicas.
 
 
 \begin{listing}[ht]
@@ -105,22 +103,22 @@ Para construção das questões, foram definidas duas funções principais confo
 generate_all_questions(json_template, json_questions)
 
 # cabeçalho da funcao 2
-generate_questions(json_template, json_questions, id=None, qtd=None) 
+generate_one_question(json_template, json_questions, id=None) 
 \end{minted}
 \caption{cabeçalho das funções de geração de questões (Autoria Propria, 2025)}
-\label{cod:primo}
+\label{cod:cabecalho}
 \end{listing}
 
     
 \section{Fluxo de Trabalho}
 
-O fluxo de trabalho descrito no \gls{bpmn} na figura \ref{fig:bpmn-fluxo} organiza de forma colaborativa as interações entre professor (especialista), inteligência artificial (IA) e aluno no contexto de geração automática de questões. Esse fluxo de trabalho tem como objetivo auxliar a criação e validação das questões, bem como o fornecimento de beedback para os estudantes. 
+O fluxo de trabalho descrito no \gls{bpmn} na figura \ref{fig:bpmn-fluxo} organiza de forma colaborativa as interações entre professor (especialista), inteligência artificial (IA) e aluno no contexto de geração automática de questões. Esse fluxo de trabalho tem como objetivo auxliar a criação e validação das questões, bem como o fornecimento de \textit{beedback} para os estudantes. 
 
-O \textbf{especialista} (professor) define define os modelos cognitivos  e elabora os templates de questões. Em seguida, o professor realiza a validação dos pontos de variação dos \textit{templates}, garantindo que as questões propostas pela IA estejam alinhadas aos objetivos pedagógicos.
+O \textbf{professor} (especialista) define define os modelos cognitivos  e elabora os templates de questões. Em seguida, o professor realiza a validação dos pontos de variação dos \textit{templates}, garantindo que as questões propostas pela IA estejam alinhadas aos objetivos pedagógicos.
 
-No nível de IA, há duas etapas principais: primeiramente, a IA é responsável por propor variações das questões a partir dos \textit{templates}, criando cenários  que atendam a diferentes contextos e perfis de aprendizagem. Posteriormente, a IA analisa as respostas enviadas pelos alunos, identificando possíveis erros ou inconsistências. Com base nessa análise, a IA sugere correções e melhorias que podem ser implementadas nos códigos ou nos argumentos apresentados.
+No papel da IA, há duas etapas principais: primeiramente, a IA é responsável por propor variações das questões a partir dos \textit{templates}, criando cenários  que atendam a diferentes contextos e perfis de aprendizagem. Posteriormente, a IA analisa as respostas enviadas pelos alunos, identificando possíveis erros ou inconsistências. Com base nessa análise, a IA sugere correções e melhorias que podem ser implementadas nos códigos ou nos argumentos apresentados.
 
-E por fim, o aluno é o principal beneficiário desse processo. Ele recebe as questões geradas, responde por meio do sistema e obtém feedback imediato. Esse retorno rápido permite que o aluno ajuste sua compreensão. 
+E por fim, o aluno é o principal beneficiário desse processo. Ele recebe as questões geradas, responde por meio do sistema e obtém feedback em tempo real. Esse retorno rápido permite que o aluno ajuste sua compreensão sobre o assunto estudado. 
 
 \begin{figure}[ht]
 	\centering
