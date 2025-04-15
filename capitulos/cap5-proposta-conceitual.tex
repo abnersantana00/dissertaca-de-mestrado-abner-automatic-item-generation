@@ -1,6 +1,6 @@
 \chapter{Proposta Conceitual}
 
-Esta seção apresenta uma proposta de utilização de \textit{templates} hierárquicos para criar e manipular questões de programação. A ideia inclui o emprego de inteligência artificial generativa como ferramenta complementar, responsável por sugerir variações criativas no \textit{template} base, tais como modificações de contexto, acréscimo de novos cenários e introdução de pontos de variação. Além disso, a IA generativa também oferece suporte no fornecimento de \textit{feedback} imediato ao estudante após a submissão da resposta, apontando erros, sugerindo melhorias e apresentando explicações detalhadas sobre o problema e possíveis soluções. 
+Esta seção apresenta uma proposta de utilização de \textit{templates} multicamadas para criar e manipular questões de programação. A ideia inclui o emprego de inteligência artificial generativa como ferramenta complementar, responsável por sugerir variações criativas no \textit{template} base, tais como modificações de contexto, acréscimo de novos cenários e introdução de pontos de variação. Além disso, a IA generativa também oferece suporte no fornecimento de \textit{feedback} imediato ao estudante após a submissão da resposta, apontando erros, sugerindo melhorias e apresentando explicações detalhadas sobre o problema e possíveis soluções. 
 
 \section{Geral para o Específico}
 A geração automática de questões segue um processo hierárquico que se inicia em tópicos mais amplos e evolui até questões específicas. Em primeiro lugar, são definidos os tópicos da ementa, que correspondem a áreas ou domínios do conhecimento a serem avaliados (por exemplo, Estruturas de Repetição, Estruturas de Decisão, Matrizes, Funções). Esses tópicos abrangem conteúdos específicos do currículo e orientam a elaboração dos modelos cognitivos. Na etapa seguinte, estes modelos cognitivos são convertidos em \textit{templates}, que servirão de base para a geração das questões. Essa abordagem reflete a metodologia recomendada para a criação de questões baseadas em \textit{templates}. 
@@ -71,7 +71,7 @@ A Figura \ref{fig:template-json-example-1} ilustra como o template pode ser orga
 
 \section{Mecanismo de Combinação}
 
-O mecanismo de combinação consiste em um processo de geração de questões a partir do \textit{template} principal, descrito no formato JSON, que contém estruturas de texto (campos) e múltiplas opções de conteúdo. Esse \textit{template} atua como um conjunto de possibilidades, permitindo que novas perguntas sejam criadas de forma sistemática, por meio da seleção ou combinação das variações de cada campo.
+O mecanismo de combinação consiste em um processo de geração de questões a partir do \textit{template} principal, descrito no formato JSON, que contém estruturas de texto e múltiplas opções de conteúdo. Esse \textit{template} atua como um conjunto de possibilidades, permitindo que novas perguntas sejam criadas de forma sistemática, por meio da seleção e combinação das variações de cada campo.
 
 Para que o \textit{template} seja aplicado em diferentes cenários, é utilizado um segundo arquivo JSON onde cada chave representa a configuração de uma questão específica e cada valor corresponde ao índice selecionado em cada campo do \textit{template}. Dessa forma, se no campo \textbf{"introduction": ["intro\_1", intro\_2", "intro\_3"]} se a questão exigir a segunda opção, o valor referenciado será o índice \texttt{\textbf{1}} (assumindo zero como base de indexação). Essa abordagem sistematiza a produção automatizada de questões, pois basta apenas alterar os índices para gerar combinações distintas, sem alterar a estrutura original do texto.
 
@@ -86,7 +86,7 @@ A Figura \ref{fig:template-1} (referente ao \textit{template}) e a Figura \ref{f
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=16cm]{./imagens/capitulo5/template-2}
+	\includegraphics[width=14cm]{./imagens/capitulo5/template-2}
 	\caption{Template de Questões (Elaboração Própria, 2025) }
 	\label{fig:template-2}
 \end{figure}
