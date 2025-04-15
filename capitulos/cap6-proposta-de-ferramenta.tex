@@ -4,7 +4,7 @@ Nesta seção, será apresentada uma ferramenta cujo objetivo é automatizar a g
 
 \section{JSON de Templates}
 
-O primeiro componente é o JSON de Template, ilustrado na Figura \ref{fig:json-de-templates}, no qual o enunciado geral (\textit{stem}) descreve a estrutura padrão que será aplicada em todas as questões derivadas. Nele, é definido as partes fixas do enunciado e a forma como os elementos variáveis serão combinados para formar a pergunta final. Em seguida, cada categoria de variáveis contém uma lista de opções textuais ou numéricas que podem assumir diferentes valores de acordo com a necessidade, permitindo a criação de múltiplas versões de um mesmo problema.
+O primeiro componente é o JSON de Template, ilustrado na Figura \ref{fig:json-de-templates}, no qual o enunciado geral (\textit{stem}) descreve a estrutura padrão que será aplicada em todas as questões derivadas. Nele, é definido as partes fixas do enunciado e a forma como os elementos variáveis serão combinados para formar a questão. Em seguida, cada categoria de variáveis contém uma lista de opções textuais ou numéricas que podem assumir diferentes valores de acordo com a necessidade, permitindo a criação de múltiplas versões de um mesmo problema.
 
 
 \begin{figure}[ht]
@@ -15,7 +15,7 @@ O primeiro componente é o JSON de Template, ilustrado na Figura \ref{fig:json-d
 \end{figure}
 \section{JSON de Questões}
 
-O segundo componente é o JSON de Questões, ilustrado na \ref{fig:json-de-questoes}, cujo objetivo é definir o formato final de cada questão que será efetivamente apresentado aos estudantes. Neste arquivo, cada questão é identificada por um código, um título e um mapeamento de variáveis que aponta para as categorias estabelecidas no template. Assim, essa estrutura não precisa carregar toda formatação do template, apenas fazer referência aos elementos já definidos no template. Dessa forma, não é necessário carregar toda formatação do enunciado em cada questão, mas apenas fazer referencia aos elementos já definidos. Essa separação favorece a reutilização do mesmo modelo em diversas situações, bastando alterar os atributos de cada problema conforme necessário.
+O segundo componente é o JSON de Questões, ilustrado na figura \ref{fig:json-de-questoes}, cujo objetivo é definir o formato final de cada questão que será efetivamente apresentado aos estudantes. Neste arquivo, cada questão é identificada por um código, um título e um mapeamento de variáveis que aponta para as categorias estabelecidas no template. Assim, essa estrutura não precisa carregar toda formatação do template, apenas fazer referência aos elementos já definidos no template. Dessa forma, não é necessário carregar toda formatação do enunciado em cada questão, mas apenas fazer referencia aos elementos já definidos. Essa separação favorece a reutilização do mesmo modelo em diversas situações, bastando alterar os atributos de cada problema conforme necessário.
 
 \begin{figure}[ht]
 	\centering
@@ -23,13 +23,13 @@ O segundo componente é o JSON de Questões, ilustrado na \ref{fig:json-de-quest
 	\caption{JSON de Templates (Elaboração Própria, 2025) }
 	\label{fig:json-de-questoes}
 \end{figure}
-Na próxima seção serão discutidos os aspectos de implementação, mostrando como a geração de questões pode ser aplicada na prática e como os dados dos arquivos JSON são processados para gerar  as questões na prática.
+Na próxima seção serão discutidos os aspectos de implementação, mostrando como a geração de questões pode ser aplicada na prática e como os dados dos arquivos JSON são processados para gerar  as questões.
 
 \section{Ferramenta}
 
 A ferramenta desenvolvida para a criação automatizada de questões de programação, este exemplo mostra estruturas condicionais “if” e “else”. O modelo proposto  tem como base um problema acompanhado de uma tabela de comparação, de modo que os estudantes possam escrever códigos para resolver diferentes cenários. Essa abordagem contribui para a compreensão do funcionamento das instruções condicionais ao permitir que o estudante teste, na prática, como as condições se comportam em diversos cenários. Além disso, o template adotado oferece a possibilidade de combinar múltiplos cenários em uma única tabela de comparação, bem como utilizar várias tabelas para um mesmo cenário, ampliando significativamente a quantidade de questões geradas. 
 \\
-A flexibilidade desse template faz com que seja possível criar muitas variações de exercícios, cada um abordando aspectos distintos das estruturas condicionais. Ao selecionar o assunto e o tópico de interesse, uma questão é produzida dinamicamente, sendo exibida ao estudante juntamente com a tabela de comparação que auxilia na formulação do raciocínio. Em seguida, o código é escrito no ambiente de resolução proposto e submetido para avaliação. Para efetuar a correção, a ferramenta conta com o suporte de uma IA generativa, que verifica os casos de teste associados ao problema e fornece feedback imediato quanto ao desempenho. Essa estratégia incentiva o aprimoramento constante do aluno, pois o mesmo pode corrigir e reenviar sua solução até alcançar o resultado desejado. 
+A flexibilidade desse template faz com que seja possível criar muitas variações de exercícios, cada um abordando aspectos distintos das estruturas condicionais. Ao selecionar o assunto e o tópico de interesse, uma questão é produzida dinamicamente, sendo exibida ao estudante juntamente com a tabela de comparação que auxilia na formulação do raciocínio. Em seguida, o código é escrito no ambiente de resolução proposto e submetido para avaliação. Para realizar a correção, a ferramenta usa uma \gls{api} da OpenAI, que utiliza o GPT. Por meio de IA generativa, o sistema verifica os casos de teste associados ao problema e devolve um feedback imediato obre a resposta enviada. Essa estratégia incentiva o aprimoramento constante do aluno, pois o mesmo pode corrigir e reenviar sua solução quantas vezes forem necessárias até alcançar o resultado desejado. 
 
 \begin{figure}[ht]
 	\centering
