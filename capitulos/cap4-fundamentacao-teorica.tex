@@ -42,7 +42,7 @@ A figura \ref{fig:cognitive-model} apresenta a estrutura hierárquica do modelo 
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=14cm]{./imagens/capitulo4/cognitive-model}
+	\includegraphics[width=12cm]{./imagens/capitulo4/cognitive-model}
 	\caption{Estrutura do Modelo Cognitivo (Gierl, 2021)}
 	\label{fig:cognitive-model}
 \end{figure}
@@ -68,7 +68,7 @@ Se um \textit{template} gerar uma questão que se revele incoerente ou sem lógi
 
 \section{Modelo Questão}
 
- Esta seção apresenta uma discussão sobre a construção de modelos de templates em diferentes níveis (1-layer, 2-layers, n-layers) e a forma como esses modelos podem ser estruturados para permitir a geração de questões a partir de um único template, um modelo de questão pode ser descrito como um template que especifica os componentes manipuláveis de uma questão, e cada componente carrega um valor ou um intervalo de valores que podem ser alterados de forma sistemática para gerar novas questões \parencite{gierl2021}.
+ Esta seção apresenta uma discussão sobre a construção de modelos de templates em diferentes níveis (\textit{1-layer, 2-layers, n-layers}) e a forma como esses modelos podem ser estruturados para permitir a geração de questões a partir de um único template, um modelo de questão pode ser descrito como um template que especifica os componentes manipuláveis de uma questão, e cada componente carrega um valor ou um intervalo de valores que podem ser alterados de forma sistemática para gerar novas questões \parencite{gierl2021}.
 
 \subsection{Modelos de Template de uma camada (1-Layer)}
 
@@ -107,7 +107,7 @@ Após calcular o desconto, exiba o valor final da compra e a economia obtida. \\
   \item \textbf{contexto-geral}:
     \begin{itemize}[leftmargin=1em]
       \item Uma loja virtual está lançando promoções para fidelizar clientes em uma nova linha de produtos faciais.
-      \item Um supermercado online promove descontos para estimular compras em grandes quantidades durante as festas de fim de ano.
+      \item  Um supermercado online promove descontos para estimular compras em grandes quantidades durante as festas de fim de ano.
     \end{itemize}
 
   \item \textbf{contexto-específico}:
@@ -173,20 +173,52 @@ Escreva um programa que calcule e aplique o desconto correto, exibindo o valor e
 
 
 
-Como ilustra a Tabela \ref{tab:questao-gerada}, cada elemento variável é manipulado em um único nível, modificando-se apenas os índices dos itens pontuais (tais como, contexto geral, contexto específico e solicitação) para a geração de novas questões. Essa estrutura mais enxuta favorece a compreensão das etapas de modelagem, sendo indicada especialmente para professores que estão em fase de aprendizado na construção de \textit{templates}. Nesse sentido, o modelo \textit{1-layer} funciona como uma base inicial, antes de se evoluir para modelos mais complexos que exigem a manipulação de múltiplos níveis, como ocorre no modelo de \textit{n-layers}.
+Como ilustra a Tabela \ref{tab:questao-gerada}, cada elemento variável é manipulado em um único nível, modificando-se apenas os índices dos itens pontuais tais como: contexto geral, contexto específico e solicitação para a geração de novas questões. Essa estrutura mais enxuta favorece a compreensão das etapas de modelagem, sendo indicada especialmente para professores que estão em fase de aprendizado na construção de \textit{templates}. Nesse sentido, o modelo \textit{1-layer} funciona como uma base inicial, antes de se evoluir para modelos mais complexos que exigem a manipulação de múltiplos níveis, como ocorre no modelo de \textit{n-layers}.
 
 \subsection{Processo de geração de questões com  n-Layers}
 
-A abordagem de multicamadas (\textit{n-layers}) amplia consideravelmente a capacidade de variação e a complexidade na geração de questões quando comparada ao modelo de camada única (\textit{1-layer}).  Enquanto que no modelo de uma camada é manipulado um pequeno conjunto de elementos em um \textit{template}, no modelo (\textit{n-layer}) cada camada adiciona uma nova estrutura de \textit{sub-templates} que possibilita combinar múltiplas estruturas de templates organizadas em níveis hierárquicos. Dessa forma, torna-se viável embutir os elementos, criando estruturas cada vez mais complexas que resultam em uma diversidade maior  de questões geradas  \parencite{lai2013}. No entanto, essa maior flexibilidade traz também um aumento na complexidade de construção, pois a elaboração de modelos em múltiplas camadas requer planejamento adicional, tempo para projetar, validar e revisar cada camada e, sobretudo a experiência de quem elabora as questões \parencite{gierl2021}. 
+A abordagem de multicamadas (\textit{n-layers}) amplia consideravelmente a capacidade de variação e a complexidade na geração de questões quando comparada ao modelo de camada única (\textit{1-layer}).  Enquanto que no modelo de uma camada é manipulado um pequeno conjunto de elementos em um \textit{template}, no modelo (\textit{n-layer}) cada camada adiciona uma nova estrutura de \textit{sub-templates} que possibilita combinar múltiplas estruturas de templates organizadas em níveis hierárquicos. Dessa forma, torna-se viável embutir os elementos, criando estruturas cada vez mais complexas que resultam em uma variedade maior  de questões geradas  \parencite{lai2013}. No entanto, essa maior diversidade traz também um aumento na complexidade de construção, pois a elaboração de modelos em múltiplas camadas requer planejamento adicional, tempo para projetar, validar e revisar cada camada e, sobretudo a experiência de quem elabora as questões \parencite{gierl2021}. 
 
-Assim como no modelo de camada única, o ponto de partida do \textit{n-layer} é um um modelo cognitivo, que fornece os parâmetros principais de conteúdo, mas aqui cada layer pode conter blocos de informações e regras adicionais. À medida que se aumentam as camadas, introduzem-se mais cenários e variáveis e, portanto, aumentando a diversidade das questões. conforme a questão base da figura NNN 
+Assim como no modelo de camada única, o ponto de partida do \textit{n-layer} é um um modelo cognitivo, que fornece os parâmetros principais de conteúdo, mas aqui cada layer pode conter blocos de informações e regras adicionais. À medida que se aumentam as camadas, introduzem-se mais cenários e variáveis e, portanto, aumentando a diversidade das questões geradas.
 
+
+Considere a questão de referência ilustrada nas Figuras \ref{fig:questao-referencia-part-1} e \ref{fig:questao-referencia-part-2}. A primeira parte descreve um menu de calculadora; a segunda detalha três categorias de operação (fácil, moderado, e difícil), baseado neste modelo. Ao migrar para uma abordagem \textit{n‑layers}, é possível substituir o contexto de “calculadora” por múltiplos cenários similares a um menu, como por exemplo, interface de computador, caixa eletrônico, jogo simples, painel de controle industrial, sem alterar estrutura e a lógica de dificuldade da questão. Se, para cada nível de dificuldade, forem especificadas 20 variações e adotarmos apenas um cenário, já obtemos 20×20×20=8.000 variações. Com dois ou três cenários, esse quantitativo pode alcançar 16.000 ou 24.000 variações respectivamente, demonstrando o poder combinatório deste modelo.
+
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=12cm]{./imagens/capitulo4/questao-referencia-1.png}
+	\caption{Questão de referencia - Parte 1 (Autoria Própria, 2025)}
+	\label{fig:questao-referencia-part-2}
+\end{figure}
+
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=12cm]{./imagens/capitulo4/questao-referencia-2.png}
+    \caption{Questão de Referencia Parte 2 - Autoria Própria (2025)}
+    \label{fig:questao-referencia-part-2}
+\end{figure}
+
+Em Paralelo com a geração automática de questões com aplicações em questões de medicina, no estudo de \parencite{gierl2021}, o template principal aborda doenças respiratórias, e as camadas seguintes eram detalhados cenários específicos para diagnosticar gripes (leve, moderada e severa) com bases nos sintomas apresentados. Aqui seguimos o mesmo raciocínio, o template principal fixa um contexto comum, e as subcamada especifica o contexto específico do contexto comum.
+
+A Figura \ref{fig:template-1} e \ref{fig:template-2} mostra o modelo desta questão usando a abordagem multicamadas, onde o \textit{stem} (camada raiz) do template simula uma interface de uma calculadora, e os colchetes simples representam os pontos de variação, e os colchetes duplos subistituie a o subtemplate que será definido na camada seguinte, e cada indice numérico da lista é um valor possível que o template pode assumir. Isso permite reutilizar a estrutura original para substituir as variáveis sem comprometer a coerência da questão original.
 
 \begin{figure}
     \centering
-    \includegraphics[width=\linewidth]{imagens//capitulo4/questao-1-part-1.png}
-    \caption{Questao de Referencia Part 1 - }
-    \label{fig:questao-referencia-part-1}
+    \includegraphics[width=12cm]{./imagens/capitulo4/template-1.png}
+    \caption{Template Calculadora Parte 1 - Autoria Própria (2025)}
+    \label{fig:template-1}
 \end{figure}
 
-Os \textit{templates} podem ser desenvolvidos para diversos níveis de complexidade e aplicados em diferentes disciplinas, sem demandar grande poder computacional. Como a estrutura e as regras de combinação são definidas antecipadamente, as questões geradas seguem um padrão claro e detalhado, facilitando tanto a criação quanto a revisão. No entanto,  ao utilizar outra abordagem que não utiliza \textit{templates} seja reconhecida na literatura pela capacidade de gerar questões de forma totalmente automatizada, essas soluções tendem a produzir questões relativamente curtas e com qualidade final variável, exigindo ajustes constantes para manter coerência e clareza da questão. Além disso, ainda não é possível, por meio dessas técnicas automáticas, gerar enunciados extensos e contextualmente ricos. Por outro lado, ao utilizar \textbackslash{}textit\{templates\},  se existir eventuais incoerências nas questões geradas, elas podem ser facilmente rastreadas, facilitando a identificação da falha no próprio \textbackslash{}textit\{template\}. 
+\begin{figure}
+    \centering
+    \includegraphics[width=12cm]{./imagens/capitulo4/template-2.png}
+    \caption{Template Calculadora Parte 2 - Autoria Própria (2025)}
+    \label{fig:template-2}
+\end{figure}
+
+
+\subsection{Razões para utilizar templates na geração de questões}
+
+A geração automática de questões baseada em \textit{templates} é hoje uma estratégia versátil e operacionalmente viável para gerar questões em escala. A adoção de estruturas pré-definidas garante padronização, controle de complexidade e rastreamento dos erros, além de não exigir muitos recursos computacionais quando comparado com  as abordagens que não utilizam templates. Essas abordagens dependem de uma grande bases de dados e de modelos extensivamente treinados, que resulta em sua maioria, questões menos complexas, com criatividade limitada e com qualidade variável. Além disso, conforme \parencite{maity2024} menciona que, sistemas de geração automática de questões  baseadas em \gls{llm} tendem a gerar questões redundantes, enfrentam dificuldades na elaboração de problemas complexos, apresentam variação na qualidade das perguntas geradas e ainda estão sujeitos a riscos relacionados a vieses linguísticos. Estes fatores reforçam a atual preferencia pelo uso de \textit{templates} na geração automática de questões.
