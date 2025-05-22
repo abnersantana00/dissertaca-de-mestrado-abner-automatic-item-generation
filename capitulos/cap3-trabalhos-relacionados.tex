@@ -4,11 +4,15 @@
 
 Este capítulo apresenta os principais trabalhos encontrados na literatura que possuem temas ou áreas de atuação relacionadas à proposta neste estudo. São destacados trabalhos que exploram o desenvolvimento de questões de programação baseada em templates e técnicas associadas, bem como, as palavras de busca utilizada para localizar esses trabalhos.
 
-
-
 \section{Metodologia de Busca}
 
-A busca pelos trabalhos relacionados foi realizada utilizando palavras-chaves definidas previamente, empregadas em bases acadêmicas reconhecidas, como IEEE Xplore, Scopus e ACM Digital Library. A expressão de busca utilizada foi: `TITLE-ABS-KEY ( ( automatic OR automated ) item AND generation AND ( programming OR exercises ) ) PUBYEAR > 2019 AND PUBYEAR < 2025'. O período considerado abrangeu de janeiro de 2018 a novembro de 2024.  O processo de busca foi estruturado para identificar pesquisas relevantes na área de geração automática de questões de programação. A busca inicial resultou em 164 artigos. Após análise preliminar baseada nos títulos e resumos, os trabalhos foram filtrados  os trabalhos com base nas questões de pesquisa, conforme os critérios de inclusão e exclusão definidos conforme apresentado a seguir. 
+A busca pelos trabalhos relacionados foi realizada utilizando palavras-chaves definidas previamente, empregadas em bases acadêmicas reconhecidas, como IEEE Xplore, Scopus e ACM Digital Library. A expressão de busca utilizada foi: 
+
+\begin{quote}
+\texttt{TITLE-ABS-KEY ( ( \textcolor{blue}{automatic} \textcolor{gray}{OR} \textcolor{blue}{automated} ) \textcolor{gray}{AND} \textcolor{blue}{item} \textcolor{gray}{AND} \textcolor{blue}{generation} \textcolor{gray}{AND} ( \textcolor{blue}{programming} \textcolor{gray}{OR} \textcolor{blue}{exercises} ) ) \textcolor{gray}{PUBYEAR >} \textcolor{orange}{2019} \textcolor{gray}{AND} \textcolor{gray}{PUBYEAR <} \textcolor{orange}{2025}}
+\end{quote}
+
+O período considerado abrangeu de janeiro de 2018 a novembro de 2024.  O processo de busca foi estruturado para identificar pesquisas relevantes na área de geração automática de questões de programação. A busca inicial resultou em 164 artigos. Após análise preliminar baseada nos títulos e resumos, os trabalhos foram filtrados  os trabalhos com base nas questões de pesquisa, conforme os critérios de inclusão e exclusão definidos conforme apresentado a seguir. 
 
 \subsection{Critérios de Inclusão}
 \begin{itemize}
@@ -27,7 +31,7 @@ A busca pelos trabalhos relacionados foi realizada utilizando palavras-chaves de
 \end{itemize}
 
 \section{Processo de Seleção}
-A busca resultou em 164 artigos, após a análise preliminar resultou em 10 estudos para leitura detalhada, uma triagem baseada nos critérios de inclusão e exclusão reduziu o número final para 5 estudos. Apesar de a ACM \textit{Digital Library} ter encontrado títulos e resumos altamente relevantes para este trabalho, o acesso restrito a essa base dificultou significativamente a inclusão de um maior número de estudos. A tabela a seguir apresenta a distribuição dos artigos encontrados por cada base dados e o número de estudos selecionados.
+A busca resultou inicialmente em 164 artigos. Após uma análise preliminar dos títulos e resumos, foram selecionados 10 estudos considerados relevantes para leitura detalhada. Em seguida, uma triagem mais criteriosa foi realizada com base nos critérios de inclusão e exclusão definidos previamente, o que reduziu o número final para 5 estudos incluídos nesta dissertação. Embora o repositório digital da \gls{acm} \textit{Digital Library} tenha retornado títulos e resumos altamente pertinentes ao escopo deste trabalho, o acesso restrito a essa base de dados dificultou significativamente a incorporação de um número maior de estudos relevantes. A tabela a seguir apresenta de forma detalhada a distribuição dos artigos encontrados em cada base de dados consultada, bem como a quantidade de estudos selecionados após o processo de triagem.
 
 \begin{table}[htbp]
     \centering
@@ -73,15 +77,19 @@ Na análise comparativa apresentada na tabela \ref{tab:table-comparativa-trabalh
         Zavala e Mendoza 2018& \faCheck & \faClose& \faClose\\ \hline 
         Zavala e Mendoza 2023 & \faCheck&  \faClose& \faClose\\ \hline
         Teubl, Ramos Batista e Zampirolli 2021 & \faCheck& \faClose& \faClose\\\hline
- Lehtinen, Santos e SorvaSaatz 2024 & \faCheck & \faClose&\faClose \\\hline
+        Lehtinen, Santos e SorvaSaatz 2024 & \faCheck & \faClose&\faClose \\\hline
+        Silva, A. de S. 2025 (este trabalho)& \faCheck & \faCheck&\faCheck \\\hline
     \end{tabular}
-    \caption{Tabela comparativa dos trabalhos Selecionados}
+    \caption{Tabela comparativa dos trabalhos Selecionados (Elaboração própria, 2025)}
     \label{tab:table-comparativa-trabalhos-selecionados}
 \end{table}
 
 
-
+Como mostra a Tabela \ref{tab:table-comparativa-trabalhos-selecionados}, os trabalhos anteriores utilizam modelos de template de camada única, exigindo maior intervenção manual para gerar variações de enunciado e revisar a qualidade das questões. A ausência de uma arquitetura multicamadas limita a flexibilidade estrutural, enquanto a falta de IA generativa inviabiliza a criação automática de novos contextos. A contribuição deste trabalho é aplicar os templates multicamadas e adicionar modelos de IA generativa para preencher este espaço identificado na literatura e também adicionar um fluxo de trabalho diferente na geração de questões de programação.
 Na área da saúde, como a medicina, a aplicação de templates multicamadas e de IA generativa para a geração automática de questões e feedback automatizado já é uma prática amplamente utilizada. Estudos como \parencite{falcao2023} e \parencite{kiyak2024} indicam que a IA generativa pode produzir questões de alta qualidade, contribuindo tanto para a avaliação quanto para o aprimoramento contínuo do processo de criação de questões. Esses avanços sugerem que, com as adaptações necessárias, a geração automática de questões tem um grande potencial para ser implementada com sucesso na área de programação.
 No entanto, essa oportunidade ainda depende de iniciativas de pesquisadores e desenvolvedores dispostos a adaptar e aplicar as metodologias validadas na medicina ao contexto específico do desenvolvimento de questões de programação.
 
 No próximo capítulo, serão apresentados os fundamentos teóricos que embasam este trabalho.  Serão explorados os conceitos essenciais do modelo cognitivo aplicado à elaboração de questões e o papel dos templates multicamadas na automação do processo, estabelecendo a base teórica para as discussões posteriores. 
+
+
+
