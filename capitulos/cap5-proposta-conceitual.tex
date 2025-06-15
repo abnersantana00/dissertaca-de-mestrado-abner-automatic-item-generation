@@ -70,7 +70,7 @@ A Figura \ref{fig:template-json-example-1} descreve como o template pode ser org
 
 O mecanismo de combinação consiste em um processo de geração de questões a partir do \textit{template} principal, descrito no formato JSON, que contém estruturas de texto e múltiplas opções de conteúdo. Esse \textit{template} atua como um conjunto de possibilidades, permitindo que novas perguntas sejam criadas de forma sistemática, por meio da seleção e combinação das variações de cada campo.
 
-Para que o \textit{template} seja aplicado em diferentes cenários, é utilizado um segundo arquivo JSON onde cada chave representa a configuração de uma questão específica e cada valor corresponde ao índice selecionado em cada campo do \textit{template}. Dessa forma, se no campo \textbf{"untroducao": ["intro\_1", intro\_2", "intro\_3"]} caso a questão for exigido a segunda opção, o valor referenciado será o índice \texttt{\textbf{1}} (assumindo zero como base de indexação). Essa abordagem sistematiza a produção automatizada de questões, pois basta apenas alterar os índices para gerar combinações distintas, sem alterar a estrutura original do texto.
+Para que o \textit{template} seja aplicado em diferentes cenários, é utilizado um segundo arquivo JSON onde cada chave representa a configuração de uma questão específica e cada valor corresponde ao índice selecionado em cada campo do \textit{template}. Dessa forma, se no campo \textbf{"introducao": ["intro\_1", intro\_2", "intro\_3"]} caso a questão for exigido a segunda opção, o valor referenciado será o índice \texttt{\textbf{1}} (assumindo zero como base de indexação). Essa abordagem sistematiza a produção automatizada de questões, pois basta apenas alterar os índices para gerar combinações distintas, sem alterar a estrutura original do texto.
 
 A Figura \ref{fig:template-1} (referente ao \textit{template}) e a Figura \ref{fig:template-2} (referente às instâncias de questões) apresentam esse processo. Enquanto a primeira foca nos template em si e seus valores possíveis, a segunda demonstra como cada questão seleciona um conjunto de índices para formar a questão final. 
 
@@ -90,23 +90,81 @@ A Figura \ref{fig:template-1} (referente ao \textit{template}) e a Figura \ref{f
 
 \section{Algoritmos Utilizados}
 
-Nesta seção será apresentado os algoritmos empregados para gerar as questões de forma automática a partir de dois arquivos JSON distintos: um contendo o template (JSON de Template), e outro contendo as questões (JSON de Questão). O \textit{JSON de Template} reúne a estrutura de cada parte de uma questão e as possíveis variações de conteúdo que podem ser combinadas. Já o \textit{JSON de Questões} consiste em um conjunto de chaves que apontam para índices específicos dentro das listas de opções do \textit{JSON Template}, permitindo a criação de múltiplas versões a partir de um único template. 
-Para construção das questões, foram definidas duas funções principais conforme o cabeçalho de código \ref{cod:cabecalho}, a primeira função é responsável por percorrer os índices litados no JSON de Questões e, a partir disso, combinar cada elemento com os respectivo campo do JSON de Template, retornando todas as questões geradas. A segunda função retorna uma única questão específica, desde que seja fornecido o código (ou índice) correspondente para delimitar o tipo de busca por questões específicas.
+Nesta seção será apresentado os algoritmos empregados para gerar as questões de forma automática a partir de dois arquivos JSON distintos: um contendo o template (JSON de Template), e outro contendo as questões (JSON de Questões). O \textit{JSON de Template} reúne a estrutura de cada parte de uma questão e as possíveis variações de conteúdo que podem ser combinadas. Já o \textit{JSON de Questões} consiste em um conjunto de chaves que apontam para índices específicos dentro das listas de opções do \textit{JSON Template}, permitindo a criação de múltiplas versões a partir de um único template. 
+Para a construção das questões, foram definidas duas funções principais, descritas nos Algoritmos \ref{alg:generate_questions} e \ref{alg:get_feedback}  respectivamente.   
+O primeiro algoritmo percorre os índices listados no \textit{JSON de Questões} e combina cada referência com o campo do \textit{JSON de Template}, devolvendo todas as questões geradas.  
+A segunda função, apresentada no Algoritmo \ref{alg:get_feedback}, recebe o enunciado da questão que foi gerada e o código submetido pelo usuário, utiliza o modelo GPT para analisar a solução, identificar eventuais erros e sugerir uma versão corrigida com feedback detalhado.
+
+\begin{algorithm}[H]
+\caption{Geração de Questões Multicamadas}
+\label{alg:generate_questions}
+\KwIn{\textbf{Template}, \textbf{TemplateQuestões}, \textbf{QtdItens} (opcional), \textbf{SelectOne} (opcional)}
+\KwOut{Lista de questões geradas ou uma única questão, conforme o parâmetro \textbf{SelectOne}}
+
+Carregar o objeto \textbf{Template} a partir de \textit{templatePath}\;
+Carregar o objeto \textbf{TemplateQuestões} a partir de \textit{questionPath}\;
+
+\If{\textbf{Template.codTemplate} $\neq$ \textbf{TemplateQuestões.codTemplate}}{
+    \Return Erro: códigos de template incompatíveis\;
+}
+
+Definir \textbf{Qtd} $\gets$ número de itens a gerar, respeitando o total disponível\;
+Inicializar a lista \textbf{QuestõesGeradas} como vazia\;
+
+\For{cada elemento $q$ em \textbf{TemplateQuestões.questoes}, até o limite \textbf{Qtd}}{
+    Definir \textbf{CabecalhoPrincipal} $\gets$ \textbf{Template.stem}\;
+
+    \If{existe camada \textbf{layer-1} em \textbf{Template} \textbf{e} variáveis de camada em $q$}{
+        Processar as variáveis da camada \textbf{layer-1}\;
+        Substituir os placeholders da camada no \textbf{CabecalhoPrincipal}\;
+    }
+
+    Substituir as variáveis de \textbf{CabecalhoPrincipal} com base em \textbf{cabecalho-var} de $q$\;
+    Adicionar \textbf{CabecalhoPrincipal} à lista \textbf{QuestõesGeradas}\;
+}
+
+\If{\textbf{SelectOne} é verdadeiro}{
+    \Return Uma questão aleatória de \textbf{QuestõesGeradas}\;
+}
+\Else{
+    \Return A lista completa \textbf{QuestõesGeradas}\;
+}
+\end{algorithm}
 
 
-\begin{listing}[ht]
-\begin{minted}[linenos=true, autogobble, bgcolor=Cornsilk1]{c}
-# cabeçalho da função 1
-generate_all_questions(json_template, json_questions)
 
-# cabeçalho da funcao 2
-generate_one_question(json_template, json_questions, id=None) 
-\end{minted}
-\caption{cabeçalho das funções de geração de questões (Autoria Propria, 2025)}
-\label{cod:cabecalho}
-\end{listing}
 
-    
+
+\begin{algorithm}[H]
+\caption{Geração de Feedback Automatizado para Submissões de Código}
+\label{alg:get_feedback}
+\KwIn{\textbf{EnunciadoQuestao}, \textbf{CodigoSubmetido}, \textbf{ChaveAPI}}
+\KwOut{Texto com feedback detalhado sobre a submissão}
+
+Inicializar o cliente da API \textbf{OpenAI} utilizando \textbf{ChaveAPI}\;
+
+Definir a lista de mensagens \textbf{Mensagens} com o seguinte conteúdo:\;
+\Indp
+\textbf{(i)} Um prompt de sistema informando que o modelo atua como revisor de código\;
+\textbf{(ii)} Uma mensagem de usuário contendo o enunciado da questão, o código submetido e as instruções para correção e feedback\;
+\Indm
+
+Tentar gerar a resposta com os seguintes parâmetros:\;
+\Indp
+\textbf{Modelo}: \textit{GPT-4.1}\;
+\textbf{Aleatoriedade}: $1$\;
+\textbf{Máximo de Tokens}: $1000$\;
+\textbf{Mensagens}: \textbf{Mensagens}\;
+\Indm
+
+\If{a geração for bem-sucedida}{
+    Retornar o conteúdo textual da resposta do modelo\;
+}
+\Else{
+    Capturar a exceção e retornar uma mensagem de erro descritiva\;
+}
+\end{algorithm}
+
 \section{Fluxo de Trabalho}
 
 O fluxo de trabalho descrito no \gls{bpmn} na figura \ref{fig:bpmn-fluxo} organiza de forma colaborativa as interações entre professor (especialista), inteligência artificial (IA) e aluno no contexto de geração automática de questões. Esse fluxo de trabalho tem como objetivo auxliar a criação e validação das questões, bem como o fornecimento de \textit{beedback} para os estudantes. 
