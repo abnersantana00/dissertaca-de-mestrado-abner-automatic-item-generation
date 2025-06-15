@@ -93,7 +93,7 @@ A Figura \ref{fig:template-1} (referente ao \textit{template}) e a Figura \ref{f
 Nesta seção será apresentado os algoritmos empregados para gerar as questões de forma automática a partir de dois arquivos JSON distintos: um contendo o template (JSON de Template), e outro contendo as questões (JSON de Questões). O \textit{JSON de Template} reúne a estrutura de cada parte de uma questão e as possíveis variações de conteúdo que podem ser combinadas. Já o \textit{JSON de Questões} consiste em um conjunto de chaves que apontam para índices específicos dentro das listas de opções do \textit{JSON Template}, permitindo a criação de múltiplas versões a partir de um único template. 
 Para a construção das questões, foram definidas duas funções principais, descritas nos Algoritmos \ref{alg:generate_questions} e \ref{alg:get_feedback}  respectivamente.   
 O primeiro algoritmo percorre os índices listados no \textit{JSON de Questões} e combina cada referência com o campo do \textit{JSON de Template}, devolvendo todas as questões geradas.  
-A segunda função, apresentada no Algoritmo \ref{alg:get_feedback}, recebe o enunciado da questão que foi gerada e o código submetido pelo usuário, utiliza o modelo GPT para analisar a solução, identificar eventuais erros e sugerir uma versão corrigida com feedback detalhado.
+A segunda função, apresentada no Algoritmo \ref{alg:get_feedback}, recebe o enunciado produzido e o codigo submetido pelo usuário e, com auxlio de um modelo de \gls{llm} (especificamente o GPT-4), interpreta o problema, avalia a solução, identifica inconsistências e sugere uma versão corrigida com feedback detalhado. Essa integração de IA reduz significativamente o custo de validação manual.
 
 \begin{algorithm}[H]
 \caption{Geração de Questões Multicamadas}
@@ -151,7 +151,7 @@ Definir a lista de mensagens \textbf{Mensagens} com o seguinte conteúdo:\;
 
 Tentar gerar a resposta com os seguintes parâmetros:\;
 \Indp
-\textbf{Modelo}: \textit{GPT-4.1}\;
+\textbf{Modelo}: \textit{GPT-4}\;
 \textbf{Aleatoriedade}: $1$\;
 \textbf{Máximo de Tokens}: $1000$\;
 \textbf{Mensagens}: \textbf{Mensagens}\;
@@ -165,19 +165,35 @@ Tentar gerar a resposta com os seguintes parâmetros:\;
 }
 \end{algorithm}
 
+
+
+
+ 
 \section{Fluxo de Trabalho}
 
-O fluxo de trabalho descrito no \gls{bpmn} na figura \ref{fig:bpmn-fluxo} organiza de forma colaborativa as interações entre professor (especialista), inteligência artificial (IA) e aluno no contexto de geração automática de questões. Esse fluxo de trabalho tem como objetivo auxliar a criação e validação das questões, bem como o fornecimento de \textit{beedback} para os estudantes. 
 
-O \textbf{professor} (especialista) define define os modelos cognitivos  e elabora os templates de questões. Em seguida, o professor realiza a validação dos pontos de variação dos \textit{templates}, garantindo que as questões propostas pela IA estejam alinhadas aos objetivos pedagógicos.
+O fluxo de trabalho representado pelo \gls{bpmn} da Figura \ref{fig:bpmn-fluxo} coordena de modo colaborativo as interações entre o professor (\emph{especialista}), o \textbf{sistema}, dois \textbf{serviços de IA} e o \textbf{aluno} no contexto da geração automática de questões. Seu propósito é apoiar a criação e a validação das questões geradas a partir de \textit{templates} e oferecer \textit{feedback} das respostas submetidas pelos estudantes.
 
-No papel da \textbf{IA}, há duas etapas principais: primeiramente, a IA é responsável por propor variações das questões a partir dos \textit{templates}, criando cenários  que atendam a diferentes contextos e perfis de aprendizagem. Posteriormente, a IA analisa as respostas enviadas pelos alunos, identificando possíveis erros ou inconsistências. Com base nessa análise, a IA sugere correções e melhorias que podem ser implementadas nos códigos ou nos argumentos apresentados.
+\textbf{Papel do especialista.} O processo inicia com o professor, que \emph{define o modelo cognitivo} e \emph{elabora os templates} das questões. Em seguida, valida os pontos de variação desses templates, assegurando que as versões propostas pela IA estejam alinhadas com os objetivos pedagógicos.
 
-E por fim, o \textbf{aluno} é o principal beneficiário desse processo. Ele recebe as questões geradas, responde por meio do sistema e obtém feedback em tempo real. Esse retorno rápido permite que o aluno ajuste sua compreensão sobre o assunto estudado. 
+\textbf{Papel do sistema e dos serviços de IA.} Uma vez validados, os templates alimentam o sistema, que os disponibiliza aos estudantes e aciona dois serviços externos de IA:
+
+\begin{itemize}
+\item \textbf{Sugestão de Variações} – gera automaticamente novas instâncias de questões com base nos pontos de variação definidos pelo professor, ampliando a diversidade de cenários.
+\item \textbf{Geração de Feedback} – analisa as respostas dos alunos, identifica erros ou inconsistências e produz orientações de como responder o enunciado corretamente.
+\end{itemize}
+
+\textbf{Papel do aluno.} O aluno é o principal beneficiado desse fluxo. Ele \emph{visualiza} as questões geradas, \emph{envia} suas respostas e por fim \emph{recebe} feedback sobre a submissão do código, o que contribui para a identificação de erros, a correção de conceitos e consequentemente, para a melhoria contínua de seus conhecimentos.
 
 \begin{figure}[ht]
-	\centering
-	\includegraphics[width=16cm]{./imagens/capitulo6/bpmn-fluxo}
-	\caption{BPMN do fluxo de trabalho (Elaboração própria, 2025) }
-	\label{fig:bpmn-fluxo}
+\centering
+\includegraphics[width=16cm]{./imagens/capitulo6/bpmn-fluxo}
+\caption{BPMN do fluxo de trabalho (elaboração própria, 2025).}
+\label{fig:bpmn-fluxo}
 \end{figure}
+
+\bigskip
+\noindent
+
+
+Tendo estabelecido os fundamentos teóricos e a dinâmica de interação descritos neste capítulo, o capítulo seguinte apresentará a implementação do sistema. Serão detalhadas suas principais interfaces e uma análise dos benefícios e limitações da abordagem proposta.
