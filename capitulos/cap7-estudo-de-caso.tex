@@ -1,19 +1,37 @@
 \chapter{Estudo de Caso}
 
-\textbf{ESTUDO DE CASO EM ANDAMENTO.}
-
-Esta seção apresenta o estudo de caso conduzido para avaliar a viabilidade, utilidade e relevância da proposta de geração automática de questões de programação baseada em templates multicamadas. O estudo foi estruturado para incluir a criação de templates por professores, coleta de feedback e uma análise sobre a compreensão e percepção dos participantes em relação à proposta. A seguir,  serão detalhadas as etapas do estudo e os principais resultados observados. 
+Esta capítulo apresenta o estudo de caso conduzido com professores de \textit{introdução à programação} com o objetivo de investigar a viabilidade, utilidade prática e os desafios associados ao uso de templates multicamadas proposto neste trabalho. A pesquisa adota uma abordagem integrada à pesquisa-ação, com uso de métodos mistos (quantitativos e qualitativos). O estudo foi conduzido e estruturado para oferecer evidências que respondem às três questões de pesquisa (QP1, QP2 e QP3) conforme as diretrizes metodológicas recomendadas pela \gls{ceie} para estudos de caso.
 
 \section{Objetivo do Estudo}
-O objetivo principal deste estudo de caso foi validar a aplicabilidade da geração automática de questões usando templates em um contexto de questões de programação, focando na interação de professores com a construção de templates e nas percepções sobre a utilidade e os desafios envolvidos. Embora não tenha sido possível aplicar o feedback automatizado aos participantes devido ao tempo limitado para o desenvolvimento deste estudo, a literatura  indica que este recurso tem potencial significativo para contribuir no aprendizado, como evidenciado por trabalhos como o de \parencite{vanpraet2024} e \parencite{fung2024} indicam que a incorporação de feedback automatizado se utilizado corretamente pode aumentar o desempenho do estudante.
-
+O objetivo deste estudo de caso é investigar a aplicabilidade da geração automática de questões utilizando templates multicamadas no contexto do ensino de programação, com base na experiência de professores na construção desses templates, e em suas percepções sobre a utilidade e os desafios da abordagem. Para isso, são apresentados a abordagem utilizada,  os procedimentos envolvidos e as métricas adotadas, que fundamentam a coleta e análise dos dados qualitativos e quantitativos que serão discutidos nas seções seguintes.
+Embora não tenha sido possível aplicar o feedback automatizado aos participantes devido ao tempo limitado para o desenvolvimento deste estudo, a literatura  indica que este recurso tem potencial significativo para contribuir no aprendizado, como evidenciado por trabalhos como o de \parencite{vanpraet2024} e \parencite{fung2024} indicam que a incorporação de feedback automatizado se utilizado corretamente pode aumentar de forma significativa o desempenho dos estudantes.
 
 \section{Metodologia do Estudo de Caso}
 
-Este estudo adotou uma abordagem exploratória-qualitativa, utilizando como  estratégia um estudo de caso com professores de programação. O processo foi divido em cinco etapas:  
+Este estudo adotou uma abordagem mista que combina técnicas quantitativas e qualitativas dentro de um ciclo de pesquisa. A opção por integrar essas abordagens decorreu de duas necessidades complementares: mensurar, de forma objetiva, o tempo gasto, o número de questões produzidas e a taxa de reaproveitamento de \textbackslash{}emph\{templates\}, ao mesmo tempo em que se investigavam, em profundidade, as percepções, dificuldades e sugestões dos docentes, o processo foi divido em cinco etapas:  
 
 \begin{enumerate}
-    \item \textbf{Apresentação da proposta}:  Foi exibido um vídeo explicativo contendo os fundamentos da geração automática de questões usando templates multicamadas, orientações de uso e exemplos práticos de aplicação. O objetivo foi garantir uma compreensão do assunto entre os participantes.
+    \item \textbf{Apresentação da proposta}:  Foi exibido um vídeo curto e explicativo contendo os fundamentos da geração automática de questões usando templates multicamadas, orientações de uso e exemplos práticos de aplicação. O objetivo foi garantir uma compreensão do assunto entre os participantes.
+    
+    \item \textbf{Criação de Templates pelos Professores}:  Os professores participantes elaboraram templates utilizando uma estrutura previamente orientada. Foi permitida uso de ferramentas de IA generativa, como o acrshort{chatgpt}, para auxiliar na criação de variações e contextos. A orientação fornecida foi divida em três topicos principais:
+    \begin{itemize}
+        \item \textbf{Direcionamento} : Exemplos e perguntas-chave para ajudar na formulação do enunciado e identificação dos elementos variáveis.
+        \item \textbf{Questões Base} : Orientações para identificar os aspectos fundamentais do problema que desejam transformar em uma questão.
+        \item \textbf{Estrutura Modelo} : Um guia de construção do template, indicando com organizar o template, variáveis e condições.
+    \end{itemize}
+
+
+Os professores puderam utilziar ferramentas como o  acrshort\{chatgpt\} para explorar variações e obter sugestões adicionais. Esse suporte teve como objetivo facilitar a criação dos templates, ampliar as possibilidades de formulação e oferecer sugestões de contextos adaptáveis.
+
+
+
+    \item \textbf{Objetivos do Estudo}:  O objetivo geral deste estudo é avaliar a aplicabilidade dos templates multicamadas na geração de questões de programação, a partir da experiencia docente e os três objetivos especificos são:
+
+       \begin{itemize}
+        \item \textbf{Direcionamento} : Exemplos e perguntas-chave para ajudar na formulação do enunciado e identificação dos elementos variáveis.
+        \item \textbf{Questões Base} : Orientações para identificar os aspectos fundamentais do problema que desejam transformar em uma questão.
+        \item \textbf{Estrutura Modelo} : Um guia de construção do template, indicando com organizar o template, variáveis e condições.
+    \end{itemize}
     
     \item \textbf{Criação de Templates pelos Professores}:  Os professores participantes elaboraram templates utilizando uma estrutura previamente orientada. Foi permitida uso de ferramentas de IA generativa, como o acrshort{chatgpt}, para auxiliar na criação de variações e contextos. A orientação fornecida foi divida em três topicos principais:
     \begin{itemize}
@@ -24,6 +42,11 @@ Este estudo adotou uma abordagem exploratória-qualitativa, utilizando como  est
 \end{enumerate}
 
 Os professores puderam utilziar ferramentas como o  acrshort\{chatgpt\} para explorar variações e obter sugestões adicionais. Esse suporte teve como objetivo facilitar a criação dos templates, ampliar as possibilidades de formulação e oferecer sugestões de contextos adaptáveis.
+
+
+
+
+
 
 \section{Resultados Observados}
 
@@ -39,4 +62,3 @@ O estudo revelou que os professores conseguiram elaborar templates funcionais e 
 A aplicação foi realizada com um número reduzido de professores, o que limita a generalização dos resultados. Estudos futuros poderão expandir o alcance para incluir mais participantes para validar a proposta. Apesar das limitações, a abordagem de geração automática de questões demonstrou um potencial significativo para criar questões em escala e reduzir o esforço necessário para a construção de conteúdos por parte dos professores.
 
 
-### REPONDER A QUESTÃO DE PESQUISA : É POSSIVEL TRANSFORMAR QUESTÕES EXISTENTES EM TEMPLATES, CITAR QUE SIM É POSSIVEL SE A QUESTÃO FOR FACIL A MODERADA, QUESTÕES BEM ELABORADAS É MAIS TRABALHOSO MAIS NÃO É IMPOSSÍVEL, NO ENTANTO O AUTOR GIERL DIS QUE NAO É POSSIVEL SE NÃO EXISTIR UM MODELO COGNITIVO PORQUE NÃO SABEMOS EXATAMENTE OQ UE ELE QUER DIZER. 
