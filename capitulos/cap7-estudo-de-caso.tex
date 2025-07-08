@@ -94,12 +94,22 @@ Para avaliar a utilidade prática dos templates, foram definidos três indicador
 	\label{fig:questoes-geradas}
 \end{figure}
         \item  \textbf{Sucesso em converter a questão existente em template }: indica se foi possível ou não transformar uma questão existente em um template funcional, mantendo sua essência pedagógica, o questionário indicou que todos os participantes responderam "sim" para conversão de uma questão existente em template, com exceção de um. 
+        \item \textbf{Dificuldades encontradas:} Após a construção do template proposto, a principal dificuldade relatada pelos participantes foi organizar adequadamente as ramificações entre as camadas, conforme ilustrado na Figura \ref{fig:dificuldades-encontradas}.  
     \end{itemize}
+
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=16cm]{./imagens/capitulo8/dificuldades-encontradas}
+	\caption{Dificuldades encontradas  (Elaboração própria, 2025) }
+	\label{fig:dificuldades-encontradas}
+\end{figure}
+
 
 
 \section{Resultados Observados}
 
-Para além dos indicadores objetivos foi aplicado um bloco de afirmações em escala \textit{Likert} (5 = \textit{Concordo totalmente} .... 1 = \textit{Discordo totalmente})  para entender como os professores enxergam a abordagem. As figuras 1 2 e 3 sintetizam os resultados agrupados em três dimensões conforme a tabela 3.
+Para além dos indicadores objetivos foi aplicado um bloco de afirmações em escala \textit{Likert} (5 = \textit{Concordo totalmente} .... 1 = \textit{Discordo totalmente})  para entender como os professores enxergam a abordagem. As figuras 1 2 e 3 sintetizam os resultados agrupados em três dimensões conforme a tabela 3. 
 
 
 \begin{table}[H]
@@ -163,50 +173,48 @@ Para além dos indicadores objetivos foi aplicado um bloco de afirmações em es
 
 As respostas abertas fornecidas pelos professores no questionário revelam  informações que complementam os dados quantitativos apresentados anteriormente. De modo geral, muitos professores relataram que a maior barreira está no esforço mental envolvido em visualizar o funcionamento de um template multicamadas apenas com base na estrutura textual. Essa limitação impacta diretamente a compreensão do fluxo lógico, a previsão de combinações corretas e a identificação de erros durante a elaboração. Muitos apontaram que, sem o apoio de ferramentas como o ChatGPT, o processo de criação seria muito demorado e sujeito a erros.
 
-Apesar das dificuldades, os relatos também revelaram pontos positivos e sugestões valiosas. Houve reconhecimento do potencial da abordagem para diversificar os exercícios e reduzir o retrabalho, especialmente quando aliada ao uso de inteligência artificial. Além disso os professores também ofereceram sugestões de aprimoramento conforme a tabela N.
+Apesar das dificuldades, os relatos também revelaram pontos positivos e sugestões valiosas. Houve reconhecimento do potencial da abordagem para diversificar os exercícios e reduzir o retrabalho, especialmente quando aliada ao uso de inteligência artificial. Além disso os professores também ofereceram sugestões de aprimoramento conforme a tabela \ref{tab:relatos-abertos}.
 
 
 \begin{table}[H]
 \centering
 \caption{Síntese dos relatos abertos (N~= 8)}
 \label{tab:relatos-abertos}
-\begin{tabular}{p{0.24\textwidth} p{0.28\textwidth} p{0.28\textwidth} }
-\toprule
-\textbf{Categoria} & \textbf{Principais evidências} & \textbf{Necessidades/sugestões} \\ \midrule
-\textbf{Desafios cognitivos} & \begin{itemize}[leftmargin=*]
-    \item “Exige muita abstração” \newline
-    \item “Difícil enxergar o template usando JSON”
-\end{itemize} & Visualização em camadas; exemplos guiados \\ \midrule
-\textbf{Curva de aprendizagem} & \begin{itemize}[leftmargin=*]
-    \item “Curva de aprendizado é uma limitação” \newline
-    \item Dependência do ChatGPT para começar
-\end{itemize} & Repositório de modelos-base; tutoriais passo a passo \\ \midrule
-\textbf{Manipulação de JSON} & \begin{itemize}[leftmargin=*]
-    \item “Difícil manipular texto JSON” \newline
-    \item Erros de sintaxe e concordância
-\end{itemize} & Editor visual + validador automático \\ \midrule
-\textbf{Tempo de elaboração} & \begin{itemize}[leftmargin=*]
-    \item “Tempo gasto em pensar no formato é alto” 
-\end{itemize} & Assistente de pré-visualização e depuração \\ \midrule
-\textbf{Benefícios percebidos} & \begin{itemize}[leftmargin=*]
-    \item “A ideia é boa” \newline
-    \item “ChatGPT facilitou muito”
-\end{itemize} & Manter integração com IA; ampliar exemplos \\ \bottomrule
+\begin{tabular}{|p{0.24\textwidth} |p{0.28\textwidth} |p{0.32\textwidth}|}
+\hline
+\textbf{Categoria} & \textbf{Principais evidências} & \textbf{Necessidades/sugestões} \\ \hline
+\textbf{Desafios cognitivos} & 
+    “Exige muita abstração”; \newline
+    “Difícil enxergar o template usando JSON”
+& Visualização em camadas; exemplos visuais \\ \hline
+\textbf{Curva de aprendizagem} & 
+    “Curva de aprendizado é uma limitação”;\newline
+     "Dependência do ChatGPT para começar"
+ & Repositório de modelos-base; tutoriais passo a passo \\ \hline
+\textbf{Manipulação de JSON} & 
+    “Difícil manipular texto JSON” \newline
+    "Erros de sintaxe e concordância"
+ & Editor visual + validador automático \\ \hline
+\textbf{Tempo de elaboração} & 
+    “Tempo gasto em pensar no formato é alto” 
+& Assistente de pré-visualização e depuração \\ \hline
+\textbf{Benefícios percebidos} & 
+    “A ideia é boa” \newline
+    “ChatGPT facilitou muito”
+ & Manter integração com IA; ampliar exemplos \\ \hline
 \end{tabular}
 \end{table}
 
-\paragraph{Principais barreiras.}
-Os docentes relatam quatro obstáculos centrais:
+A análise das respostas abertas revelou quatro principais obstáculos enfrentados pelos professores durante a abordagem que são : 
 
 \begin{enumerate}[label=(\alph*)]
-    \item \textbf{Visualização da lógica}: a ausência de uma representação gráfica torna difícil acompanhar onde cada variável é injetada e como as ramificações se desdobram.
-    \item \textbf{Falta de modelos-base}: professores novatos no método sentem‐se “sem chão” para iniciar, o que tornou a \emph{Falta de modelos-base prontos} a terceira dificuldade mais citada (4 menções).
+    \item \textbf{Visualização da lógica}: a ausência de uma representação gráfica torna difícil acompanhar onde cada variável é injetada e como as ramificações são formadas.
+    \item \textbf{Falta de modelos-base}: Alguns professores sentiram dificuldade para iniciar a construção do template, o que tornou a \emph{Falta de alguns modelos-base prontos} essa foi a terceira dificuldade mais citada.
     \item \textbf{Sintaxe JSON}: erros simples (vírgulas, chaves) quebram o template inteiro; isso desestimula a exploração manual.
-    \item \textbf{Tempo e dependência de IA}: ainda que o ChatGPT acelere o processo, há receio de enviesar o template ou de introduzir erros de concordância.
+    \item \textbf{Tempo e dependência de IA}: ainda que o ChatGPT acelere o processo, há receio de criar templates tendenciosos tornando-o muito enviesado.
 \end{enumerate}
 
-\paragraph{Sugestões de melhoria.}
-Quase todos os participantes convergiram em três frentes:
+E com relação a sugestões de melhoria, quase todos os participantes apontaram de forma recorrente três aspectos principais:
 
 \begin{enumerate}[label=(\roman*)]
     \item **Interface gráfica em blocos** que permita “arrastar e soltar” condições e variáveis, reduzindo a necessidade de editar JSON cru.
