@@ -5,20 +5,25 @@ Este trabalho demonstrou que é possível gerar muitas questões de programaçã
 \section{Resposta às Questões de Pesquisa }
 
 \begin{description}
-    \item[\textbf{QP1 - Templates Multicamadas}:] Abrangem mais casos de uso e permite variações conceituais mais complexas que templates simples. No entanto, exigem um esforço maior para serem desenvolvidos e uma revisão cuidadosa para evitar incoerências e vieses.
+    \item[\textbf{QP1 - Vantagens e Desafios}:] Templates multicamadas abrangem mais casos de uso e permite variações conceituais mais complexas que templates simples. No entanto, exigem um esforço maior para serem desenvolvidos e uma revisão cuidadosa para evitar incoerências e vieses.
     \item[\textbf{QP2 - Modelos e Técnicas}:] O modelo multicamadas cria um mapeamento de habilidades e define regras de construção; o ChatGPT agiliza geração de variações e casos de teste, ampliando o escopo em relação a modelos de templates simples, mais dão trabalho pra montar.
     \item[\textbf{QP3 – Converter Questões em Templates}:] É viável extrair padrões de questões existentes e transformá-los em templates, ganhando escala rápida, consistência e reaproveitamento de material já validado; a desvantagem é o esforço manual de rotular variáveis, generalizar casos e manter o sentido original sem perder as nuances da questão original.    
 \end{description}
 
+\subsection{Limitações e Ameaças à Validade}
+Apesar dos resultados encontrados, é essencial analisar cuidadosamente a validade do estudo. A seguir será destacado três fontes principais de limitação que devem ser levadas em consideração para interpretação dos dados:
+\begin{itemize}
+\item \textbf{Amostra restrita}: apenas oito professores participaram do estudo, o que pode limitar a generalização.
+\item \textbf{Variabilidade de experiência}: diferenças no domínio técnico dos professores podem ter influenciado tanto o tempo de criação quanto a percepção de utilidade.
+\item \textbf{Dependência de uma única ferramenta de IA}: os resultados podem ser diferentes com outros LLMs ou versões futuras do ChatGPT.
+\end{itemize}
+
+\section{Trabalhos Futuros}
 
 
+Os trabalhos futuros foram traçados para amenizar as dificuldades relatadas pelos professores : falta de modelos-prontos, curva de aprendizagem, dificuldade em manipular JSON diretamente e depedência de ferramenta de IA. Para enfrentar esses problemas 
 
-%-----------------------------------------------------------------
-\chapter{Considerações Finais}
 
-Este trabalho investigou a geração automática de questões de programação a partir de \textbf{templates multicamadas}, fundamentada por um modelo cognitivo que assegura coerência conceitual e controle da dificuldade. Os resultados demonstraram que a abordagem é \textit{tecnicamente viável}, \textit{pedagogicamente útil} e \textit{economicamente vantajosa}: um único template pode gerar centenas de variações com custo mínimo. A conversão de questões já consolidadas em estruturas de template respondeu positivamente às três questões de pesquisa, comprovando (i) a superioridade dos modelos de templates multicamadas em relação aos de camada única, (ii) a viabilidade da transformação de questões existentes em modelos reutilizáveis, e (iii) o impacto positivo na diversidade e escalabilidade do banco de questões. Embora a elaboração inicial demande esforço e tempo — para identificar variáveis e definir restrições — o estudo de caso revelou que os professores preferem que seja disponibilizado modelos semi-prontos, indicando a necessidade de um especialista em design de templates. Entre as principais contribuições destaca-se: a formalização de modelos cognitivos orientados ao ensino de programação; definição de um formato JSON para representação de templates multicamadas; e implementação de um protótipo que integra geração de itens, execução de testes e feedback imediato mediado pela IA generativa. 
-
-\section*{Trabalhos Futuros}
 
 A continuidade deste trabalho abre espaço pra novos desenvolvimentos que visam ampliar a aplicabilidade da geração automática de questões. Neste sentido foram definidas quatro frentes que atuação:
 
@@ -28,5 +33,4 @@ A continuidade deste trabalho abre espaço pra novos desenvolvimentos que visam 
   \item \textbf{Avaliação em escala maior}: realizar experimentos com amostra maior de professores e estudantes, para medir impacto em ambiente real, o engajamento dos alunos e a economia de tempo dos professores.
   \item \textbf{Integração com IA generativa}: Usar a IA generativa para que a partir de questões existentes seja possível extrair estruturas de templates, sugerir automaticamente pontos de variação e gerar casos de teste.
 \end{enumerate}
-
 
