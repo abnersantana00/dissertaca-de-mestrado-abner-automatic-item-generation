@@ -8,6 +8,75 @@ Embora não tenha sido possível aplicar o feedback automatizado aos participant
 
 \section{Metodologia do Estudo de Caso}
 
+Este estudo adotou uma abordagem mista que combina técnicas quantitativas e qualitativas dentro de um ciclo de pesquisa. A opção por integrar essas abordagens decorreu de duas necessidades complementares: mensurar, de forma objetiva, o tempo gasto, o número de questões produzidas e a taxa de reaproveitamento dos \textit{templates}, ao mesmo tempo em que se investigavam as percepções, dificuldades e sugestões dos professores.
+
+
+\subsection{Perfil dos Professores}
+Para garantir que os resultados reflitam um panorama representativo dos professores de Introdução a programação, foi definido critérios de inclusão e coleta de informação de para cada professor com base nos seguintes aspectos: 
+
+\begin{itemize}
+    \item \textbf{Experiência recente}: lecionam ou lecionaram disciplinas introdutórias de programação em pelo menos 2 semestres nos cinco anos anteriores ao estudo.
+    \item \textbf{Disponibilidade}: Compromisso para criar e avaliar templates e responder o questionário.
+\end{itemize}
+
+As Figuras \ref{fig:nivel-escolaridade}, \ref{fig:anos-docencia} e \ref{fig:linguagens-ensinadas} apresentam respectivamente, a distribuição dos participantes em relação ao nível de escolaridade, aos anos de experiência docente e às linguagens de programação ensinadas.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=16cm]{./imagens/capitulo8/1-escolaridade}
+	\caption{Perfil Profissional 1 (Elaboração própria, 2025) }
+	\label{fig:nivel-escolaridade}
+\end{figure}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=16cm]{./imagens/capitulo8/2-anos-docencia}
+	\caption{Perfil Profissional 2 (Elaboração própria, 2025) }
+	\label{fig:anos-docencia}
+\end{figure}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=16cm]{./imagens/capitulo8/2-linguagens-ensinadas}
+	\caption{Perfil Profissional 3 (Elaboração própria, 2025) }
+	\label{fig:linguagens-ensinadas}
+\end{figure}
+
+ 
+\subsection{Variáveis levantadas pelo questionário}
+O formulário (ver Apêndice~\ref{apendice:formulario}) foi dividido em 4 blocos, cada um mapeando uma das questões de pesquisa:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|p{4cm}|p{5.4cm}|p{6cm}|}
+        \hline
+        \textbf{Bloco} & \textbf{Variáveis coletadas} & \textbf{Objetivo} \\ \hline
+        Perfil profissional & Titulação, anos de docência, linguagens mais ensinadas. & Relacionar experiência ao \textbf{tempo médio} de criação de templates. \\ \hline
+        Prática com templates & Tempo gasto, número de questões geradas, taxa de reaproveitamento. & Medir \textbf{viabilidade} e \textbf{utilidade} operacional. \\ \hline
+        Percepções e desafios & Dificuldades encontradas, contribuição percebida, preferências de uso. & Identificar \textbf{barreiras} técnicas e pedagógicas. \\ \hline
+        Adaptação de questões existentes & Grau de facilidade em converter questões próprias para o formato multicamada. & Verificar \textbf{capacidade de transformação} sem suporte externo. \\ \hline
+    \end{tabular}
+    \caption{Estrutura do questionário (Elaboração própria, 2025)}
+    \label{tab:questionario-objetivos}
+\end{table}
+
+\subsection*{Etapas do Estudo}
+O processo metodológico foi dividido em cinco etapas:
+
+\begin{enumerate}
+    \item \textbf{Apresentação da proposta}: Foi exibido um vídeo curto dividido em três blocos (direcionamento, questões base e estrutura do modelo), com explicações sobre os fundamentos da geração automática de questões usando templates multicamadas, além de orientações de uso e exemplos práticos. O objetivo foi garantir a compreensão do assunto por parte dos professores.
+
+    \item \textbf{Criação de templates pelos professores}: Após a apresentação do modelo, os professores elaboraram templates utilizando uma estrutura previamente definida. A orientação fornecida foi dividida em três tópicos principais:
+    \begin{itemize}
+        \item \textbf{Direcionamento}: Fundamentos e exemplos com perguntas-chave para ajudar na formulação do enunciado e identificação dos elementos variáveis.
+        \item \textbf{Questões base}: Orientações para identificar os aspectos fundamentais do problema a ser transformado em questão.
+        \item \textbf{Estrutura modelo}: Guia de construção do template, indicando como organizar o enunciado, variáveis e condições.
+    \end{itemize}
+    
+    Os professores puderam utilizar ferramentas de apoio, como o \gls{chatgpt}, para auxiliar na criação e sugestão de variações e contextos. Esse suporte teve como objetivo facilitar a construção dos templates, ampliar as possibilidades de formulação e oferecer maior adaptabilidade.
+\end{enumerate}
+
+
+\section{Metodologia do Estudo de Caso}
+
 Este estudo adotou uma abordagem mista que combina técnicas quantitativas e qualitativas dentro de um ciclo de pesquisa. A opção por integrar essas abordagens decorreu de duas necessidades complementares: mensurar, de forma objetiva, o tempo gasto, o número de questões produzidas e a taxa de reaproveitamento dos \textit{templates}, ao mesmo tempo em que se investigavam as percepções, dificuldades e sugestões dos professores, o processo foi divido em cinco etapas que são:  
 
 \begin{enumerate}
@@ -29,46 +98,22 @@ Os professores puderam utilizar ferramentas de auxilio como o \gls{chatgpt}, par
         \item \textbf{Verificar a utilidade prática} : Analisar a economia de tempo, a diversidade das questões geradas e o nível de engajamento do professor.
         \item \textbf{Identificar dificuldades} : Verificar aspectos relacionados à curva de aprendizagem, à definição e ao uso adequado de variáveis, bem como as possíveis barreiras técnicas encontradas durante a construção dos templates. 
     \end{itemize}
-    
-    \item \textbf{Perfil dos Professores}:  Para garantir que os resultados reflitam um panorama representativo dos professores de Introdução a programação, foi definido critérios de inclusão e coleta de informação de para cada professor com base nos seguintes aspectos: 
-    \begin{itemize}
-        \item \textbf{Experiência recente} : lecionam ou lecionaram disciplinas introdutórias de programação em pelo menos 2 semestres nos cinco anos anteriores ao estudo. 
-        \item \textbf{Disponibilidade} : Compromisso para criar e avaliar templates e responder a entrevista.
-    \end{itemize}
-
+   
     \item \textbf{Variáveis levantadas pelo questionário}:  O formulário (ver Apêndice 1) foi dividido em 4 blocos, cada um deles mapeando uma questão de pesquisa: 
-
-\begin{table}[htbp]
-    \centering
-    
-    \begin{tabular}{|p{4cm}|p{5.4cm}|p{6cm}|}
-        \hline
-        \textbf{Bloco} & \textbf{Variáveis coletadas} & \textbf{Objetivo} \\ \hline
-        Perfil profissional & Titulação, anos de docência, linguagens mais ensinadas. & Relacionar experiência ao \textbf{tempo médio} de criação de templates. \\ \hline
-        Prática com templates & Tempo gasto, número de questões geradas, taxa de reaproveitamento. & Medir \textbf{viabilidade} e \textbf{utilidade} operacional. \\ \hline
-        Percepções e desafios & Dificuldades encontradas, contribuição percebida, preferências de uso. & Identificar \textbf{barreiras} técnicas e pedagógicas. \\ \hline
-        Adaptação de questões existentes & Grau de facilidade em converter questões próprias para o formato multicamada. & Verificar \textbf{capacidade de transformação} sem suporte externo. \\ \hline
-    \end{tabular}
-    \caption{Estrutura do questionário (Elaboração própria, 2025)}
-    \label{tab:questionario-objetivos}
-\end{table}
-
 
 
 
 \subsection{Métricas e indicadores}
+
+Para avaliar a utilidade prática dos templates, foram definidos três indicadores. Cada um deles foi escolhido por sua relevância direta às questões de pesquisa e por oferecer evidências sobre o esforço exigido, a produtividade e o potencial de reutilização dos templates gerados.
     \begin{itemize}
-        \item \textbf{Tempo médio pra criar um template} 
-        \item \textbf{Numero de questões geradas por template} :
-        \item \textbf{Taxa de reaproveitamento} 
-        \item  \textbf{Sucesso em converter a questão existende em template} 
+        \item \textbf{Tempo médio pra criação de um template} : intervalo em minutos, entre o inicio e o momento em que o professor considera o template pronto pra uso. Valores baixos indicam maior viabilidade operacional.
+        \item \textbf{Numero de questões geradas por template} : quantidade total de instâncias de questões produzidas a partir de um único template, considerando as combinações válidas de variáveis, quanto maior o repertório de questões geradas maior o poder de generalização do template.
+        \item  \textbf{Sucesso em converter a questão existente em template }: indica se foi possível ou não transformar uma questão existente em um template funcional, mantendo sua essência pedagógica. 
     \end{itemize}
 
     
 \end{enumerate}
-
-
-
 
 
 
@@ -83,7 +128,38 @@ O estudo revelou que os professores conseguiram elaborar templates funcionais e 
 \end{enumerate}
 
 
-\section{Beneficios e Desafios Percebidos}
+\begin{table}
+\centering
+
+\begin{tabular}{l}
+ \\
+
+\end{tabular}
+
+\end{table}
+
+\begin{table}
+\centering
+
+\begin{tabular}{l}
+\textbf{Resultados} \\
+
+\end{tabular}
+
+\end{table}
+
+\begin{table}
+\centering
+
+\begin{tabular}{l}
+Quantitativos (tabelas/gráficos) e qualitativos (depoimentos). \\
+
+\end{tabular}
+
+\end{table}
+
+ 
+\section{Beneficios e Desafios Percebidos} 
 
 redução do esfoço de elaboração, maior diversidade de exercicio
 
@@ -103,6 +179,31 @@ DESAFIOS : FALTA DE MODELOS PRÉ-PRONTOS
 AMOSTRA REDUZIDA LIMITA A GENERALIZAÇÃO
 
 
+\subsubsection{\textbf{Resultados}}
+
+\paragraph{\textbf{7.8.1 Eficiência do processo}}
+
+Tempo médio para criar o primeiro template: 27 min (desvio-padrão 6,2 min). Média de 12,4 questões por template e reaproveitamento de 83 \%.
+
+\paragraph{\textbf{7.8.2 Depoimentos dos professores}}
+
+\begin{quote}
+“Com o guia, consegui transformar rapidamente uma questão antiga em um template; a IA me ajudou a criar três variações de contexto em minutos.” — P2
+
+\end{quote}
+
+\paragraph{\textbf{7.8.3 Benefícios percebidos}}
+
+Redução do esforço de elaboração, maior diversidade de exercícios e incremento no engajamento dos alunos.
+
+\paragraph{\textbf{7.8.4 Desafios e dificuldades}}
+
+\begin{itemize}
+    \item Identificar corretamente as variáveis e seus valores.
+    \item Curva de aprendizagem para manipular placeholders.
+    \item Preferência por templates-base prontos em vez de começar do zero.
+\end{itemize}
+ 
 
 \paragraph{\textbf{Principais Desafios Identificados}}
 
