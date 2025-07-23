@@ -1,33 +1,26 @@
 \chapter{Considerações Finais}
 
-Este trabalho demonstrou que é possível gerar muitas questões de programação usando templates multicamadas apoiados por um modelo cognitivo ou questão existente. A solução mostrou-se tecnicamente viável. Apesar do esforço inicial, cada template após construído pode entregar uma produção em escala sem custo adicional. 
+Este trabalho demonstrou que é possível gerar muitas questões de programação utilizando templates multicamadas, baseados em modelos cognitivos ou em questões existentes. A solução se mostrou tecnicamente viável. Embora exista um esforço inicial na construção dos templates, uma vez prontos, eles permitem a produção em escala de questões sem custo adicional. Apesar dessa viabilidade, ainda existem desafios importantes apontados pelos professores : dificuldade para estruturar as camadas e ramificações no formato JSON, curva de aprendizado elevada, ausência de uma interface gráfica que facilite a visualização dos templates e a preferência por usar templates prontos em vez de criá-los do zero. Com base nessas evidências, apresentamos a seguir as respostas para as questões de pesquisa levantadas neste estudo.
 
 \section{Resposta às Questões de Pesquisa }
-
-\begin{description}
-    \item[\textbf{QP1 - Vantagens e Desafios}:] Templates multicamadas abrangem mais casos de uso e permite variações conceituais mais complexas que templates simples. No entanto, exigem um esforço maior para serem desenvolvidos e uma revisão cuidadosa para evitar incoerências e vieses.
-    \item[\textbf{QP2 - Modelos e Técnicas}:] O modelo multicamadas cria um mapeamento de habilidades e define regras de construção; o ChatGPT agiliza geração de variações e casos de teste, ampliando o escopo em relação a modelos de templates simples, mais dão trabalho pra montar.
-    \item[\textbf{QP3 – Converter Questões em Templates}:] É viável extrair padrões de questões existentes e transformá-los em templates, ganhando escala rápida, consistência e reaproveitamento de material já validado; a desvantagem é o esforço manual de rotular variáveis, generalizar casos e manter o sentido original sem perder as nuances da questão original.    
-\end{description}
-
-\subsection{Limitações e Ameaças à Validade}
-Apesar dos resultados encontrados, é essencial analisar cuidadosamente a validade do estudo. A seguir será destacado três fontes principais de limitação que devem ser levadas em consideração para interpretação dos dados:
+.
 \begin{itemize}
-\item \textbf{Amostra restrita}: apenas oito professores participaram do estudo, o que pode limitar a generalização.
-\item \textbf{Variabilidade de experiência}: diferenças no domínio técnico dos professores podem ter influenciado tanto o tempo de criação quanto a percepção de utilidade.
-\item \textbf{Dependência de uma única ferramenta de IA}: os resultados podem ser diferentes com outros LLMs ou versões futuras do ChatGPT.
+    \item \textbf{QP1 - Quais as vantagens e desafios de criar\textit{ templates} para geração automática de questões de programação, considerando limitações, diversidade e custos ?}  Criar templates para geração automática de questões traz vantagens como padronização e automatização. No entanto, há desafios com relação a limitação de variação, diversidade conceitual e custos de desenvolvimento. Templates multicamadas cobrem mais casos de teste e permitem gerar questões mais complexas, mais exigem esforço na construção e revisão, especialmente para evitar combinações inválidas.
+    \item\textbf{QP2 - Quais são os modelos e técnicas utilizadas na geração automática de questões, em termos de templates ?} São utilizados modelos simples que segue uma estrutura fixa, com pouca variação de contexto. E o modelo multicamadas que permite organizar os templates em níveis hierárquicos, possibilitando criar contextos mais complexos  dentro de um mesmo template. Embora o modelo multicamadas exija mais planejamento e validação, ambos podem utilizar o ChatGPT como ferramenta de apoio, tanto na construção da estrutura quanto nos pontos de variação.
+    \item\textbf{QP3 – É possível transformar questões existentes em templates ? Quais são os benefícios e limitações dessa abordagem }: Sim, e viável extrair padrões de questões existentes e transformá-los em templates. Isso permite escalar rapidamente, manter a consistência e reaproveitar materiais já validados. O principal desafio está no trabalho manual de rotular variáveis e generalizar os elementos das questões sem distorcer seu sentido original ou perder nuances importantes.    
 \end{itemize}
+
 
 \section{Trabalhos Futuros}
 
-Os próximos passos foram traçados para amenizar as dificuldades relatadas pelos professores : carência de modelos-prontos, curva de aprendizagem, manipular JSON diretamente e dependência de ferramentas de IA. Cada ponto abordado é baseado nos depoimentos sugerido pelos professores dos desafios e sugestões de melhoria:
+Os próximos passos foram traçados para amenizar as dificuldades relatadas pelos professores : carência de modelos-prontos, curva de aprendizagem, manipular JSON diretamente e dependência de ferramentas de IA. Cada ponto abordado é baseado nos depoimentos sugeridos pelos professores dos desafios e sugestões de melhoria:
 
 \begin{enumerate}
-  \item \textbf{Expansão do repositório de templates}: incorporar novos conteúdos curriculares além do conteúdo fundamental, incluir tópicos avançados de programação com níveis de dificuldade maior, de forma que o repositório reduza o tempo de aprendizado dos iniciantes e aumente a taxa de reaproveitamento do material validado.
-  \item \textbf{Construtor visual de templates}: desenvolver uma interface gráfica \emph{no-code} que dispense a edição manual de JSON, e permita arrastar e soltar blocos visuais do template, e pré-visualizar os templates em tempo real com o intuito de reduzir erros de sintaxe e tornar o fluxo acessível para professores com menos experiência técnica.
-  \item \textbf{Avaliação em escala maior}: conduzir um estudo com uma amostra maior comparado com ao grupo piloto de oito participantes.
+  \item \textbf{Expansão do repositório de templates}: Incorporar novos conteúdos curriculares além do conteúdo fundamental, incluir tópicos avançados de programação com níveis de dificuldade maior, de forma que o repositório reduza o tempo de aprendizado dos iniciantes e aumente a taxa de reaproveitamento do material validado.
+  \item \textbf{Construtor visual de templates}: Desenvolver uma interface gráfica \emph{no-code} que dispense a edição manual de JSON, e permita arrastar e soltar blocos visuais do template, e pré-visualizar os templates em tempo real com o intuito de reduzir erros de sintaxe e tornar o fluxo acessível para professores com menos experiência técnica.
+  \item \textbf{Avaliação em escala maior}: Conduzir um estudo com uma amostra maior comparado com ao grupo piloto de oito participantes.
   \item \textbf{Integração com IA generativa}:
-  Além do ChatGPT, serão testados outros LLMs para que possa extrair estruturas de templates a partir de questões existentes, sugerir pontos de variação e gerar casos de teste automaticamente. Essa abordagem reduz a dependência de uma única ferramenta, aumenta a replicabilidade.
+  Além do ChatGPT, serão testados outros (LLMs) para que possa extrair estruturas de templates a partir de questões existentes, sugerir pontos de variação e gerar casos de teste automaticamente. Essa abordagem visa reduz a dependência de uma única ferramenta e aumentar a replicabilidade.
 \end{enumerate}
 
-Os templates multicamadas provaram ser uma boa alternativa para ampliar o conjunto de questões de programação sem perder qualidade nem a clareza das questões. Eles após serem construídos reduzem o esforço do professor, oferecem uma diversidade maior de exercícios ao aluno e mantêm a coerência pedagógica. Mesmo assim, é preciso validar essa abordagem com um público maior e uma variedade maior de contextos. É necessário também explorar outras ferramentas e abordagens de geração automática de questões para fortalecer ainda mais o ensino de programação.
+Os templates multicamadas provaram ser uma boa alternativa para ampliar o conjunto de questões de programação sem perder qualidade nem a clareza das questões. Uma vez construídos, reduzem o esforço dos professores, oferecem uma diversidade maior de exercícios para os alunos e mantêm a coerência pedagógica. Mesmo assim, é preciso validar essa abordagem com um público maior e uma variedade maior de contextos. É necessário também explorar outras ferramentas e abordagens de geração automática de questões para fortalecer ainda mais o ensino de programação.

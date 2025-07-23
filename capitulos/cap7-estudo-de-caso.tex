@@ -2,12 +2,12 @@
 Este capítulo apresenta o estudo de caso conduzido com professores de \textit{introdução à programação} com o objetivo de investigar a viabilidade, utilidade prática e os desafios associados ao uso de templates multicamadas proposto neste trabalho. A pesquisa adota uma abordagem integrada à pesquisa-ação, com uso de métodos mistos (quantitativos e qualitativos). O estudo foi conduzido e estruturado para oferecer evidências que respondem às três questões de pesquisa (QP1, QP2 e QP3) conforme as diretrizes metodológicas recomendadas pela \gls{ceie} para estudos de caso.
 
 \section{Objetivo do Estudo}
-O objetivo deste estudo de caso é investigar a aplicabilidade da geração automática de questões utilizando templates multicamadas no contexto do ensino de programação, com base na experiência de professores na construção desses templates, e em suas percepções sobre a utilidade e os desafios da abordagem. Para isso, são apresentados a abordagem utilizada,  os procedimentos envolvidos e as métricas adotadas, que fundamentam a coleta e análise dos dados que serão discutidos nas seções seguintes.
+O objetivo deste estudo de caso é investigar a aplicabilidade da geração automática de questões utilizando templates multicamadas no contexto do ensino de programação, com base na experiência de professores na construção desses templates, e em suas percepções sobre a utilidade e os desafios da abordagem. Para isso, são apresentados a abordagem utilizada,  os procedimentos envolvidos e as métricas adotadas que fundamentam a coleta e análise dos dados que serão discutidos nas seções seguintes.
 Embora não tenha sido possível aplicar o feedback automatizado aos participantes devido ao tempo limitado para o desenvolvimento deste estudo, a literatura  indica que este recurso tem potencial significativo para contribuir no aprendizado, como evidenciado por trabalhos como o de \parencite{vanpraet2024} e \parencite{fung2024} indicam que a incorporação de feedback automatizado se utilizado corretamente pode aumentar de forma significativa o desempenho dos estudantes.
 
 \section{Metodologia do Estudo de Caso}
 
-Este estudo adotou uma abordagem mista que combina técnicas quantitativas e qualitativas dentro de um ciclo de pesquisa. A opção por integrar essas abordagens decorreu de duas necessidades complementares: mensurar, de forma objetiva, o tempo gasto, o número de questões produzidas e a taxa de reaproveitamento dos \textit{templates}, ao mesmo tempo em que se investigavam as percepções, dificuldades e sugestões dos professores.
+Este estudo adotou uma abordagem mista que combina técnicas quantitativas e qualitativas dentro de um ciclo de pesquisa. A opção por integrar essas abordagens decorreu de duas necessidades complementares: mensurar de forma objetiva, o tempo gasto, o número de questões produzidas e a taxa de reaproveitamento dos \textit{templates}, ao mesmo tempo em que se investigavam as percepções, dificuldades e sugestões dos professores.
 
 
 \subsection{Perfil dos Professores}
@@ -59,7 +59,7 @@ O formulário (ver Apêndice 1) foi dividido em 4 blocos, cada um mapeando uma d
 
 \subsection*{Etapas do Estudo}
 
-O processo metodológico foi dividido em cinco etapas com o intuito de captar as percepções subjetivas dos professores:
+O processo metodológico foi dividido em cinco etapas com a intenção de captar as percepções subjetivas dos professores:
 
 \begin{enumerate}
     \item \textbf{Apresentação da proposta}: Foi exibido um vídeo curto dividido em três blocos (direcionamento, questões base e estrutura do modelo) com explicações sobre os fundamentos da geração automática de questões usando templates multicamadas, além de orientações de uso e exemplos práticos. O objetivo foi garantir a compreensão do assunto por parte dos professores.
@@ -82,14 +82,14 @@ Para avaliar a utilidade prática dos templates, foram definidos três indicador
         \item \textbf{Tempo médio pra criação de um template} : intervalo em minutos, entre o inicio e o momento em que o professor considera o template pronto pra uso. Valores baixos indicam maior viabilidade operacional. A Figura \ref{fig:tempo-gasto}, mostra que a maioria dos professores avaliados levou em média 30 minutos para elaborar o template sugerido.
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=16cm]{./imagens/capitulo8/tempo-gasto}
+	\includegraphics[width=14cm]{./imagens/capitulo8/tempo-gasto}
 	\caption{Tempo médio de criação do primeiro template (Elaboração própria, 2025) }
 	\label{fig:tempo-gasto}
 \end{figure}
         \item \textbf{Numero de questões geradas por template} : quantidade total de instâncias de questões produzidas a partir de um único template, considerando as combinações válidas de variáveis, quanto maior o repertório de questões geradas maior o poder de generalização do template.
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=16cm]{./imagens/capitulo8/questoes-geradas}
+	\includegraphics[width=14cm]{./imagens/capitulo8/questoes-geradas}
 	\caption{Numero de questões geradas por template (Elaboração própria, 2025) }
 	\label{fig:questoes-geradas}
 \end{figure}
@@ -204,7 +204,7 @@ A análise das respostas abertas revelou quatro principais obstáculos enfrentad
 
 \begin{enumerate}
     \item \textbf{Visualização da lógica}: a ausência de uma representação gráfica torna difícil acompanhar onde cada variável é inserida e como as ramificações são formadas.
-    \item \textbf{Falta de modelos-base}: Alguns professores sentiram dificuldade para iniciar a construção do template, devido a \emph{falta de modelos-base prontos} essa foi a terceira dificuldade mais citada.
+    \item \textbf{Falta de modelos-base}: Alguns professores sentiram dificuldade para iniciar a construção do template, devido a \emph{falta de modelos-base prontos}, essa foi a terceira dificuldade mais citada.
     \item \textbf{Sintaxe JSON}: erros simples (vírgulas, chaves) quebram o template inteiro; isso desestimula a edição manual.
     \item \textbf{Tempo e dependência de IA}: ainda que o ChatGPT acelere o processo, há receio de criar templates tendenciosos capazes de tornar as questões enviesadas.
 \end{enumerate}
@@ -217,6 +217,13 @@ E com relação a sugestões de melhoria, quase todos os participantes apontaram
 \item \textbf{Repositório de templates}: para servir como ponto de partida e material de apoio.
 \end{enumerate}
 
+\subsection{Limitações e Ameaças à Validade}
+Apesar dos resultados encontrados, é essencial analisar cuidadosamente a validade do estudo. A seguir, são apresentados  três fontes principais de limitação que devem ser levadas em conta na interpretação dos dados:
+\begin{itemize}
+\item \textbf{Amostra restrita}: apenas oito professores participaram do estudo, o que pode limitar a generalização.
+\item \textbf{Variabilidade de experiência}: diferenças no domínio técnico dos professores podem ter influenciado tanto o tempo de criação quanto a percepção de utilidade.
+\item \textbf{Dependência de uma única ferramenta de IA}: os resultados podem ser diferentes com outros LLMs ou versões futuras do ChatGPT.
+\end{itemize}
 
 
 
